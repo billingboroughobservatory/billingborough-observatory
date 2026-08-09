@@ -304,6 +304,40 @@ h1 {
     line-height: 1.5;
 }
 
+.history-placeholder {
+    min-height: 360px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px dashed #b9c6d2;
+    border-radius: 8px;
+    background: #edf2f6;
+}
+
+.history-placeholder.large {
+    min-height: 300px;
+    margin-bottom: 45px;
+}
+
+.history-placeholder .placeholder-symbol {
+    font-size: 38px;
+    color: #6d9bc4;
+    margin-bottom: 18px;
+}
+
+.history-placeholder h3,
+.history-placeholder h2 {
+    margin-bottom: 12px;
+}
+
+.history-placeholder p:last-child {
+    max-width: 600px;
+    margin: 0;
+    color: var(--light-muted);
+}
+
 .text-link {
     display: inline-block;
     margin-top: 16px;
