@@ -73,9 +73,13 @@ a { color: inherit; text-decoration: none; }
 .brand-logo {
     width: 76px;
     height: 76px;
+    max-width: 76px;
+    max-height: 76px;
     display: block;
     object-fit: contain;
+    flex: 0 0 76px;
 }
+
 .brand strong {
     display: block;
     font-family: "Space Grotesk", sans-serif;
