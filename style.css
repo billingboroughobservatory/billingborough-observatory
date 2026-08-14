@@ -477,6 +477,39 @@ h1 {
 
 .callout p { margin-bottom: 0; }
 
+/* Historical evidence and sources */
+
+.evidence-box {
+    margin: 40px 0;
+    padding: 28px 30px;
+    border: 1px solid #dce3e9;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.evidence-box h3 {
+    margin-bottom: 10px;
+}
+
+.evidence-box p {
+    margin-bottom: 10px;
+}
+
+.source-list {
+    max-width: 760px;
+    padding-left: 22px;
+    color: var(--light-muted);
+}
+
+.source-list li {
+    margin-bottom: 12px;
+}
+
+.historical-note {
+    font-size: 12px;
+    font-style: italic;
+}
+
 .site-footer {
     background: #040a12;
     border-top: 1px solid var(--line);
