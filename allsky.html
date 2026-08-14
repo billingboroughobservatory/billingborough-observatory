@@ -226,5 +226,20 @@
 
 </footer>
 
+<script>
+    const liveAllskyImage =
+        document.getElementById("live-allsky-image");
+
+    function refreshAllskyImage() {
+        liveAllskyImage.src =
+            "https://allsky.billingboroughobservatory.space/image.jpg?t="
+            + Date.now();
+    }
+
+    refreshAllskyImage();
+
+    setInterval(refreshAllskyImage, 10000);
+</script>
+    
 </body>
 </html>
