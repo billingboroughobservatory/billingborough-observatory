@@ -310,5 +310,137 @@
     </div>
 </footer>
 
+<script>
+
+async function loadMeteorCamera(camera, elementId) {
+
+    const page =
+        `https://globalmeteornetwork.org/weblog/UK/${camera}/latest/`;
+
+    const image =
+        document.getElementById(`${elementId}-image`);
+
+    const status =
+        document.getElementById(`${elementId}-status`);
+
+    const link =
+        document.getElementById(`${elementId}-link`);
+
+    const report =
+        document.getElementById(`${elementId}-report`);
+
+    try {
+
+        const response = await fetch(page);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const html = await response.text();
+
+        /*
+         * Find the current GMN stacked meteor image.
+         */
+        const match = html.match(
+            /https?:\/\/[^"' ]+_stack_[0-9]+_meteors\.jpg/
+        );
+
+        if (!match) {
+            throw new Error("No stacked meteor image found.");
+        }
+
+        const imageURL = match[0];
+
+        /*
+         * Extract the filename.
+         */
+        const filename =
+            imageURL.split('/').pop();
+
+        /*
+         * Extract date and meteor count.
+         *
+         * Example:
+         * UK0026_20260813_201047_572884_stack_316_meteors.jpg
+         */
+
+        const dataMatch = filename.match(
+            /_(\d{8})_\d{6}_\d+_stack_(\d+)_meteors\.jpg/
+        );
+
+        if (dataMatch) {
+
+            const rawDate = dataMatch[1];
+
+            const year =
+                rawDate.substring(0, 4);
+
+            const month =
+                rawDate.substring(4, 6);
+
+            const day =
+                rawDate.substring(6, 8);
+
+            const date =
+                new Date(
+                    `${year}-${month}-${day}T00:00:00`
+                );
+
+            const formattedDate =
+                date.toLocaleDateString(
+                    'en-GB',
+                    {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    }
+                );
+
+            const meteorCount =
+                dataMatch[2];
+
+            status.textContent =
+                `${formattedDate} · ${meteorCount} meteors`;
+
+        } else {
+
+            status.textContent =
+                "Latest observation";
+
+        }
+
+        /*
+         * Display the image.
+         */
+        image.src = imageURL;
+
+        /*
+         * Make the image link to the GMN report.
+         */
+        link.href = page;
+
+        report.href = page;
+
+    } catch (error) {
+
+        console.error(
+            `GMN ${camera}:`,
+            error
+        );
+
+        status.textContent =
+            "Latest observation unavailable.";
+
+    }
+}
+
+
+loadMeteorCamera("UK0026", "uk0026");
+loadMeteorCamera("UK0032", "uk0032");
+
+</script>
+
+    
 </body>
 </html>
