@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMN Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .camera {
+            margin-bottom: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .status {
+            padding: 15px;
+            background: #f1f1f1;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>GMN Camera Test</h1>
+
+<div class="camera">
+    <h2>UK0026</h2>
+    <div id="uk0026" class="status">Loading…</div>
+</div>
+
+<div class="camera">
+    <h2>UK0032</h2>
+    <div id="uk0032" class="status">Loading…</div>
+</div>
+
+<script>
+
+async function loadGMN(camera, elementId) {
+
+    const page =
+        `https://globalmeteornetwork.org/weblog/UK/${camera}/latest/`;
+
+    const element = document.getElementById(elementId);
+
+    try {
+
+        const response = await fetch(page);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const html = await response.text();
+
+        /*
+         * Look for the current detected-stack image.
+         */
+        const match = html.match(
+            /https?:\/\/[^"' ]+_stack_[0-9]+_meteors\.jpg/
+        );
+
+        if (!match) {
+            element.innerHTML =
+                "GMN page loaded, but no stacked image was found.";
+            return;
+        }
+
+        const imageURL = match[0];
+
+        element.innerHTML = `
+            <strong>Stacked image found:</strong>
+            <br>
+            ${imageURL}
+            <img src="${imageURL}" alt="${camera} detected meteor stack">
+        `;
+
+    } catch (error) {
+
+        element.innerHTML =
+            `<strong>ERROR:</strong> ${error.message}`;
+
+        console.error(camera, error);
+
+    }
+}
+
+loadGMN("UK0026", "uk0026");
+loadGMN("UK0032", "uk0032");
+
+</script>
+
+</body>
+</html>
