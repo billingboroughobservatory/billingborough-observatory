@@ -340,17 +340,21 @@ async function loadMeteorCamera(camera, elementId) {
         const html = await response.text();
 
         /*
-         * Find the current GMN stacked meteor image.
-         */
-        const match = html.match(
-            /https?:\/\/[^"' ]+_stack_[0-9]+_meteors\.jpg/
-        );
+ * Find the current GMN stacked meteor image.
+ * GMN may provide either an absolute or relative URL.
+ */
+const match = html.match(
+    /(?:https?:\/\/[^"' ]+|[^"' ]+)\/?[^"' ]*_stack_[0-9]+_meteors\.jpg/
+);
 
-        if (!match) {
-            throw new Error("No stacked meteor image found.");
-        }
+if (!match) {
+    throw new Error("No stacked meteor image found.");
+}
 
-        const imageURL = match[0];
+const imageURL = new URL(
+    match[0],
+    page
+).href;
 
         /*
          * Extract the filename.
