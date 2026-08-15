@@ -339,39 +339,59 @@ async function loadMeteorCamera(camera, elementId) {
 
         const html = await response.text();
 
-/*
- * Find the current GMN stacked meteor image.
- */
-const match = html.match(
-    /https?:\/\/[^"' ]+_stack_[0-9]+_meteors\.jpg/
-);
+        /*
+         * Find the current GMN stacked meteor image.
+         *
+         * Different GMN cameras can use different filenames.
+         *
+         * UK0032 uses:
+         *     ..._stack_123_meteors.jpg
+         *
+         * UK0026 uses:
+         *     ..._captured_stack.jpg
+         */
 
-if (!match) {
-    throw new Error("No stacked meteor image found.");
-}
+        const match = html.match(
+            /https?:\/\/[^"' ]+_(?:stack_[0-9]+_meteors|captured_stack)\.jpg/
+        );
 
-const imageURL = match[0];
+        if (!match) {
+            throw new Error("No stacked meteor image found.");
+        }
+
+        const imageURL = match[0];
 
         /*
          * Extract the filename.
          */
+
         const filename =
             imageURL.split('/').pop();
 
         /*
-         * Extract date and meteor count.
+         * Extract the date.
          *
-         * Example:
-         * UK0026_20260813_201047_572884_stack_316_meteors.jpg
+         * Both current GMN formats contain:
+         *
+         * YYYYMMDD_HHMMSS
          */
 
-        const dataMatch = filename.match(
-            /_(\d{8})_\d{6}_\d+_stack_(\d+)_meteors\.jpg/
+        const dateMatch = filename.match(
+            /_(\d{8})_\d{6}_/
         );
 
-        if (dataMatch) {
+        /*
+         * Extract meteor count if this is the
+         * conventional GMN "_stack_N_meteors" format.
+         */
 
-            const rawDate = dataMatch[1];
+        const meteorMatch = filename.match(
+            /_stack_(\d+)_meteors\.jpg/
+        );
+
+        if (dateMatch) {
+
+            const rawDate = dateMatch[1];
 
             const year =
                 rawDate.substring(0, 4);
@@ -397,11 +417,20 @@ const imageURL = match[0];
                     }
                 );
 
-            const meteorCount =
-                dataMatch[2];
+            if (meteorMatch) {
 
-            status.textContent =
-                `${formattedDate} · ${meteorCount} meteors`;
+                const meteorCount =
+                    meteorMatch[1];
+
+                status.textContent =
+                    `${formattedDate} · ${meteorCount} meteors`;
+
+            } else {
+
+                status.textContent =
+                    `${formattedDate} · Latest observation`;
+
+            }
 
         } else {
 
@@ -413,11 +442,13 @@ const imageURL = match[0];
         /*
          * Display the image.
          */
+
         image.src = imageURL;
 
         /*
          * Make the image link to the GMN report.
          */
+
         link.href = page;
 
         report.href = page;
