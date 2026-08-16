@@ -206,6 +206,92 @@
 
 </section>
 
+<!-- Previous night's Allsky products -->
+
+<section class="section section-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="eyebrow">PREVIOUS NIGHT</p>
+
+            <h2>The sky through the night</h2>
+
+            <p>
+                Two images produced automatically by the Allsky Camera
+                during the previous night's observations.
+            </p>
+        </div>
+
+
+        <div class="allsky-products">
+
+            <!-- Keogram -->
+
+            <div class="allsky-product">
+
+                <a href="https://allsky.billingboroughobservatory.space/keogram.jpg"
+                   target="_blank"
+                   rel="noopener">
+
+                    <img id="allsky-keogram"
+                         class="allsky-product-image"
+                         src="https://allsky.billingboroughobservatory.space/keogram.jpg"
+                         alt="Keogram showing the sky above Billingborough during the previous night"
+                         loading="lazy">
+
+                </a>
+
+                <div class="allsky-product-caption">
+
+                    <h3>🌌 Keogram</h3>
+
+                    <p>
+                        A record of the changing sky throughout the previous night.
+                        Click the image to view it full size.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Star trails -->
+
+            <div class="allsky-product">
+
+                <a href="https://allsky.billingboroughobservatory.space/startrails.jpg"
+                   target="_blank"
+                   rel="noopener">
+
+                    <img id="allsky-startrails"
+                         class="allsky-product-image"
+                         src="https://allsky.billingboroughobservatory.space/startrails.jpg"
+                         alt="Star trail image showing the night sky above Billingborough"
+                         loading="lazy">
+
+                </a>
+
+                <div class="allsky-product-caption">
+
+                    <h3>⭐ Star trails</h3>
+
+                    <p>
+                        A composite image showing the apparent movement of the
+                        stars across the sky during the previous night.
+                        Click the image to view it full size.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    
 </main>
 
 
@@ -230,13 +316,35 @@
     const liveAllskyImage =
         document.getElementById("live-allsky-image");
 
+    const keogramImage =
+        document.getElementById("allsky-keogram");
+
+    const startrailsImage =
+        document.getElementById("allsky-startrails");
+
+
     function refreshAllskyImage() {
         liveAllskyImage.src =
             "https://allsky.billingboroughobservatory.space/image.jpg?t="
             + Date.now();
     }
 
+
+    function refreshPreviousNightImages() {
+        const timestamp = Date.now();
+
+        keogramImage.src =
+            "https://allsky.billingboroughobservatory.space/keogram.jpg?t="
+            + timestamp;
+
+        startrailsImage.src =
+            "https://allsky.billingboroughobservatory.space/startrails.jpg?t="
+            + timestamp;
+    }
+
+
     refreshAllskyImage();
+    refreshPreviousNightImages();
 
     setInterval(refreshAllskyImage, 10000);
 </script>
