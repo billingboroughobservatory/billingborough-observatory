@@ -547,6 +547,13 @@ h1 {
     color: var(--light-muted);
 }
 
+.callout-dark {
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 28px 30px;
+    margin-top: 36px;
+}
+
 .callout {
     margin: 40px 0;
     padding: 28px 30px;
