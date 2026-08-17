@@ -547,11 +547,26 @@ h1 {
     color: var(--light-muted);
 }
 
+/* Dark educational callout */
+
 .callout-dark {
     border-left: 3px solid var(--accent);
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.045);
     padding: 28px 30px;
     margin-top: 36px;
+    border-radius: 0 6px 6px 0;
+}
+
+.callout-dark strong {
+    display: block;
+    color: var(--text);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.callout-dark p {
+    margin: 0;
+    color: var(--muted);
 }
 
 .callout {
