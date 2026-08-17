@@ -331,7 +331,9 @@ async function loadMeteorCamera(camera, elementId) {
 
     try {
 
-        const response = await fetch(page);
+        const response = await fetch(page, {
+            cache: "no-store"
+        });
 
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
@@ -443,7 +445,7 @@ async function loadMeteorCamera(camera, elementId) {
          * Display the image.
          */
 
-        image.src = imageURL;
+        image.src = `${imageURL}?v=${dateMatch ? dateMatch[1] : Date.now()}`;
 
         /*
          * Make the image link to the GMN report.
