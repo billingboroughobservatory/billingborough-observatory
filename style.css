@@ -569,26 +569,29 @@ h1 {
     color: var(--muted);
 }
 
-/* Educational callout on light sections */
+/* Educational callouts on light sections */
 
 .callout {
     margin: 40px 0;
     padding: 28px 30px;
     border-left: 3px solid #6d9bc4;
     background: #e8eef4;
-    color: var(--light-text);
+    color: #172333;
 }
 
 .callout strong {
     display: block;
-    color: var(--light-text);
+    margin-bottom: 10px;
+    color: #172333 !important;
+    opacity: 1 !important;
     font-size: 1.05rem;
-    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .callout p {
     margin-bottom: 0;
-    color: var(--light-muted);
+    color: #5d6b79 !important;
+    opacity: 1 !important;
 }
 
 /* Historical evidence and sources */
