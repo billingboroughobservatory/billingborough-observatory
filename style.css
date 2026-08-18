@@ -569,14 +569,27 @@ h1 {
     color: var(--muted);
 }
 
+/* Educational callout on light sections */
+
 .callout {
     margin: 40px 0;
     padding: 28px 30px;
     border-left: 3px solid #6d9bc4;
-    background: #edf3f8;
+    background: #e8eef4;
+    color: var(--light-text);
 }
 
-.callout p { margin-bottom: 0; }
+.callout strong {
+    display: block;
+    color: var(--light-text);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.callout p {
+    margin-bottom: 0;
+    color: var(--light-muted);
+}
 
 /* Historical evidence and sources */
 
