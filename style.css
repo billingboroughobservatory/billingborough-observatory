@@ -731,3 +731,17 @@ h1 {
     font-size: 0.9rem;
     color: var(--muted);
 }
+
+.celestial-sphere-image {
+    margin: 36px 0 40px 0;
+    text-align: center;
+}
+
+.celestial-sphere-image img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 6px;
+}
