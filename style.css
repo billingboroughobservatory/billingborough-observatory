@@ -579,9 +579,10 @@ h1 {
     color: #172333;
 }
 
-.callout strong {
+.callout strong,
+.callout h3 {
     display: block;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     color: #172333 !important;
     opacity: 1 !important;
     font-size: 1.05rem;
@@ -589,7 +590,7 @@ h1 {
 }
 
 .callout p {
-    margin-bottom: 0;
+    margin: 0;
     color: #5d6b79 !important;
     opacity: 1 !important;
 }
