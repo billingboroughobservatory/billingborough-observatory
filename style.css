@@ -266,6 +266,25 @@ h1 {
     font-size: 14px;
 }
 
+/* Cards inside dark sections */
+
+.section-dark .card {
+    background: #162334;
+    border-color: #26384d;
+}
+
+.section-dark .card h3 {
+    color: #f2f6fa;
+}
+
+.section-dark .card p {
+    color: #b9c7d6;
+}
+
+.section-dark .card .text-link {
+    color: var(--accent);
+}
+
 .meteor-activity {
     background: #f7f9fb;
 }
