@@ -709,84 +709,7 @@ h3 {
 }
 
 
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
 
-.site-footer {
-    padding: 55px 0 25px;
-
-    background: var(--bg);
-
-    border-top: 1px solid var(--line);
-}
-
-
-.footer-inner {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 30px;
-}
-
-
-.footer-inner strong {
-    font-family: "Space Grotesk", sans-serif;
-}
-
-
-.footer-inner p {
-    margin: 6px 0 0;
-
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-.footer-inner a {
-    color: var(--accent);
-
-    font-size: 13px;
-}
-
-
-.footer-bottom {
-    margin-top: 35px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid var(--line);
-}
-
-
-.footer-bottom p {
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 12px;
-}
-
-
-/* --------------------------------------------------
-   RESPONSIVE
--------------------------------------------------- */
-
-@media (max-width: 1050px) {
-
-    .nav-wrap {
-        align-items: flex-start;
-
-        padding: 15px 0;
-    }
-
-    nav {
-        gap: 10px 15px;
-    }
-
-}
 
 
 @media (max-width: 800px) {
@@ -893,8 +816,6 @@ h3 {
     }
 
 
-    .footer-inner {
-        flex-direction: column;
-    }
+  
 
 }
