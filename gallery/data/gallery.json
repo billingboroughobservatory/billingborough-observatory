@@ -1,0 +1,14 @@
+{
+  "title": "Observatory Gallery",
+  "intro": "A visual record of Billingborough Observatory, its equipment, observations and the skies above Lincolnshire.",
+  "images": [
+    {
+      "image": "test-gallery.jpg",
+      "thumbnail": "test-gallery.jpg",
+      "caption": "Billingborough Observatory",
+      "description": "Gallery test photograph.",
+      "date": "2026",
+      "category": "Observatory"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="The Billingborough Observatory Gallery — photographs of the observatory, astronomical observations and the night sky from Lincolnshire.">
+
+    <link rel="icon"
+          type="image/png"
+          href="https://billingboroughobservatory.space/images/favicon.png">
+
+    <link rel="stylesheet" href="gallery.css">
+
+    <title>Observatory Gallery | Billingborough Observatory</title>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-wrap">
+
+        <a class="brand"
+           href="https://billingboroughobservatory.space/">
+
+            <img
+                src="https://billingboroughobservatory.space/images/logo.png"
+                alt="Billingborough Observatory"
+                class="brand-logo">
+
+            <span>
+                <strong>Billingborough Observatory</strong>
+                <small>Lincolnshire, England</small>
+            </span>
+
+        </a>
+
+        <nav aria-label="Main navigation">
+
+            <a href="https://billingboroughobservatory.space/">
+                Home
+            </a>
+
+            <a href="https://billingboroughobservatory.space/observatory.html">
+                Observatory
+            </a>
+
+            <a href="https://billingboroughobservatory.space/#meteor-detection">
+                Meteor Detection
+            </a>
+
+            <a href="https://billingboroughobservatory.space/history.html">
+                History
+            </a>
+
+            <a href="https://billingboroughobservatory.space/allsky.html">
+                Allsky Camera
+            </a>
+
+            <a href="https://billingboroughobservatory.space/observing-conditions.html">
+                Observing Conditions
+            </a>
+
+            <a href="https://billingboroughobservatory.space/learn.html">
+                Learn &amp; Explore
+            </a>
+
+            <a href="https://billingboroughobservatory.space/#cameras">
+                Live Cameras
+            </a>
+
+            <a href="/" class="active">
+                Gallery
+            </a>
+
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="gallery-hero">
+
+        <div class="hero-stars"></div>
+
+        <div class="container hero-content">
+
+            <p class="eyebrow">BILLINGBOROUGH OBSERVATORY</p>
+
+            <h1>
+                Observatory<br>
+                <span>Gallery</span>
+            </h1>
+
+            <p class="hero-text">
+                A growing visual record of the observatory,
+                astronomical observations and the skies above Lincolnshire.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="section gallery-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">THE COLLECTION</p>
+
+                <h2>Exploring the sky from Billingborough</h2>
+
+                <p id="gallery-intro">
+                    Loading gallery…
+                </p>
+
+            </div>
+
+
+            <div class="gallery-toolbar">
+
+                <div
+                    class="gallery-filters"
+                    id="gallery-filters"
+                    aria-label="Gallery categories">
+                </div>
+
+            </div>
+
+
+            <div
+                class="gallery-grid"
+                id="gallery-grid"
+                aria-live="polite">
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <div>
+            <strong>Billingborough Observatory</strong>
+            <p>Exploring the sky from Lincolnshire.</p>
+        </div>
+
+        <div>
+            <a href="https://billingboroughobservatory.space/contact.html">
+                Contact
+            </a>
+        </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+        <p>© 2026 Billingborough Observatory. All rights reserved.</p>
+    </div>
+
+</footer>
+
+
+<!-- Image viewer -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true">
+
+    <button
+        class="lightbox-close"
+        id="lightbox-close"
+        type="button"
+        aria-label="Close image">
+        ×
+    </button>
+
+
+    <button
+        class="lightbox-control lightbox-prev"
+        id="lightbox-prev"
+        type="button"
+        aria-label="Previous image">
+        ‹
+    </button>
+
+
+    <div class="lightbox-content">
+
+        <img
+            id="lightbox-image"
+            src=""
+            alt="">
+
+        <div class="lightbox-info">
+
+            <p
+                class="lightbox-category"
+                id="lightbox-category">
+            </p>
+
+            <h2
+                id="lightbox-title">
+            </h2>
+
+            <p
+                id="lightbox-description">
+            </p>
+
+            <p
+                class="lightbox-date"
+                id="lightbox-date">
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="lightbox-control lightbox-next"
+        id="lightbox-next"
+        type="button"
+        aria-label="Next image">
+        ›
+    </button>
+
+</div>
+
+
+<script src="gallery.js"></script>
+
+</body>
+</html>
