@@ -142,6 +142,16 @@
       "date": "2026",
       "section": "boundary-layer",
       "category": "meteors-and-fireballs"
+    },
+    {
+      "image": "02_The_Solar_System/The_Planets/07_Neptune/2025-11-17_2012_Neptune.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/07_Neptune/2025-11-17_2012_Neptune.png",
+      "title": "20251117_Dob305_Neptune",
+      "description": "Taken on a cold November evening, capturing the distant planet Neptune.",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "neptune"
     }
   ]
 }
