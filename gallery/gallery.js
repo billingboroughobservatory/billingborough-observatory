@@ -297,22 +297,6 @@ function showImages(
     currentCategory = categoryId;
     currentSubcategory = subcategoryId;
 
-    if (subcategoryId) {
-
-    clearNavigation(
-        () => showSubcategories(sectionId, categoryId),
-        category?.title || "Back"
-    );
-
-} else {
-
-    clearNavigation(
-        () => showCategories(sectionId),
-        section?.title || "Back"
-    );
-
-}
-
     const section =
         galleryData.sections.find(
             item => item.id === sectionId
@@ -322,6 +306,24 @@ function showImages(
         section?.categories.find(
             item => item.id === categoryId
         );
+
+    if (subcategoryId) {
+
+        // Individual planet → back to The Planets
+        clearNavigation(
+            () => showSubcategories(sectionId, categoryId),
+            category?.title || "Back"
+        );
+
+    } else {
+
+        // Category → back to its section
+        clearNavigation(
+            () => showCategories(sectionId),
+            section?.title || "Back"
+        );
+
+    }
 
     let title = category?.title || "";
 
