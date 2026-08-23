@@ -67,7 +67,7 @@ async function loadGallery() {
    NAVIGATION
    ================================================== */
 
-function clearNavigation() {
+function clearNavigation(backFunction = showSections, backLabel = "Gallery") {
 
     galleryFilters.innerHTML = "";
 
@@ -75,9 +75,9 @@ function clearNavigation() {
 
     backButton.type = "button";
     backButton.className = "gallery-filter gallery-back";
-    backButton.textContent = "← Gallery";
+    backButton.textContent = `← ${backLabel}`;
 
-    backButton.addEventListener("click", showSections);
+    backButton.addEventListener("click", backFunction);
 
     galleryFilters.appendChild(backButton);
 }
@@ -153,7 +153,10 @@ function showCategories(sectionId) {
     currentCategory = null;
     currentSubcategory = null;
 
-    clearNavigation();
+    clearNavigation(
+    showSections,
+    "Gallery"
+);
 
     galleryGrid.innerHTML = "";
 
@@ -230,7 +233,10 @@ function showSubcategories(sectionId, categoryId) {
     currentCategory = categoryId;
     currentSubcategory = null;
 
-    clearNavigation();
+    clearNavigation(
+    () => showCategories(sectionId),
+    section.title
+);
 
     galleryGrid.innerHTML = "";
 
@@ -291,7 +297,21 @@ function showImages(
     currentCategory = categoryId;
     currentSubcategory = subcategoryId;
 
-    clearNavigation();
+    if (subcategoryId) {
+
+    clearNavigation(
+        () => showSubcategories(sectionId, categoryId),
+        category?.title || "Back"
+    );
+
+} else {
+
+    clearNavigation(
+        () => showCategories(sectionId),
+        section?.title || "Back"
+    );
+
+}
 
     const section =
         galleryData.sections.find(
