@@ -1,2 +1,5 @@
 gallery/gallery.css.backup
 gallery/gallery.css.before-stylecss
+gallery/gallery.css.before-gallery-navigation
+.gitignore
+gallery/data/gallery.json.backup
