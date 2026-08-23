@@ -1,14 +1,120 @@
 {
   "title": "Observatory Gallery",
-  "intro": "A visual record of Billingborough Observatory, its equipment, observations and the skies above Lincolnshire.",
+  "intro": "A visual record of astronomical observations, phenomena and objects photographed from Billingborough and beyond.",
+  "sections": [
+    {
+      "id": "boundary-layer",
+      "title": "The Boundary Layer",
+      "description": "Phenomena occurring within or around Earth's atmosphere.",
+      "categories": [
+        {
+          "id": "atmospheric-optics",
+          "title": "Atmospheric Optics"
+        },
+        {
+          "id": "aurora-borealis",
+          "title": "Aurora Borealis"
+        },
+        {
+          "id": "human-spaceflight",
+          "title": "Human Spaceflight"
+        },
+        {
+          "id": "meteors-and-fireballs",
+          "title": "Meteors & Fireballs"
+        }
+      ]
+    },
+    {
+      "id": "solar-system",
+      "title": "The Solar System",
+      "description": "Our Sun, Moon and planetary system.",
+      "categories": [
+        {
+          "id": "asteroids",
+          "title": "Asteroids"
+        },
+        {
+          "id": "comets",
+          "title": "Comets"
+        },
+        {
+          "id": "the-moon",
+          "title": "The Moon"
+        },
+        {
+          "id": "planets",
+          "title": "The Planets",
+          "children": [
+            {
+              "id": "mercury",
+              "title": "Mercury"
+            },
+            {
+              "id": "venus",
+              "title": "Venus"
+            },
+            {
+              "id": "mars",
+              "title": "Mars"
+            },
+            {
+              "id": "jupiter",
+              "title": "Jupiter"
+            },
+            {
+              "id": "saturn",
+              "title": "Saturn"
+            },
+            {
+              "id": "uranus",
+              "title": "Uranus"
+            },
+            {
+              "id": "neptune",
+              "title": "Neptune"
+            }
+          ]
+        },
+        {
+          "id": "the-sun",
+          "title": "The Sun"
+        }
+      ]
+    },
+    {
+      "id": "deep-space",
+      "title": "Deep Space",
+      "description": "Galaxies, clusters, nebulae and the lives and deaths of stars.",
+      "categories": [
+        {
+          "id": "galaxies",
+          "title": "Galaxies"
+        },
+        {
+          "id": "star-clusters",
+          "title": "Star Clusters"
+        },
+        {
+          "id": "stellar-graveyards",
+          "title": "Stellar Graveyards"
+        },
+        {
+          "id": "stellar-nurseries",
+          "title": "Stellar Nurseries"
+        }
+      ]
+    }
+  ],
   "images": [
     {
-      "image": "test-gallery.jpg",
-      "thumbnail": "test-gallery.jpg",
-      "caption": "Billingborough Observatory",
+      "image": "01_The_Boundary_Layer/Atmospheric_Optics/test-photograph.jpg",
+      "thumbnail": "01_The_Boundary_Layer/Atmospheric_Optics/test-photograph.jpg",
+      "title": "Billingborough Observatory",
       "description": "Gallery test photograph.",
       "date": "2026",
-      "category": "Observatory"
+      "section": "boundary-layer",
+      "category": "atmospheric-optics"
     }
   ]
 }

@@ -1251,3 +1251,166 @@ h1 {
         right: calc(50% - 55px);
     }
 }
+
+/* ==================================================
+   HIERARCHICAL GALLERY NAVIGATION
+   ================================================== */
+
+.gallery-navigation-heading {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+}
+
+.gallery-navigation-heading span {
+    display: block;
+    margin-bottom: 8px;
+    color: #7c8995;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.gallery-navigation-heading strong {
+    display: block;
+    color: var(--light-text);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+
+.gallery-navigation-card {
+    position: relative;
+
+    min-height: 150px;
+
+    padding: 28px 30px;
+
+    border: 1px solid #dce3e9;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: var(--light-text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+
+.gallery-navigation-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #b9c7d6;
+
+    box-shadow:
+        0 14px 35px rgba(23,35,51,.10);
+}
+
+
+.gallery-navigation-number {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: #7c8995;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .15em;
+}
+
+
+.gallery-navigation-title {
+    display: block;
+
+    padding-right: 30px;
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+.gallery-navigation-description {
+    display: block;
+
+    max-width: 430px;
+
+    margin-top: 8px;
+
+    color: var(--light-muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+.gallery-navigation-arrow {
+    position: absolute;
+
+    right: 25px;
+    bottom: 23px;
+
+    font-size: 22px;
+
+    color: #7c8995;
+
+    transition:
+        transform .2s ease,
+        color .2s ease;
+}
+
+
+.gallery-navigation-card:hover
+.gallery-navigation-arrow {
+    transform: translateX(4px);
+    color: var(--light-text);
+}
+
+
+.gallery-back {
+    margin-bottom: 10px;
+}
+
+
+.gallery-empty {
+    grid-column: 1 / -1;
+
+    padding: 50px 20px;
+
+    color: var(--light-muted);
+
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+
+    .gallery-navigation-card {
+        min-height: 130px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .gallery-navigation-heading strong {
+        font-size: 24px;
+    }
+
+    .gallery-navigation-card {
+        min-height: 120px;
+        padding: 24px;
+    }
+
+    .gallery-navigation-title {
+        font-size: 20px;
+    }
+
+}
