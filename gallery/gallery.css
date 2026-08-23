@@ -1414,3 +1414,219 @@ h1 {
     }
 
 }
+
+/* ==================================================
+   GALLERY NAVIGATION — EDITORIAL LAYOUT
+================================================== */
+
+.gallery-navigation-heading {
+    width: 100%;
+    margin: 0 0 34px;
+}
+
+.gallery-navigation-heading span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.gallery-navigation-heading strong {
+    display: block;
+    color: var(--light-text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -.025em;
+}
+
+
+/* --------------------------------------------------
+   SECTION NAVIGATION
+-------------------------------------------------- */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* --------------------------------------------------
+   NAVIGATION CARDS
+-------------------------------------------------- */
+
+.gallery-navigation-card {
+    position: relative;
+
+    min-height: 250px;
+    padding: 28px 28px 26px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border: 1px solid rgba(23,35,51,.14);
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.72);
+
+    color: var(--light-text);
+    font: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.gallery-navigation-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(142,197,255,.75);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 14px 35px rgba(23,35,51,.10);
+}
+
+.gallery-navigation-card:focus-visible {
+    outline: 3px solid rgba(142,197,255,.55);
+    outline-offset: 3px;
+}
+
+
+/* --------------------------------------------------
+   CARD NUMBER
+-------------------------------------------------- */
+
+.gallery-navigation-number {
+    display: block;
+
+    margin-bottom: auto;
+
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+
+/* --------------------------------------------------
+   CARD TITLE
+-------------------------------------------------- */
+
+.gallery-navigation-title {
+    display: block;
+
+    margin-top: 42px;
+
+    color: var(--light-text);
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+}
+
+
+/* --------------------------------------------------
+   CARD DESCRIPTION
+-------------------------------------------------- */
+
+.gallery-navigation-description {
+    display: block;
+
+    max-width: 34em;
+
+    margin-top: 14px;
+
+    color: var(--light-muted);
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* --------------------------------------------------
+   CARD ARROW
+-------------------------------------------------- */
+
+.gallery-navigation-arrow {
+    display: block;
+
+    align-self: flex-end;
+
+    margin-top: 22px;
+
+    color: var(--accent);
+
+    font-size: 22px;
+    line-height: 1;
+
+    transition: transform .2s ease;
+}
+
+.gallery-navigation-card:hover .gallery-navigation-arrow {
+    transform: translateX(5px);
+}
+
+
+/* --------------------------------------------------
+   GALLERY FILTER / BACK BUTTON
+-------------------------------------------------- */
+
+.gallery-back {
+    margin-bottom: 24px;
+}
+
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-navigation-card {
+        min-height: 210px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .gallery-navigation-heading {
+        margin-bottom: 26px;
+    }
+
+    .gallery-navigation-heading strong {
+        font-size: 30px;
+    }
+
+    .gallery-navigation-card {
+        min-height: 190px;
+        padding: 24px;
+    }
+
+    .gallery-navigation-title {
+        margin-top: 30px;
+        font-size: 22px;
+    }
+
+}
