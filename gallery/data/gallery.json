@@ -152,6 +152,15 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "neptune"
+    },
+    {
+      "image": "01_The_Boundary_Layer/Aurora_Borealis/17629273664351762927355391_1.jpg",
+      "thumbnail": "01_The_Boundary_Layer/Aurora_Borealis/17629273664351762927355391_1.jpg",
+      "title": "Mid-November Aurora",
+      "description": "Vivid red aurora borealis captured by MeteorCam_N(AuroraCam)",
+      "date": "2025",
+      "section": "boundary-layer",
+      "category": "aurora-borealis"
     }
   ]
 }
