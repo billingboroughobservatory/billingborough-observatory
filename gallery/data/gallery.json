@@ -108,15 +108,6 @@
   ],
   "images": [
     {
-      "image": "01_The_Boundary_Layer/Atmospheric_Optics/test-photograph.jpg",
-      "thumbnail": "01_The_Boundary_Layer/Atmospheric_Optics/test-photograph.jpg",
-      "title": "Billingborough Observatory",
-      "description": "Gallery test photograph.",
-      "date": "2026",
-      "section": "boundary-layer",
-      "category": "atmospheric-optics"
-    },
-    {
       "image": "01_The_Boundary_Layer/Meteors_and_Fireballs/UK0026_2026_Perseids.png",
       "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/UK0026_2026_Perseids.png",
       "title": "Perseid Meteor Shower — UK0026",
