@@ -521,8 +521,7 @@ function closeLightbox() {
 
 function updateLightbox() {
 
-    const image =
-        visibleImages[currentIndex];
+    const image = visibleImages[currentIndex];
 
     if (!image) {
         return;
@@ -553,6 +552,8 @@ function updateLightbox() {
         lightboxVideo.pause();
 
         lightboxVideo.removeAttribute("src");
+
+        lightboxVideo.removeAttribute("poster");
 
         lightboxVideo.style.display = "none";
 
