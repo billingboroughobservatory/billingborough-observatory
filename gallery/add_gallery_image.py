@@ -7,6 +7,8 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+import tkinter as tk
+from tkinter import filedialog
 
 
 # --------------------------------------------------
@@ -113,9 +115,27 @@ print("\n==============================================")
 print(" Billingborough Observatory — Add Image")
 print("==============================================")
 
-source = Path(
-    input("\nImage file: ").strip().strip('"').strip("'")
-).expanduser()
+
+root = tk.Tk()
+root.withdraw()
+
+selected_file = filedialog.askopenfilename(
+    title="Select image for Billingborough Observatory Gallery",
+    filetypes=[
+        ("Image files", "*.jpg *.jpeg *.png *.webp"),
+        ("JPEG images", "*.jpg *.jpeg"),
+        ("PNG images", "*.png"),
+        ("WebP images", "*.webp"),
+        ("All files", "*.*")
+    ]
+)
+
+root.destroy()
+
+if not selected_file:
+    fail("No image selected.")
+
+source = Path(selected_file)
 
 if not source.exists():
     fail(f"Image file does not exist: {source}")
