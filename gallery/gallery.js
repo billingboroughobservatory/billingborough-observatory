@@ -529,21 +529,24 @@ function updateLightbox() {
     }
 
     if (image.type === "video") {
-    lightboxImage.style.display = "none";
-    lightboxVideo.style.display = "block";
 
-    lightboxVideo.src =
-        `images/${image.video}`;
+        lightboxImage.style.display = "none";
 
-    lightboxVideo.poster =
-        `images/${image.thumbnail}`;
+        lightboxVideo.style.display = "block";
 
-    lightboxVideo.controls = true;
-    lightboxVideo.playsInline = true;
-    lightboxVideo.preload = "metadata";
+        lightboxVideo.src =
+            `images/${image.video}`;
 
-    lightboxVideo.load();
-}
+        lightboxVideo.poster =
+            `images/${image.thumbnail}`;
+
+        lightboxVideo.controls = true;
+
+        lightboxVideo.playsInline = true;
+
+        lightboxVideo.preload = "metadata";
+
+        lightboxVideo.load();
 
     } else {
 
@@ -575,7 +578,6 @@ function updateLightbox() {
 
     lightboxDate.textContent =
         image.date || "";
-
 }
 
 
