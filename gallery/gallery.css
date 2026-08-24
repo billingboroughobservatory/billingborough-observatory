@@ -1097,6 +1097,18 @@ h1 {
     box-shadow: 0 20px 70px rgba(0,0,0,.45);
 }
 
+.lightbox-content video {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 260px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 70px rgba(0,0,0,.45);
+    background: #000;
+}
+
 .lightbox-info {
     width: 100%;
     max-width: 800px;

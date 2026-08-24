@@ -188,6 +188,16 @@
       "date": "2025",
       "section": "deep-space",
       "category": "star-clusters"
+    },
+    {
+      "type": "video",
+      "video": "02_The_Solar_System/The_Sun/2025-12-02-130332-Solar.mp4",
+      "thumbnail": "02_The_Solar_System/The_Sun/2025-12-02-130332-Solar_thumbnail.jpg",
+      "title": "20251202_130332_S50_Solar",
+      "description": "A video of the largest sunspots since Carrington",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "the-sun"
     }
   ]
 }

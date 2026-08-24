@@ -4,6 +4,7 @@ const galleryFilters = document.getElementById("gallery-filters");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
+const lightboxVideo = document.getElementById("lightbox-video");
 const lightboxCategory = document.getElementById("lightbox-category");
 const lightboxTitle = document.getElementById("lightbox-title");
 const lightboxDescription = document.getElementById("lightbox-description");
@@ -498,6 +499,12 @@ function openLightbox(index) {
 
 function closeLightbox() {
 
+    if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.load();
+    }
+
     lightbox.classList.remove("open");
 
     lightbox.setAttribute(
@@ -521,12 +528,40 @@ function updateLightbox() {
         return;
     }
 
-    lightboxImage.src =
-        `images/${image.image}`;
+    if (image.type === "video") {
+    lightboxImage.style.display = "none";
+    lightboxVideo.style.display = "block";
 
-    lightboxImage.alt =
-        image.title ||
-        "Billingborough Observatory";
+    lightboxVideo.src =
+        `images/${image.video}`;
+
+    lightboxVideo.poster =
+        `images/${image.thumbnail}`;
+
+    lightboxVideo.controls = true;
+    lightboxVideo.playsInline = true;
+    lightboxVideo.preload = "metadata";
+
+    lightboxVideo.load();
+}
+
+    } else {
+
+        lightboxVideo.pause();
+
+        lightboxVideo.removeAttribute("src");
+
+        lightboxVideo.style.display = "none";
+
+        lightboxImage.style.display = "block";
+
+        lightboxImage.src =
+            `images/${image.image}`;
+
+        lightboxImage.alt =
+            image.title ||
+            "Billingborough Observatory";
+    }
 
     lightboxCategory.textContent =
         image.category || "";

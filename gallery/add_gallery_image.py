@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from PIL import Image
 import tkinter as tk
 from tkinter import filedialog
 
@@ -108,11 +109,11 @@ args = parser.parse_args()
 
 
 # --------------------------------------------------
-# IMAGE
+# MEDIA
 # --------------------------------------------------
 
 print("\n==============================================")
-print(" Billingborough Observatory — Add Image")
+print(" Billingborough Observatory — Add Media")
 print("==============================================")
 
 
@@ -120,12 +121,14 @@ root = tk.Tk()
 root.withdraw()
 
 selected_file = filedialog.askopenfilename(
-    title="Select image for Billingborough Observatory Gallery",
+    title="Select media for Billingborough Observatory Gallery",
     filetypes=[
-        ("Image files", "*.jpg *.jpeg *.png *.webp"),
-        ("JPEG images", "*.jpg *.jpeg"),
-        ("PNG images", "*.png"),
-        ("WebP images", "*.webp"),
+        (
+            "Gallery media",
+            "*.jpg *.jpeg *.png *.webp *.mp4 *.webm"
+        ),
+        ("Images", "*.jpg *.jpeg *.png *.webp"),
+        ("Videos", "*.mp4 *.webm"),
         ("All files", "*.*")
     ]
 )
@@ -133,28 +136,104 @@ selected_file = filedialog.askopenfilename(
 root.destroy()
 
 if not selected_file:
-    fail("No image selected.")
+    fail("No media selected.")
 
 source = Path(selected_file)
 
 if not source.exists():
-    fail(f"Image file does not exist: {source}")
+    fail(f"Media file does not exist: {source}")
 
 if not source.is_file():
     fail(f"Not a file: {source}")
 
 
-allowed_extensions = {
+allowed_image_extensions = {
     ".jpg",
     ".jpeg",
     ".png",
     ".webp"
 }
 
-if source.suffix.lower() not in allowed_extensions:
+allowed_video_extensions = {
+    ".mp4",
+    ".webm"
+}
+
+extension = source.suffix.lower()
+
+if extension in allowed_image_extensions:
+
+    media_type = "image"
+
+elif extension in allowed_video_extensions:
+
+    media_type = "video"
+
+else:
+
     fail(
-        "Unsupported image type. "
-        "Use JPG, JPEG, PNG or WebP."
+        "Unsupported media type. "
+        "Use JPG, JPEG, PNG, WebP, MP4 or WebM."
+    )
+
+
+print(f"\nSelected: {source.name}")
+print(f"Type:     {media_type}")
+
+# --------------------------------------------------
+# VIDEO THUMBNAIL
+# --------------------------------------------------
+
+thumbnail_source = None
+
+if media_type == "video":
+
+    print("\nSelect a normal image to use as the video thumbnail.")
+
+    root = tk.Tk()
+    root.withdraw()
+
+    selected_thumbnail = filedialog.askopenfilename(
+        title="Select thumbnail image for video",
+        filetypes=[
+            (
+                "Thumbnail images",
+                "*.jpg *.jpeg *.png *.webp"
+            ),
+            ("JPEG images", "*.jpg *.jpeg"),
+            ("PNG images", "*.png"),
+            ("WebP images", "*.webp"),
+            ("All files", "*.*")
+        ]
+    )
+
+    root.destroy()
+
+    if not selected_thumbnail:
+        fail("No thumbnail image selected.")
+
+    thumbnail_source = Path(selected_thumbnail)
+
+    if not thumbnail_source.exists():
+        fail(
+            f"Thumbnail image does not exist: "
+            f"{thumbnail_source}"
+        )
+
+    if not thumbnail_source.is_file():
+        fail(
+            f"Thumbnail is not a file: "
+            f"{thumbnail_source}"
+        )
+
+    if thumbnail_source.suffix.lower() not in allowed_image_extensions:
+        fail(
+            "Unsupported thumbnail type. "
+            "Use JPG, JPEG, PNG or WebP."
+        )
+
+    print(
+        f"Thumbnail: {thumbnail_source.name}"
     )
 
 
@@ -296,6 +375,19 @@ relative_path = relative_image_path(
     destination_file
 )
 
+thumbnail_destination = None
+thumbnail_relative_path = None
+
+if media_type == "video":
+
+    thumbnail_destination = (
+        destination_directory /
+        f"{source.stem}_thumbnail.jpg"
+    )
+
+    thumbnail_relative_path = relative_image_path(
+        thumbnail_destination
+    )
 
 # --------------------------------------------------
 # CHECK FOR DUPLICATES
@@ -303,17 +395,27 @@ relative_path = relative_image_path(
 
 if destination_file.exists():
     fail(
-        f"An image with this filename already exists:\n"
+        f"A file with this filename already exists:\n"
         f"{destination_file}"
     )
 
+if thumbnail_destination and thumbnail_destination.exists():
+    fail(
+        f"The thumbnail already exists:\n"
+        f"{thumbnail_destination}"
+    )
 
 for existing in data.get("images", []):
 
-    if existing.get("image") == relative_path:
+    existing_path = (
+        existing.get("image")
+        or existing.get("video")
+    )
+
+    if existing_path == relative_path:
 
         fail(
-            "This image path is already present "
+            "This media path is already present "
             "in gallery.json."
         )
 
@@ -322,15 +424,31 @@ for existing in data.get("images", []):
 # BUILD GALLERY ENTRY
 # --------------------------------------------------
 
-entry = {
-    "image": relative_path,
-    "thumbnail": relative_path,
-    "title": title,
-    "description": description,
-    "date": date,
-    "section": section["id"],
-    "category": category["id"]
-}
+if media_type == "video":
+
+    entry = {
+        "type": "video",
+        "video": relative_path,
+        "thumbnail": thumbnail_relative_path,
+        "title": title,
+        "description": description,
+        "date": date,
+        "section": section["id"],
+        "category": category["id"]
+    }
+
+else:
+
+    entry = {
+        "type": "image",
+        "image": relative_path,
+        "thumbnail": relative_path,
+        "title": title,
+        "description": description,
+        "date": date,
+        "section": section["id"],
+        "category": category["id"]
+    }
 
 if subcategory:
     entry["subcategory"] = subcategory["id"]
@@ -343,7 +461,16 @@ if subcategory:
 print("\n----------------------------------------------")
 print("Gallery entry")
 print("----------------------------------------------")
-print(f"Image:       {relative_path}")
+if media_type == "video":
+
+    print(f"Type:        video")
+    print(f"Video:       {relative_path}")
+    print(f"Thumbnail:   {thumbnail_relative_path}")
+
+else:
+
+    print(f"Type:        image")
+    print(f"Image:       {relative_path}")
 print(f"Section:     {section['title']}")
 print(f"Category:    {category['title']}")
 
@@ -361,7 +488,7 @@ if args.dry_run:
 
 
 confirmation = input(
-    "\nAdd this image and publish it? [y/N]: "
+    "\nAdd this media and publish it? [y/N]: "
 ).strip().lower()
 
 if confirmation not in {"y", "yes"}:
@@ -370,15 +497,46 @@ if confirmation not in {"y", "yes"}:
 
 
 # --------------------------------------------------
-# COPY IMAGE
+# COPY MEDIA
 # --------------------------------------------------
 
-print("\nCopying image...")
+print("\nCopying media...")
 
 shutil.copy2(
     source,
     destination_file
 )
+
+if media_type == "video":
+
+    print("Creating thumbnail...")
+
+    with Image.open(thumbnail_source) as img:
+
+        img = img.convert("RGB")
+
+        width = 640
+
+        height = round(
+            img.height * width / img.width
+        )
+
+        img = img.resize(
+            (width, height),
+            Image.Resampling.LANCZOS
+        )
+
+        img.save(
+            thumbnail_destination,
+            "JPEG",
+            quality=85,
+            optimize=True
+        )
+
+    print(
+        f"Thumbnail created: "
+        f"{thumbnail_destination.name}"
+    )
 
 
 # --------------------------------------------------
@@ -410,6 +568,11 @@ except json.JSONDecodeError as e:
 
     destination_file.unlink(missing_ok=True)
 
+    if thumbnail_destination:
+        thumbnail_destination.unlink(
+            missing_ok=True
+        )
+
     fail(
         f"gallery.json became invalid: {e}"
     )
@@ -422,15 +585,27 @@ print("JSON OK.")
 # RSYNC IMAGE
 # --------------------------------------------------
 
-print("\nUploading image to server...")
+print("\nUploading media to server...")
 
 run_command([
     "sudo",
     "rsync",
     "-avh",
-    f"{destination_file}",
+    str(destination_file),
     f"{SERVER_IMAGE_ROOT}/{destination_file.relative_to(IMAGE_ROOT).parent}/"
 ])
+
+if thumbnail_destination:
+
+    print("\nUploading thumbnail to server...")
+
+    run_command([
+        "sudo",
+        "rsync",
+        "-avh",
+        str(thumbnail_destination),
+        f"{SERVER_IMAGE_ROOT}/{thumbnail_destination.relative_to(IMAGE_ROOT).parent}/"
+    ])
 
 
 # --------------------------------------------------
@@ -454,7 +629,7 @@ run_command([
 
 print("\nVerifying server files...")
 
-remote_image = (
+remote_media = (
     "https://gallery.billingboroughobservatory.space/"
     "images/"
     + relative_path
@@ -468,7 +643,7 @@ result = subprocess.run(
         "/dev/null",
         "-w",
         "%{http_code}",
-        remote_image
+        remote_media
     ],
     capture_output=True,
     text=True
@@ -482,7 +657,42 @@ if result.stdout.strip() != "200":
     )
 
 
-print(f"Image: HTTP {result.stdout.strip()}")
+print(
+    f"Media: HTTP {result.stdout.strip()}"
+)
+
+if thumbnail_relative_path:
+
+    remote_thumbnail = (
+        "https://gallery.billingboroughobservatory.space/"
+        "images/"
+        + thumbnail_relative_path
+    )
+
+    result = subprocess.run(
+        [
+            "curl",
+            "-s",
+            "-o",
+            "/dev/null",
+            "-w",
+            "%{http_code}",
+            remote_thumbnail
+        ],
+        capture_output=True,
+        text=True
+    )
+
+    if result.stdout.strip() != "200":
+
+        fail(
+            "Thumbnail was uploaded but returned "
+            f"HTTP {result.stdout.strip()}"
+        )
+
+    print(
+        f"Thumbnail: HTTP {result.stdout.strip()}"
+    )
 
 print("\nValidating remote gallery.json...")
 
@@ -510,5 +720,15 @@ print(" SUCCESS")
 print("==============================================")
 print(f"\nAdded: {title}")
 print(f"Location: {relative_path}")
-print("\nThe image is now live in the gallery.")
+
+if media_type == "video":
+    print(
+        "\nThe video and thumbnail are now "
+        "live in the gallery."
+    )
+else:
+    print(
+        "\nThe image is now live in the gallery."
+    )
+
 print("\nRemember to commit the changes to Git.")
