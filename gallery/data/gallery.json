@@ -161,6 +161,33 @@
       "date": "2025",
       "section": "boundary-layer",
       "category": "aurora-borealis"
+    },
+    {
+      "image": "02_The_Solar_System/The_Sun/2025-12-02-130059-Solar.jpg",
+      "thumbnail": "02_The_Solar_System/The_Sun/2025-12-02-130059-Solar.jpg",
+      "title": "20251202_130059_S50_Solar",
+      "description": "The largest sunspots since Carrington",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "the-sun"
+    },
+    {
+      "image": "02_The_Solar_System/The_Sun/2025-12-02-130520-Solar.jpg",
+      "thumbnail": "02_The_Solar_System/The_Sun/2025-12-02-130520-Solar.jpg",
+      "title": "20251202_130520_S50_Solar",
+      "description": "The largest sunspots since Carrington",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "the-sun"
+    },
+    {
+      "image": "03_Deep_Space/Star_Clusters/M_45_106x20sec_T22degC_2025-10-25_GraXpert.png",
+      "thumbnail": "03_Deep_Space/Star_Clusters/M_45_106x20sec_T22degC_2025-10-25_GraXpert.png",
+      "title": "20251025_S50_Messier 45",
+      "description": "The Pleiades (M45) is an open star cluster passing through an unrelated dust cloud.",
+      "date": "2025",
+      "section": "deep-space",
+      "category": "star-clusters"
     }
   ]
 }
