@@ -95,7 +95,7 @@ a { color: inherit; text-decoration: none; }
 
 nav {
     display: flex;
-    gap: 16px;
+    gap: 22px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
