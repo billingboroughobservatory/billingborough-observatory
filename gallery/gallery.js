@@ -668,3 +668,5 @@ document.addEventListener(
    ================================================== */
 
 loadGallery();
+
+console.log("GALLERY JS VERSION 7 LOADED");
