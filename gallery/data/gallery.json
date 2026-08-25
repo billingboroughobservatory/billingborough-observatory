@@ -242,6 +242,17 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/02_Venus/Venus2025-01-11-1715_7-Jupiter_pipp_lapl5_ap145.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/02_Venus/Venus2025-01-11-1715_7-Jupiter_pipp_lapl5_ap145.png",
+      "title": "Crescent Venus",
+      "description": "20250111_1715_D305 Venus, an inferior planet, exhibits phases like our Moon",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "venus"
     }
   ]
 }
