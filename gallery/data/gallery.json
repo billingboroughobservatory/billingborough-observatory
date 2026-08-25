@@ -198,6 +198,50 @@
       "date": "2025",
       "section": "solar-system",
       "category": "the-sun"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2025-01-02-2005_JupiterGanyIo.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2025-01-02-2005_JupiterGanyIo.png",
+      "title": "Jupiter, Ganymede & Io.",
+      "description": "20250102_2005_D305 Jupiter, Ganymede(R) & Io(L)",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2025-10-22-0514_6-Captured_pipp_lapl4_ap56_Final.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2025-10-22-0514_6-Captured_pipp_lapl4_ap56_Final.png",
+      "title": "Jupiter, Io & Europa.",
+      "description": "202510220514_D305 Jupiter, Io(R) & Europa(in transit).",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/03_Mars/2025-01-30-1848_9-Mars.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/03_Mars/2025-01-30-1848_9-Mars.png",
+      "title": "Mars during 2025 Opposition",
+      "description": "20250130_D305 Polar ice cap visible bottom right",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "mars"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2025-10-26-0517_8-Captured_lapl6_ap23_jupiter.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2025-10-26-0517_8-Captured_lapl6_ap23_jupiter.png",
+      "title": "Jupiter and the Galilean Satellites.",
+      "description": "20251026_0517_D305 Ganymede, Io, Europa & Callisto",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
     }
   ]
 }
