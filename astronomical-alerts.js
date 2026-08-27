@@ -95,4 +95,8 @@
     });
 
     loadAlerts();
+
+    // Check for updated alert data every 5 minutes
+    setInterval(loadAlerts, 5 * 60 * 1000);
+
 })();
