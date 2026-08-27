@@ -1,0 +1,34 @@
+{
+  "source": "Central Bureau for Astronomical Telegrams — Transient Object Confirmation Page",
+  "sourceUrl": "https://www.cbat.eps.harvard.edu/unconf/tocp.html",
+  "generated": "2026-08-27T09:00:00Z",
+  "entries": [
+    {
+      "title": "Possible nova",
+      "designation": "PNV J19450648+1822422",
+      "category": "nova",
+      "typeLabel": "Possible nova",
+      "updated": "2026-08-26T14:11:02Z",
+      "observationDate": "2026 08 26.470",
+      "magnitude": "7.06"
+    },
+    {
+      "title": "Possible nova",
+      "designation": "PNV J00425465+4122593",
+      "category": "nova",
+      "typeLabel": "Possible nova",
+      "updated": "2026-08-27T07:05:48Z",
+      "observationDate": "2026 08 25.4712",
+      "magnitude": "18.9"
+    },
+    {
+      "title": "Possible transient object",
+      "designation": "TCP J18251276-2225293",
+      "category": "transient",
+      "typeLabel": "Possible transient",
+      "updated": "2026-08-25T22:41:01Z",
+      "observationDate": "2026 08 25.861",
+      "magnitude": ""
+    }
+  ]
+}

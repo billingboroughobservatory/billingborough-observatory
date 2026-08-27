@@ -1,0 +1,121 @@
+name: Update CBAT TOCP alerts
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-alerts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Fetch and parse CBAT TOCP
+        env:
+          CBAT_URL: http://www.cbat.eps.harvard.edu/unconf/tocp.xml
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          url = os.environ["CBAT_URL"]
+          req = urllib.request.Request(
+              url,
+              headers={"User-Agent": "BillingboroughObservatory/1.0"}
+          )
+
+          with urllib.request.urlopen(req, timeout=30) as response:
+              xml = response.read()
+
+          root = ET.fromstring(xml)
+          ns = {"a": "http://www.w3.org/2005/Atom"}
+
+          def text(parent, tag):
+              node = parent.find(f"a:{tag}", ns)
+              return (node.text or "").strip() if node is not None else ""
+
+          def category_for(term):
+              term = (term or "").lower()
+              if term in {"nova", "supernova", "comet", "transient"}:
+                  return term
+              return "transient"
+
+          entries = []
+          for entry in root.findall("a:entry", ns):
+              title = text(entry, "title")
+              updated = text(entry, "updated")
+
+              cat = entry.find("a:category", ns)
+              term = cat.attrib.get("term", "transient") if cat is not None else "transient"
+
+              content = text(entry, "content")
+
+              designation = ""
+              observation_date = ""
+              magnitude = ""
+
+              m = re.search(r"TOCP Designation:\s*([^<]+)", content, re.I)
+              if m:
+                  designation = m.group(1).strip()
+
+              m = re.search(r"Observation Date:\s*([^<]+)", content, re.I)
+              if m:
+                  observation_date = m.group(1).strip()
+
+              m = re.search(r"\b(?:Magnitude|mag\.?|V mag)\s*[:=]\s*([0-9]+(?:\.[0-9]+)?)", content, re.I)
+              if m:
+                  magnitude = m.group(1).strip()
+
+              labels = {
+                  "nova": "Possible nova",
+                  "supernova": "Supernova",
+                  "comet": "Comet",
+                  "transient": "Possible transient"
+              }
+
+              entries.append({
+                  "title": title,
+                  "designation": designation,
+                  "category": category_for(term),
+                  "typeLabel": labels.get(category_for(term), "Transient"),
+                  "updated": updated,
+                  "observationDate": observation_date,
+                  "magnitude": magnitude
+              })
+
+          entries.sort(key=lambda item: item.get("updated", ""), reverse=True)
+
+          out = {
+              "source": "Central Bureau for Astronomical Telegrams — Transient Object Confirmation Page",
+              "sourceUrl": "https://www.cbat.eps.harvard.edu/unconf/tocp.html",
+              "generated": datetime.now(timezone.utc).isoformat(),
+              "entries": entries[:40]
+          }
+
+          path = Path("data/cbat-tocp.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(out, indent=2), encoding="utf-8")
+          PY
+
+      - name: Commit updated alerts
+        run: |
+          git config user.name "Billingborough Observatory"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cbat-tocp.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update CBAT TOCP alerts"
+            git push
+          fi

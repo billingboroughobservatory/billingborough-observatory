@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="alerts.css">
+    <meta name="description" content="Latest astronomical transient alerts from the Central Bureau for Astronomical Telegrams Transient Object Confirmation Page.">
+    <title>Astronomical Alerts | Billingborough Observatory</title>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+            <img src="images/logo.png" alt="Billingborough Observatory" class="brand-logo">
+            <span>
+                <strong>Billingborough Observatory</strong>
+                <small>Lincolnshire, England</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="observatory.html">Observatory</a>
+            <a href="index.html#meteor-detection">Meteor Detection</a>
+            <a href="history.html">History</a>
+            <a href="allsky.html">Allsky Camera</a>
+            <a href="observing-conditions.html">Observing Conditions</a>
+            <a href="learn.html">Learn & Explore</a>
+            <a href="index.html#cameras">Live Cameras</a>
+            <a href="astronomical-alerts.html" class="active">Astronomical Alerts</a>
+            <a href="https://gallery.billingboroughobservatory.space/">Gallery</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <p class="eyebrow">LIVE ASTRONOMICAL INFORMATION</p>
+            <h1>Astronomical Alerts</h1>
+            <p>
+                Recent transient-object reports from the Central Bureau for
+                Astronomical Telegrams (CBAT) Transient Object Confirmation Page.
+            </p>
+        </div>
+    </section>
+
+    <section class="section alerts-section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">CBAT TOCP</p>
+                <h2>Recent transient reports</h2>
+                <p>
+                    These headlines are generated automatically from the public CBAT
+                    TOCP Atom feed. The full reports remain on the CBAT website.
+                </p>
+            </div>
+
+            <div class="alerts-toolbar">
+                <div class="alert-filters" role="group" aria-label="Filter alerts">
+                    <button class="alert-filter active" data-filter="all">All</button>
+                    <button class="alert-filter" data-filter="nova">Novae</button>
+                    <button class="alert-filter" data-filter="transient">Transients</button>
+                    <button class="alert-filter" data-filter="supernova">Supernovae</button>
+                    <button class="alert-filter" data-filter="comet">Comets</button>
+                </div>
+                <p id="alerts-updated" class="alerts-updated">Loading latest alerts…</p>
+            </div>
+
+            <div id="alerts-list" class="alerts-list" aria-live="polite">
+                <div class="alert-loading">
+                    <span class="alert-spinner" aria-hidden="true"></span>
+                    Loading latest CBAT reports…
+                </div>
+            </div>
+
+            <div class="alerts-source">
+                <p>
+                    Source:
+                    <a href="https://www.cbat.eps.harvard.edu/unconf/tocp.html"
+                       target="_blank" rel="noopener">
+                        Central Bureau for Astronomical Telegrams — Transient Object Confirmation Page
+                    </a>.
+                </p>
+                <p>
+                    Billingborough Observatory displays report headlines and metadata
+                    and links to the original CBAT source rather than reproducing the
+                    full report text.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-wrap">
+        <div>
+            <strong>Billingborough Observatory</strong>
+            <p>Exploring the sky from Lincolnshire.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-social">
+            <a href="https://www.facebook.com/billingboroughobservatory/"
+               target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="images/social/facebook.svg" alt="">
+            </a>
+            <a href="https://bsky.app/profile/billingboroughobservatory.space"
+               target="_blank" rel="noopener" aria-label="Bluesky">
+                <img src="images/social/bluesky.svg" alt="">
+            </a>
+            <a href="https://www.instagram.com/billingboroughobservatory/"
+               target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="images/social/instagram.svg" alt="">
+            </a>
+            <a href="https://www.threads.com/@billingboroughobservatory"
+               target="_blank" rel="noopener" aria-label="Threads">
+                <img src="images/social/threads.svg" alt="">
+            </a>
+        </div>
+
+        <div class="footer-note">
+            <p>© 2026 Billingborough Observatory. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="astronomical-alerts.js"></script>
+</body>
+</html>
