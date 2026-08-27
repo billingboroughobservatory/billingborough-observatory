@@ -51,7 +51,7 @@
                     ${alert.observationDate ? `Observation: ${escapeHTML(alert.observationDate)}` : ""}
                     ${alert.magnitude ? ` · Magnitude: ${escapeHTML(alert.magnitude)}` : ""}
                 </p>
-                <a class="text-link" href="https://www.cbat.eps.harvard.edu/unconf/tocp.html"
+                <a class="text-link" href="http://www.cbat.eps.harvard.edu/unconf/tocp.html"
                    target="_blank" rel="noopener">
                     View original CBAT TOCP page →
                 </a>
@@ -80,7 +80,7 @@
             list.innerHTML = `
                 <div class="alert-empty">
                     The latest CBAT reports could not be loaded.
-                    <a href="https://www.cbat.eps.harvard.edu/unconf/tocp.html"
+                    <a href="http://www.cbat.eps.harvard.edu/unconf/tocp.html"
                        target="_blank" rel="noopener">View the CBAT TOCP directly →</a>
                 </div>`;
         }
