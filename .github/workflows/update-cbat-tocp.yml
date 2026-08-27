@@ -2,7 +2,7 @@ name: Update CBAT TOCP alerts
 
 on:
   schedule:
-    - cron: "9,39 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
