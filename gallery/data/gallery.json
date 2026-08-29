@@ -253,6 +253,17 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "venus"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/05_Saturn/2025-11-17_19_36_Saturn.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/05_Saturn/2025-11-17_19_36_Saturn.png",
+      "title": "Saturn Rings Edge On",
+      "description": "20251117_1936_D305_Saturn with the rings visible edge on.",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "saturn"
     }
   ]
 }
