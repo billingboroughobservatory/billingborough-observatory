@@ -86,28 +86,28 @@
       "id": "deep-space",
       "title": "Deep Space",
       "description": "Galaxies, clusters, nebulae and the lives and deaths of stars.",
-"categories": [
-  {
-    "id": "galaxies",
-    "title": "Galaxies"
-  },
-  {
-    "id": "nebulae",
-    "title": "Nebulae"
-  },
-  {
-    "id": "star-clusters",
-    "title": "Star Clusters"
-  },
-  {
-    "id": "stellar-graveyards",
-    "title": "Stellar Graveyards"
-  },
-  {
-    "id": "stellar-nurseries",
-    "title": "Stellar Nurseries"
-  }
-]
+      "categories": [
+        {
+          "id": "galaxies",
+          "title": "Galaxies"
+        },
+        {
+          "id": "nebulae",
+          "title": "Nebulae"
+        },
+        {
+          "id": "star-clusters",
+          "title": "Star Clusters"
+        },
+        {
+          "id": "stellar-graveyards",
+          "title": "Stellar Graveyards"
+        },
+        {
+          "id": "stellar-nurseries",
+          "title": "Stellar Nurseries"
+        }
+      ]
     }
   ],
   "images": [
@@ -278,6 +278,119 @@
       "date": "2025",
       "section": "deep-space",
       "category": "galaxies"
+    },
+    {
+      "type": "image",
+      "image": "03_Deep_Space/Nebulae/NGC_7635_102x60sec_T16degC_2025-10-11_graxpert_denoised.jpg",
+      "thumbnail": "03_Deep_Space/Nebulae/NGC_7635_102x60sec_T16degC_2025-10-11_graxpert_denoised.jpg",
+      "title": "NGC7635 The Bubble Nebula",
+      "description": "20251011_S50 102 x 60s exp reveals this emission nebula.",
+      "date": "2025",
+      "section": "deep-space",
+      "category": "nebulae"
+    },
+    {
+      "type": "image",
+      "image": "03_Deep_Space/Galaxies/M_81_41x30sec_T16degC_2025-03-31_graxpert_denoised.jpg",
+      "thumbnail": "03_Deep_Space/Galaxies/M_81_41x30sec_T16degC_2025-03-31_graxpert_denoised.jpg",
+      "title": "Bode's Galaxy (M81)",
+      "description": "20250331_S50 41 x 30s exp.",
+      "date": "2025",
+      "section": "deep-space",
+      "category": "galaxies"
+    },
+    {
+      "type": "image",
+      "image": "03_Deep_Space/Galaxies/M_101_68x30sec_T17degC_2025-04-10_graxpert_denoised.jpg",
+      "thumbnail": "03_Deep_Space/Galaxies/M_101_68x30sec_T17degC_2025-04-10_graxpert_denoised.jpg",
+      "title": "The Pinwheel Galaxy (M101)",
+      "description": "20250410_S50 68 x 38s exp.",
+      "date": "2025",
+      "section": "deep-space",
+      "category": "galaxies"
+    },
+    {
+      "type": "image",
+      "image": "03_Deep_Space/Galaxies/Stacked_87_mosaic_Markarian's Chain_30.jpg",
+      "thumbnail": "03_Deep_Space/Galaxies/Stacked_87_mosaic_Markarian's Chain_30.jpg",
+      "title": "Markarian's Chain (Virgo Cluster)",
+      "description": "20250331_S50 Mosaic 87 x 30s exp.",
+      "date": "2025",
+      "section": "deep-space",
+      "category": "galaxies"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/06_Uranus/Uranus 291123.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/06_Uranus/Uranus 291123.png",
+      "title": "Uranus",
+      "description": "20231129_2115_D305 My first look at Uranus. Wow.",
+      "date": "2023",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "uranus"
+    },
+    {
+      "type": "video",
+      "video": "02_The_Solar_System/Comets/C2025_A6 (Lemmon)291025.mp4",
+      "thumbnail": "02_The_Solar_System/Comets/C2025_A6 (Lemmon)291025_thumbnail.jpg",
+      "title": "Comet C2025/A6 (Lemmon)",
+      "description": "A video showing the comet's movement October 2025",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "comets"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Moon/20251102_Moon_Aristarchus.png",
+      "thumbnail": "02_The_Solar_System/The_Moon/20251102_Moon_Aristarchus.png",
+      "title": "Aristarchus & Schröter's Valley",
+      "description": "20251102_2147_D305 The albedo of Aristarchus crater.",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "the-moon"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Meteors_and_Fireballs/20241309 Fireball.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/20241309 Fireball_thumbnail.jpg",
+      "title": "Fireball Captured on AuroraCam_N",
+      "description": "20240914_1920 At magnitude -3.83 it's almost a fireball!",
+      "date": "2024",
+      "section": "boundary-layer",
+      "category": "meteors-and-fireballs"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/Comets/Comet A6 2025 Lemmon.png",
+      "thumbnail": "02_The_Solar_System/Comets/Comet A6 2025 Lemmon.png",
+      "title": "Comet C2025/A6 (Lemmon)",
+      "description": "20251103_CanonEos250D Widefield",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "comets"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/Jupiter and Io 291123_3.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/Jupiter and Io 291123_3.png",
+      "title": "Jupiter & Io",
+      "description": "20231129_2211_D305 Jupiter with Io upper left.",
+      "date": "2023",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/MVI_5004_pipp_lapl5_ap1326.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/MVI_5004_pipp_lapl5_ap1326.png",
+      "title": "Jupiter, Ganymede & its shadow after transit.",
+      "description": "20231110_1940_D305 Early attempt at a shadow transit.",
+      "date": "2023",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
     }
   ]
 }
