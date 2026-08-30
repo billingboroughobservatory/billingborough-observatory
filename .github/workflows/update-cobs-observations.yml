@@ -1,0 +1,162 @@
+name: Update COBS comet observations
+
+on:
+  schedule:
+    - cron: "9,39 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-cobs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Fetch COBS observations
+        run: |
+          python3 - <<'PY'
+          import json
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          API_URL = "https://cobs.si/api/obs_list.api"
+
+          # Look back 48 hours so delayed COBS submissions are not missed.
+          since = datetime.now(timezone.utc) - timedelta(hours=48)
+          from_date = since.strftime("%Y-%m-%d %H:%M")
+
+          params = urllib.parse.urlencode({
+              "format": "json",
+              "from_date": from_date,
+              "obs_type": "C"
+          })
+
+          url = f"{API_URL}?{params}"
+
+          request = urllib.request.Request(
+              url,
+              headers={
+                  "User-Agent": "BillingboroughObservatory/1.0"
+              }
+          )
+
+          print(f"Requesting COBS observations from {from_date} UTC")
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              payload = json.load(response)
+
+          # COBS currently returns observations in an "objects" array.
+          raw_observations = payload.get("objects", [])
+
+          if not isinstance(raw_observations, list):
+              raise RuntimeError(
+                  "Unexpected COBS response: 'objects' is not a list."
+              )
+
+          signature = payload.get("signature", {})
+          api_version = signature.get("version", "")
+
+          observations = []
+
+          for item in raw_observations:
+              comet = item.get("comet") or {}
+              observer = item.get("observer") or {}
+              method = item.get("obs_method") or {}
+
+              comet_name = (
+                  comet.get("fullname")
+                  or comet.get("name")
+                  or ""
+              ).strip()
+
+              if not comet_name:
+                  continue
+
+              observer_name = " ".join(
+                  part.strip()
+                  for part in [
+                      observer.get("first_name") or "",
+                      observer.get("last_name") or ""
+                  ]
+                  if part and part.strip()
+              )
+
+              observations.append({
+                  "comet": comet_name,
+                  "mpcName": comet.get("mpc_name") or "",
+                  "icqName": comet.get("icq_name") or "",
+                  "observationDate": item.get("obs_date") or "",
+                  "observer": observer_name,
+                  "observerCode": observer.get("icq_name") or "",
+                  "association": observer.get("association") or "",
+                  "country": observer.get("country") or "",
+                  "location": item.get("location") or "",
+                  "method": method.get("name") or "",
+                  "methodCode": method.get("key") or "",
+                  "magnitude": item.get("magnitude"),
+                  "conditions": item.get("conditions"),
+                  "cobsUrl": (
+                      "https://cobs.si/comet/"
+                      + urllib.parse.quote(
+                          str(comet.get("mpc_name") or comet.get("name") or ""),
+                          safe=""
+                      )
+                  )
+              })
+
+          # Newest observations first.
+          observations.sort(
+              key=lambda item: item.get("observationDate", ""),
+              reverse=True
+          )
+
+          # Keep the latest 100 observations.
+          observations = observations[:100]
+
+          output = {
+              "source": "COBS — Comet OBServation database",
+              "sourceUrl": "https://cobs.si/recent/",
+              "apiUrl": API_URL,
+              "generated": datetime.now(timezone.utc).isoformat(),
+              "apiVersion": api_version,
+              "observationCount": len(observations),
+              "observations": observations
+          }
+
+          output_path = Path("data/cobs-observations.json")
+          output_path.parent.mkdir(parents=True, exist_ok=True)
+
+          output_path.write_text(
+              json.dumps(
+                  output,
+                  indent=2,
+                  ensure_ascii=False
+              ),
+              encoding="utf-8"
+          )
+
+          print(
+              f"Saved {len(observations)} observations "
+              f"to {output_path}"
+          )
+          PY
+
+      - name: Commit updated observations
+        run: |
+          git config user.name "Billingborough Observatory"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/cobs-observations.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update COBS comet observations"
+            git push
+          fi
