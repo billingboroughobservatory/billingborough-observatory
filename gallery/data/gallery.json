@@ -391,6 +391,48 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "jupiter"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Human_Spaceflight/Falcon 9 deorbit burn and fuel dump.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Human_Spaceflight/Falcon 9 deorbit burn and fuel dump_thumbnail.jpg",
+      "title": "SpaceX Falcon 9 Fuel Dump",
+      "description": "20250324_AuroraCamN/E Video of the pass over Billingborough.",
+      "date": "2025",
+      "section": "boundary-layer",
+      "category": "human-spaceflight"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Human_Spaceflight/Space_Junk_Minnican.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Human_Spaceflight/Space_Junk_Minnican_thumbnail.jpg",
+      "title": "Unknown Debris Re-entry Over Billingborough.",
+      "description": "20250219_AuroraCamN/E_ Video of debris burning up. Spectacular.",
+      "date": "2025",
+      "section": "boundary-layer",
+      "category": "human-spaceflight"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/02_Venus/2025-01-30-1750_8-Venus.jpg",
+      "thumbnail": "02_The_Solar_System/The_Planets/02_Venus/2025-01-30-1750_8-Venus.jpg",
+      "title": "Crescent Venus.",
+      "description": "20250130_D305 A beautiful crescent Venus in midwinter.",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "venus"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2025-01-30-1804_2-Jupiter_cropped.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2025-01-30-1804_2-Jupiter_cropped.png",
+      "title": "Jupiter & Galilean Satellites.",
+      "description": "20250130_D305 Jupiter & (L to R) Europa, Io, Callisto & Ganymede.",
+      "date": "2025",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
     }
   ]
 }
