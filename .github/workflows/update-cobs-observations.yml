@@ -51,7 +51,7 @@ jobs:
           with urllib.request.urlopen(request, timeout=30) as response:
               payload = json.load(response)
 
-          # COBS currently returns observations in an "objects" array.
+          # COBS returns observations in an "objects" array.
           raw_observations = payload.get("objects", [])
 
           if not isinstance(raw_observations, list):
@@ -63,6 +63,9 @@ jobs:
           api_version = signature.get("version", "")
 
           observations = []
+
+          # Cache COBS comet IDs so each comet is looked up only once.
+          comet_ids = {}
 
           for item in raw_observations:
               comet = item.get("comet") or {}
@@ -78,6 +81,59 @@ jobs:
               if not comet_name:
                   continue
 
+              # Obtain the COBS internal comet ID using the MPC
+              # packed designation supplied by the observation API.
+              mpc_name = comet.get("mpc_name") or ""
+
+              if mpc_name and mpc_name not in comet_ids:
+                  try:
+                      comet_params = urllib.parse.urlencode({
+                          "des": mpc_name
+                      })
+
+                      comet_api_url = (
+                          "https://cobs.si/api/comet.api?"
+                          + comet_params
+                      )
+
+                      comet_request = urllib.request.Request(
+                          comet_api_url,
+                          headers={
+                              "User-Agent":
+                                  "BillingboroughObservatory/1.0"
+                          }
+                      )
+
+                      with urllib.request.urlopen(
+                          comet_request,
+                          timeout=30
+                      ) as comet_response:
+                          comet_data = json.load(comet_response)
+
+                      comet_object = comet_data.get("object") or {}
+                      comet_ids[mpc_name] = comet_object.get("id")
+
+                      print(
+                          f"COBS ID: {mpc_name} -> "
+                          f"{comet_ids[mpc_name]}"
+                      )
+
+                  except Exception as error:
+                      print(
+                          f"Could not find COBS ID for "
+                          f"{mpc_name}: {error}"
+                      )
+                      comet_ids[mpc_name] = None
+
+              cobs_id = comet_ids.get(mpc_name)
+
+              if cobs_id:
+                  cobs_url = (
+                      f"https://cobs.si/comet/{cobs_id}/"
+                  )
+              else:
+                  cobs_url = "https://cobs.si/recent/"
+
               observer_name = " ".join(
                   part.strip()
                   for part in [
@@ -89,7 +145,7 @@ jobs:
 
               observations.append({
                   "comet": comet_name,
-                  "mpcName": comet.get("mpc_name") or "",
+                  "mpcName": mpc_name,
                   "icqName": comet.get("icq_name") or "",
                   "observationDate": item.get("obs_date") or "",
                   "observer": observer_name,
@@ -101,13 +157,7 @@ jobs:
                   "methodCode": method.get("key") or "",
                   "magnitude": item.get("magnitude"),
                   "conditions": item.get("conditions"),
-                  "cobsUrl": (
-                      "https://cobs.si/comet/"
-                      + urllib.parse.quote(
-                          str(comet.get("mpc_name") or comet.get("name") or ""),
-                          safe=""
-                      )
-                  )
+                  "cobsUrl": cobs_url
               })
 
           # Newest observations first.
