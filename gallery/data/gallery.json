@@ -433,6 +433,39 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-18-2000_6-Captured_0000_pipp_lapl4_ap68.jpg",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-18-2000_6-Captured_0000_pipp_lapl4_ap68.jpg",
+      "title": "Jupiter.",
+      "description": "20260318_2000_D305 Jupiter",
+      "date": "2026",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-18-1942_3-Captured_0849_pipp_lapl3_ap453.jpg",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-18-1942_3-Captured_0849_pipp_lapl3_ap453.jpg",
+      "title": "Jupiter Up Close.",
+      "description": "20260318_1942_D305 A closer than usual look at Jupiter.",
+      "date": "2026",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-19-1850_5-Captured_pipp_lapl5_ap71.jpg",
+      "thumbnail": "02_The_Solar_System/The_Planets/04_Jupiter/2026-03-19-1850_5-Captured_pipp_lapl5_ap71.jpg",
+      "title": "Jupiter with Callisto Shadow Transit",
+      "description": "20260318_D305 Europa, Ganymede & Io (L to R) with the shadow of Callisto and GRS",
+      "date": "2026",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "jupiter"
     }
   ]
 }
