@@ -165,3 +165,73 @@
         flex-direction: column;
     }
 }
+
+/* ============================================================
+   COBS — Recent Comet Observations
+   ============================================================ */
+
+.cobs-section {
+    padding-top: 20px;
+}
+
+.cobs-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.cobs-list {
+    display: grid;
+    gap: 14px;
+    max-width: 900px;
+}
+
+.cobs-card {
+    padding: 24px 26px;
+    border: 1px solid #dce3e9;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.cobs-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.cobs-card-top time {
+    color: var(--light-muted);
+    font-size: 12px;
+}
+
+.cobs-card h3 {
+    margin-bottom: 6px;
+    font-size: 23px;
+}
+
+.cobs-meta {
+    margin: 0 0 12px;
+    color: var(--light-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.cobs-card .text-link {
+    color: #285f8f;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+
+    .cobs-card-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+}

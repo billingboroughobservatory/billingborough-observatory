@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="alerts.css">
-    <meta name="description" content="Latest astronomical transient alerts from the Central Bureau for Astronomical Telegrams Transient Object Confirmation Page.">
+    <meta name="description" content="Latest astronomical transient alerts from CBAT and recent comet observations from the Comet OBServation database (COBS).">
     <title>Astronomical Alerts | Billingborough Observatory</title>
 </head>
 <body>
@@ -37,100 +37,293 @@
 </header>
 
 <main>
+
+    <!-- =========================================================
+         PAGE INTRODUCTION
+         ========================================================= -->
+
     <section class="page-hero">
         <div class="container">
             <p class="eyebrow">LIVE ASTRONOMICAL INFORMATION</p>
+
             <h1>Astronomical Alerts</h1>
+
             <p>
-                Recent transient-object reports from the Central Bureau for
-                Astronomical Telegrams (CBAT) Transient Object Confirmation Page.
+                Recent astronomical transient reports from the Central Bureau for
+                Astronomical Telegrams (CBAT), together with the latest comet
+                observations submitted to the Comet OBServation database (COBS).
             </p>
         </div>
     </section>
 
+
+    <!-- =========================================================
+         CBAT TOCP
+         ========================================================= -->
+
     <section class="section alerts-section">
+
         <div class="container">
+
             <div class="section-heading">
+
                 <p class="eyebrow">CBAT TOCP</p>
+
                 <h2>Recent transient reports</h2>
+
                 <p>
                     These headlines are generated automatically from the public CBAT
                     TOCP Atom feed. The full reports remain on the CBAT website.
                 </p>
+
             </div>
+
 
             <div class="alerts-toolbar">
-                <div class="alert-filters" role="group" aria-label="Filter alerts">
-                    <button class="alert-filter active" data-filter="all">All</button>
-                    <button class="alert-filter" data-filter="nova">Novae</button>
-                    <button class="alert-filter" data-filter="transient">Transients</button>
-                    <button class="alert-filter" data-filter="supernova">Supernovae</button>
-                    <button class="alert-filter" data-filter="comet">Comets</button>
+
+                <div class="alert-filters"
+                     role="group"
+                     aria-label="Filter alerts">
+
+                    <button class="alert-filter active"
+                            data-filter="all">
+                        All
+                    </button>
+
+                    <button class="alert-filter"
+                            data-filter="nova">
+                        Novae
+                    </button>
+
+                    <button class="alert-filter"
+                            data-filter="transient">
+                        Transients
+                    </button>
+
+                    <button class="alert-filter"
+                            data-filter="supernova">
+                        Supernovae
+                    </button>
+
+                    <button class="alert-filter"
+                            data-filter="comet">
+                        Comets
+                    </button>
+
                 </div>
-                <p id="alerts-updated" class="alerts-updated">Loading latest alerts…</p>
+
+                <p id="alerts-updated"
+                   class="alerts-updated">
+                    Loading latest alerts…
+                </p>
+
             </div>
 
-            <div id="alerts-list" class="alerts-list" aria-live="polite">
+
+            <div id="alerts-list"
+                 class="alerts-list"
+                 aria-live="polite">
+
                 <div class="alert-loading">
-                    <span class="alert-spinner" aria-hidden="true"></span>
+
+                    <span class="alert-spinner"
+                          aria-hidden="true"></span>
+
                     Loading latest CBAT reports…
+
                 </div>
+
             </div>
+
 
             <div class="alerts-source">
+
                 <p>
                     Source:
                     <a href="http://www.cbat.eps.harvard.edu/unconf/tocp.html"
-                       target="_blank" rel="noopener">
-                        Central Bureau for Astronomical Telegrams — Transient Object Confirmation Page
+                       target="_blank"
+                       rel="noopener">
+                        Central Bureau for Astronomical Telegrams —
+                        Transient Object Confirmation Page
                     </a>.
                 </p>
+
                 <p>
                     Billingborough Observatory displays report headlines and metadata
                     and links to the original CBAT source rather than reproducing the
                     full report text.
                 </p>
+
             </div>
+
         </div>
+
     </section>
+
+
+    <!-- =========================================================
+         COBS — RECENT COMET OBSERVATIONS
+         ========================================================= -->
+
+    <section class="section cobs-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">COBS</p>
+
+                <h2>Recent comet observations</h2>
+
+                <p>
+                    Recent observations submitted to the Comet OBServation database
+                    (COBS), showing comets that are currently being observed by
+                    amateur and professional astronomers.
+                </p>
+
+            </div>
+
+
+            <div class="cobs-toolbar">
+
+                <p id="cobs-updated"
+                   class="alerts-updated">
+                    Loading latest comet observations…
+                </p>
+
+            </div>
+
+
+            <div id="cobs-list"
+                 class="cobs-list"
+                 aria-live="polite">
+
+                <div class="alert-loading">
+
+                    <span class="alert-spinner"
+                          aria-hidden="true"></span>
+
+                    Loading latest COBS observations…
+
+                </div>
+
+            </div>
+
+
+            <div class="alerts-source">
+
+                <p>
+                    Source:
+                    <a href="https://cobs.si/recent/"
+                       target="_blank"
+                       rel="noopener">
+                        Comet OBServation database (COBS) —
+                        Recent observations
+                    </a>.
+                </p>
+
+                <p>
+                    Billingborough Observatory displays recent observation
+                    metadata and links to the corresponding COBS comet page.
+                    The observations are supplied by COBS and are not
+                    observations made by Billingborough Observatory.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
 
+
+<!-- =============================================================
+     FOOTER
+     ============================================================= -->
+
 <footer class="site-footer">
+
     <div class="container footer-wrap">
+
         <div>
             <strong>Billingborough Observatory</strong>
             <p>Exploring the sky from Lincolnshire.</p>
         </div>
 
+
         <div class="footer-links">
-            <a href="contact.html">Contact</a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
         </div>
+
 
         <div class="footer-social">
+
             <a href="https://www.facebook.com/billingboroughobservatory/"
-               target="_blank" rel="noopener" aria-label="Facebook">
-                <img src="images/social/facebook.svg" alt="">
+               target="_blank"
+               rel="noopener"
+               aria-label="Facebook">
+
+                <img src="images/social/facebook.svg"
+                     alt="">
+
             </a>
+
+
             <a href="https://bsky.app/profile/billingboroughobservatory.space"
-               target="_blank" rel="noopener" aria-label="Bluesky">
-                <img src="images/social/bluesky.svg" alt="">
+               target="_blank"
+               rel="noopener"
+               aria-label="Bluesky">
+
+                <img src="images/social/bluesky.svg"
+                     alt="">
+
             </a>
+
+
             <a href="https://www.instagram.com/billingboroughobservatory/"
-               target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="images/social/instagram.svg" alt="">
+               target="_blank"
+               rel="noopener"
+               aria-label="Instagram">
+
+                <img src="images/social/instagram.svg"
+                     alt="">
+
             </a>
+
+
             <a href="https://www.threads.com/@billingboroughobservatory"
-               target="_blank" rel="noopener" aria-label="Threads">
-                <img src="images/social/threads.svg" alt="">
+               target="_blank"
+               rel="noopener"
+               aria-label="Threads">
+
+                <img src="images/social/threads.svg"
+                     alt="">
+
             </a>
+
         </div>
+
 
         <div class="footer-note">
-            <p>© 2026 Billingborough Observatory. All rights reserved.</p>
+
+            <p>
+                © 2026 Billingborough Observatory.
+                All rights reserved.
+            </p>
+
         </div>
+
     </div>
+
 </footer>
 
+
 <script src="astronomical-alerts.js"></script>
+
 </body>
 </html>
