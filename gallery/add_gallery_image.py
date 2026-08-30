@@ -338,6 +338,7 @@ directory_map = {
     "The Planets": "The_Planets",
 
     "Galaxies": "Galaxies",
+    "Nebulae": "Nebulae",
     "Star Clusters": "Star_Clusters",
     "Stellar Graveyards": "Stellar_Graveyards",
     "Stellar Nurseries": "Stellar_Nurseries",
