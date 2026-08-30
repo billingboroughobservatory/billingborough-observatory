@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-30T22:42:43.700755+00:00",
+  "generated": "2026-08-30T23:42:39.305201+00:00",
   "apiVersion": "1.5",
-  "observationCount": 17,
+  "observationCount": 16,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -261,22 +261,6 @@
       "magnitude": "11.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "C/2021 G2 (ATLAS)",
-      "mpcName": "K21G020",
-      "icqName": "2021G2",
-      "observationDate": "2026-08-28 23:16:47",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "16.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2284/"
     }
   ]
 }
