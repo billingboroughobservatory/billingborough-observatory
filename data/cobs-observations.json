@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T03:42:43.482174+00:00",
+  "generated": "2026-08-31T04:12:41.758756+00:00",
   "apiVersion": "1.5",
-  "observationCount": 11,
+  "observationCount": 10,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -165,22 +165,6 @@
       "magnitude": "15.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2449/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-08-29 03:49:00",
-      "observer": "Douglas Heggie",
-      "observerCode": "HEG",
-      "association": "",
-      "country": "United Kingdom",
-      "location": "ASERO, Valdin",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "8.7",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/130/"
     }
   ]
 }
