@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T20:12:53.275219+00:00",
+  "generated": "2026-08-31T20:42:21.715428+00:00",
   "apiVersion": "1.5",
-  "observationCount": 10,
+  "observationCount": 9,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -149,22 +149,6 @@
       "magnitude": "14.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "C/2023 R1 (PANSTARRS)",
-      "mpcName": "K23R010",
-      "icqName": "2023R1",
-      "observationDate": "2026-08-29 20:31:00",
-      "observer": "Peter Carson",
-      "observerCode": "CAR06",
-      "association": "British Astronomical Association",
-      "country": "Spain",
-      "location": "PGC, Fregenal de la Sierra",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "15.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2449/"
     }
   ]
 }
