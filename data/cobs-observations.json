@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T02:12:56.556425+00:00",
+  "generated": "2026-08-31T02:42:40.482208+00:00",
   "apiVersion": "1.5",
-  "observationCount": 12,
+  "observationCount": 11,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -181,22 +181,6 @@
       "magnitude": "8.7",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "260P/McNaught",
-      "mpcName": "260P",
-      "icqName": "0260",
-      "observationDate": "2026-08-29 02:38:23",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/754/"
     }
   ]
 }
