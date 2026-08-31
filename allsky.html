@@ -26,21 +26,14 @@
 
         <nav>
             <a href="index.html">Home</a>
-
             <a href="observatory.html">Observatory</a>
-
-            <a href="index.html#meteor-detection">Meteor Detection</a>
-
+            <a href="meteor-detection.html">Meteor Detection</a>
             <a href="history.html">History</a>
-
-            <a href="allsky.html" class="active">Allsky Camera</a>
-
+            <a href="allsky.html"class="active">Allsky Camera</a>
             <a href="observing-conditions.html">Observing Conditions</a>
-
             <a href="learn.html">Learn & Explore</a>
-
-            <a href="index.html#cameras">Live Cameras</a>
-
+            <a href="live-cameras.html">Live Cameras</a>
+            <a href="astronomical-alerts.html">Astronomical Alerts</a>
             <a href="https://gallery.billingboroughobservatory.space/">Gallery</a>
         </nav>
 
@@ -176,46 +169,6 @@
 
     </section>
 
-
-<!-- Current Allsky camera -->
-
-<section class="section section-dark">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <p class="eyebrow">LIVE VIEW</p>
-
-            <h2>Current sky</h2>
-
-            <p>
-                Current view from the Billingborough Observatory
-                Allsky Camera, automatically refreshed throughout
-                the day and night.
-            </p>
-
-        </div>
-
-        <div class="live-camera-card">
-
-            <div class="live-image-wrap">
-
-                <img id="live-allsky-image"
-                     src="https://allsky.billingboroughobservatory.space/image.jpg"
-                     alt="Current view from the Billingborough Observatory Allsky Camera">
-
-            </div>
-
-            <p class="live-status">
-                Image automatically refreshed every 10 seconds.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
 
 <!-- Previous night's Allsky products -->
 
@@ -356,22 +309,13 @@ A composite image showing the apparent movement of the stars across the sky duri
 </footer>
 
 <script>
-    const liveAllskyImage =
-        document.getElementById("live-allsky-image");
+ 
 
     const keogramImage =
         document.getElementById("allsky-keogram");
 
     const startrailsImage =
         document.getElementById("allsky-startrails");
-
-
-    function refreshAllskyImage() {
-        liveAllskyImage.src =
-            "https://allsky.billingboroughobservatory.space/image.jpg?t="
-            + Date.now();
-    }
-
 
     function refreshPreviousNightImages() {
         const timestamp = Date.now();
@@ -386,10 +330,10 @@ A composite image showing the apparent movement of the stars across the sky duri
     }
 
 
-    refreshAllskyImage();
+
     refreshPreviousNightImages();
 
-    setInterval(refreshAllskyImage, 10000);
+
 </script>
     
 </body>

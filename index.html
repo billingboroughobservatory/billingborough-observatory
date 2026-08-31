@@ -21,25 +21,18 @@
     </span>
 </a>
 
-<nav>
-    <a href="index.html" class="active">Home</a>
-
-<a href="observatory.html">Observatory</a>
-
-<a href="index.html#meteor-detection">Meteor Detection</a>
-
-<a href="history.html">History</a>
-
-<a href="allsky.html">Allsky Camera</a>
-
-<a href="observing-conditions.html">Observing Conditions</a>
-
-<a href="learn.html">Learn & Explore</a>
-
-<a href="index.html#cameras">Live Cameras</a>
-
-<a href="https://gallery.billingboroughobservatory.space/">Gallery</a>
-</nav>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="observatory.html">Observatory</a>
+            <a href="meteor-detection.html">Meteor Detection</a>
+            <a href="history.html">History</a>
+            <a href="allsky.html">Allsky Camera</a>
+            <a href="observing-conditions.html">Observing Conditions</a>
+            <a href="learn.html">Learn & Explore</a>
+            <a href="live-cameras.html">Live Cameras</a>
+            <a href="astronomical-alerts.html">Astronomical Alerts</a>
+            <a href="https://gallery.billingboroughobservatory.space/">Gallery</a>
+        </nav>
     </div>
 </header>
 
@@ -125,98 +118,10 @@
             </div>
         </div>
     </section>
-
-<section class="section meteor-activity">
-    <div class="container">
-
-        <div class="section-heading">
-            <p class="eyebrow">LAST NIGHT'S ACTIVITY</p>
-            <h2>Meteor activity from Billingborough</h2>
-            <p>
-                The latest stacked images from our two meteor detection
-                cameras, automatically updated from the
-                <a href="https://globalmeteornetwork.org/"
-                   target="_blank"
-                   rel="noopener">Global Meteor Network</a>.
-            </p>
-        </div>
-
-       <div class="meteor-grid">
-
-    <article class="meteor-card">
-        <h3>UK0026</h3>
-        <p class="meteor-status" id="uk0026-status">
-            Loading latest observation…
-        </p>
-
-        <a id="uk0026-link"
-           href="https://globalmeteornetwork.org/weblog/UK/UK0026/latest/"
-           target="_blank"
-           rel="noopener">
-            <img id="uk0026-image"
-                 src=""
-                 alt="Latest stacked meteor image from camera UK0026">
-        </a>
-
-        <p class="meteor-link">
-            <a id="uk0026-report"
-               href="https://globalmeteornetwork.org/weblog/UK/UK0026/latest/"
-               target="_blank"
-               rel="noopener">
-                View full UK0026 observation →
-            </a>
-        </p>
-    </article>
-
-
-            <article class="meteor-card">
-                <h3>UK0032</h3>
-                <p class="meteor-status" id="uk0032-status">
-                    Loading latest observation…
-                </p>
-
-                <a id="uk0032-link"
-                   href="https://globalmeteornetwork.org/weblog/UK/UK0032/latest/"
-                   target="_blank"
-                   rel="noopener">
-                    <img id="uk0032-image"
-                         src=""
-                         alt="Latest stacked meteor image from camera UK0032">
-                </a>
-
-                <p class="meteor-link">
-                    <a id="uk0032-report"
-                       href="https://globalmeteornetwork.org/weblog/UK/UK0032/latest/"
-                       target="_blank"
-                       rel="noopener">
-                        View full UK0032 observation →
-                    </a>
-                </p>
-            </article>
-
-        </div>
-
-        <p class="meteor-credit">
-            Meteor observations provided through the
-            <a href="https://globalmeteornetwork.org/"
-               target="_blank"
-               rel="noopener">
-                Global Meteor Network
-            </a>.
-        </p>
-
-    </div>
-</section>
     
     <section id="history" class="section history">
         <div class="container split history-grid">
-<!--
-    <div class="history-image">
-        <img src="images/essam-post-office.jpg"
-             alt="Historic view of Billingborough High Street showing Essam's drug store and Post Office">
-        <p class="caption">Billingborough High Street, around 1900.</p>
-    </div>
--->
+
 <div class="history-placeholder">
     <div class="placeholder-symbol">✦</div>
     <p class="eyebrow">HISTORICAL RESEARCH</p>
@@ -252,44 +157,6 @@
         </div>
     </section>
 
-    <section id="cameras" class="section section-dark">
-        <div class="container">
-            <div class="section-heading">
-                <p class="eyebrow">LIVE & RECORDED</p>
-                <h2>See the sky from Billingborough</h2>
-                <p>
-                    Live camera feeds, daily timelapses and selected observations
-                    will appear here as the observatory's online presence grows.
-                </p>
-            </div>
-    <!--        <div class="camera-placeholder">
-                <div class="camera-symbol">◉</div>
-                <h3>Live cameras coming soon</h3>
-                <p>The observatory's automated camera systems will be connected here.</p>
-            </div>
-            -->
-            <div class="live-stream">
-    <div class="live-stream-header">
-        <span class="live-indicator">● LIVE</span>
-        <span>Billingborough Observatory</span>
-    </div>
-
-    <div class="video-wrapper">
-        <iframe
-            src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCccorppDsBV6KsN6zUe7axg"
-            title="Live stream from Billingborough Observatory"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <p class="stream-caption">
-        Live view from Billingborough Observatory, Lincolnshire.
-        The observatory's cameras monitor the night sky and meteor activity.
-    </p>
-</div>
-        </div>
-    </section>
 </main>
 
 <footer class="site-footer">
@@ -342,171 +209,6 @@
 
     </div>
 </footer>
-
-<script>
-
-async function loadMeteorCamera(camera, elementId) {
-
-    const page =
-        `https://globalmeteornetwork.org/weblog/UK/${camera}/latest/`;
-
-    const image =
-        document.getElementById(`${elementId}-image`);
-
-    const status =
-        document.getElementById(`${elementId}-status`);
-
-    const link =
-        document.getElementById(`${elementId}-link`);
-
-    const report =
-        document.getElementById(`${elementId}-report`);
-
-    try {
-
-        const response = await fetch(page, {
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-
-        const html = await response.text();
-
-        /*
-         * Find the current GMN stacked meteor image.
-         *
-         * Different GMN cameras can use different filenames.
-         *
-         * UK0032 uses:
-         *     ..._stack_123_meteors.jpg
-         *
-         * UK0026 uses:
-         *     ..._captured_stack.jpg
-         */
-
-        const match = html.match(
-            /https?:\/\/[^"' ]+_(?:stack_[0-9]+_meteors|captured_stack)\.jpg/
-        );
-
-        if (!match) {
-            throw new Error("No stacked meteor image found.");
-        }
-
-        const imageURL = match[0];
-
-        /*
-         * Extract the filename.
-         */
-
-        const filename =
-            imageURL.split('/').pop();
-
-        /*
-         * Extract the date.
-         *
-         * Both current GMN formats contain:
-         *
-         * YYYYMMDD_HHMMSS
-         */
-
-        const dateMatch = filename.match(
-            /_(\d{8})_\d{6}_/
-        );
-
-        /*
-         * Extract meteor count if this is the
-         * conventional GMN "_stack_N_meteors" format.
-         */
-
-        const meteorMatch = filename.match(
-            /_stack_(\d+)_meteors\.jpg/
-        );
-
-        if (dateMatch) {
-
-            const rawDate = dateMatch[1];
-
-            const year =
-                rawDate.substring(0, 4);
-
-            const month =
-                rawDate.substring(4, 6);
-
-            const day =
-                rawDate.substring(6, 8);
-
-            const date =
-                new Date(
-                    `${year}-${month}-${day}T00:00:00`
-                );
-
-            const formattedDate =
-                date.toLocaleDateString(
-                    'en-GB',
-                    {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    }
-                );
-
-            if (meteorMatch) {
-
-                const meteorCount =
-                    meteorMatch[1];
-
-                status.textContent =
-                    `${formattedDate} · ${meteorCount} meteors`;
-
-            } else {
-
-                status.textContent =
-                    `${formattedDate} · Latest observation`;
-
-            }
-
-        } else {
-
-            status.textContent =
-                "Latest observation";
-
-        }
-
-        /*
-         * Display the image.
-         */
-
-        image.src = `${imageURL}?v=${dateMatch ? dateMatch[1] : Date.now()}`;
-
-        /*
-         * Make the image link to the GMN report.
-         */
-
-        link.href = page;
-
-        report.href = page;
-
-    } catch (error) {
-
-        console.error(
-            `GMN ${camera}:`,
-            error
-        );
-
-        status.textContent =
-            "Latest observation unavailable.";
-
-    }
-}
-
-
-loadMeteorCamera("UK0026", "uk0026");
-loadMeteorCamera("UK0032", "uk0032");
-
-</script>
-
     
 </body>
 </html>
