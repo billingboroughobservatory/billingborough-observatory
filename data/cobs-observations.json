@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T10:13:00.361161+00:00",
+  "generated": "2026-08-31T10:42:55.221179+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-08-31 06:08:00",
+      "observer": "Mike Olason",
+      "observerCode": "OLA",
+      "association": "",
+      "country": "United States",
+      "location": "Tucson Arizona",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "8.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -149,22 +165,6 @@
       "magnitude": "15.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "C/2023 R1 (PANSTARRS)",
-      "mpcName": "K23R010",
-      "icqName": "2023R1",
-      "observationDate": "2026-08-29 10:28:00",
-      "observer": "David Swan",
-      "observerCode": "SWA01",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "MPC Q62",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "15.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2449/"
     }
   ]
 }
