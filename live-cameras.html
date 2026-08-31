@@ -303,26 +303,42 @@
 const liveAllskyImage =
     document.getElementById("live-allsky-image");
 
+const maintenanceMode = false;
+
+const liveImage =
+    "https://allsky.billingboroughobservatory.space/image.jpg";
+
+const maintenanceImage =
+    "images/allsky-maintenance.jpg";
+
 
 function refreshAllskyImage() {
 
-    liveAllskyImage.src =
-        "https://allsky.billingboroughobservatory.space/image.jpg?t="
-        + Date.now();
+    if (maintenanceMode) {
 
+        liveAllskyImage.src =
+            maintenanceImage;
+
+        return;
+    }
+
+    liveAllskyImage.src =
+        liveImage + "?t=" + Date.now();
 }
 
 
 refreshAllskyImage();
 
+if (!maintenanceMode) {
 
-setInterval(
-    refreshAllskyImage,
-    10000
-);
+    setInterval(
+        refreshAllskyImage,
+        10000
+    );
+
+}
 
 </script>
-
 
 </body>
 </html>
