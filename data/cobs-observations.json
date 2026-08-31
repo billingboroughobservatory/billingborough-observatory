@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T01:12:50.312054+00:00",
+  "generated": "2026-08-31T01:42:36.683332+00:00",
   "apiVersion": "1.5",
-  "observationCount": 14,
+  "observationCount": 13,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -213,22 +213,6 @@
       "magnitude": "15.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-08-29 01:26:23",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
