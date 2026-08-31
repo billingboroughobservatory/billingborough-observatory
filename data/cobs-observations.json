@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T00:13:26.917454+00:00",
+  "generated": "2026-08-31T01:12:50.312054+00:00",
   "apiVersion": "1.5",
-  "observationCount": 15,
+  "observationCount": 14,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -229,22 +229,6 @@
       "magnitude": "14.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/74/"
-    },
-    {
-      "comet": "C/2022 E2 (ATLAS)",
-      "mpcName": "K22E020",
-      "icqName": "2022E2",
-      "observationDate": "2026-08-29 00:14:24",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "18.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2322/"
     }
   ]
 }
