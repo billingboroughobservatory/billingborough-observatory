@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T22:42:39.384668+00:00",
+  "generated": "2026-08-31T23:12:42.897569+00:00",
   "apiVersion": "1.5",
-  "observationCount": 9,
+  "observationCount": 8,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -133,22 +133,6 @@
       "magnitude": "17.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2344/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-08-29 23:06:00",
-      "observer": "Tomasz Sciezor",
-      "observerCode": "SCI",
-      "association": "Polish Comet Observers",
-      "country": "Poland",
-      "location": "Cracow",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "10.4",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/130/"
     }
   ]
 }
