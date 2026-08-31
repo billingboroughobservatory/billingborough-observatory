@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-08-31T20:42:21.715428+00:00",
+  "generated": "2026-08-31T21:12:43.835446+00:00",
   "apiVersion": "1.5",
-  "observationCount": 9,
+  "observationCount": 8,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -133,22 +133,6 @@
       "magnitude": "17.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2284/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-08-29 21:11:00",
-      "observer": "Peter Carson",
-      "observerCode": "CAR06",
-      "association": "British Astronomical Association",
-      "country": "Spain",
-      "location": "PGC, Fregenal de la Sierra",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "14.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
     }
   ]
 }
