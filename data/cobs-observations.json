@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-01T12:49:24.476816+00:00",
+  "generated": "2026-09-01T13:20:46.116851+00:00",
   "apiVersion": "1.5",
-  "observationCount": 6,
+  "observationCount": 4,
   "observations": [
     {
       "comet": "235P/LINEAR",
@@ -69,38 +69,6 @@
       "magnitude": "10.4",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-08-30 13:07:33",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "8.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-08-30 13:06:16",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Perth Observatory, Bickley",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "8.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
     }
   ]
 }
