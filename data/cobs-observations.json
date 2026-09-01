@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-01T21:44:05.596184+00:00",
+  "generated": "2026-09-01T22:18:18.342163+00:00",
   "apiVersion": "1.5",
-  "observationCount": 5,
+  "observationCount": 6,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-01 14:15:35",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "7.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
     {
       "comet": "220P/McNaught",
       "mpcName": "220P",
