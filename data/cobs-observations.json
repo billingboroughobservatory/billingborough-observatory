@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-01T11:45:14.535677+00:00",
+  "generated": "2026-09-01T12:26:10.323358+00:00",
   "apiVersion": "1.5",
   "observationCount": 6,
   "observations": [
+    {
+      "comet": "235P/LINEAR",
+      "mpcName": "235P",
+      "icqName": "0235",
+      "observationDate": "2026-08-31 21:56:21",
+      "observer": "Kevin Hills",
+      "observerCode": "HIL04",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "Tacande Observatory, La Palma (MPC J22)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/142/"
+    },
+    {
+      "comet": "C/2023 X2 (Lemmon)",
+      "mpcName": "K23X020",
+      "icqName": "2023X2",
+      "observationDate": "2026-08-31 21:15:14",
+      "observer": "Kevin Hills",
+      "observerCode": "HIL04",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "Tacande Observatory, La Palma (MPC J22)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "19.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2484/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -69,38 +101,6 @@
       "magnitude": "8.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "C/2021 G2 (ATLAS)",
-      "mpcName": "K21G020",
-      "icqName": "2021G2",
-      "observationDate": "2026-08-30 12:25:50",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Perth Observatory, Bickley",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "16.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2284/"
-    },
-    {
-      "comet": "C/2023 R1 (PANSTARRS)",
-      "mpcName": "K23R010",
-      "icqName": "2023R1",
-      "observationDate": "2026-08-30 11:47:04",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Perth Observatory, Bickley",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2449/"
     }
   ]
 }
