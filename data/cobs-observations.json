@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-01T07:46:30.733847+00:00",
+  "generated": "2026-09-01T08:22:50.228739+00:00",
   "apiVersion": "1.5",
-  "observationCount": 7,
+  "observationCount": 6,
   "observations": [
     {
       "comet": "10P/Tempel",
@@ -101,22 +101,6 @@
       "magnitude": "14.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2449/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-08-30 08:17:00",
-      "observer": "David Swan",
-      "observerCode": "SWA01",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "MPC U94",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "15.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
