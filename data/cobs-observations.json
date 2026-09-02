@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-02T20:46:15.096319+00:00",
+  "generated": "2026-09-02T21:18:51.267674+00:00",
   "apiVersion": "1.5",
-  "observationCount": 11,
+  "observationCount": 10,
   "observations": [
     {
       "comet": "220P/McNaught",
@@ -165,22 +165,6 @@
       "magnitude": "18.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/142/"
-    },
-    {
-      "comet": "C/2023 X2 (Lemmon)",
-      "mpcName": "K23X020",
-      "icqName": "2023X2",
-      "observationDate": "2026-08-31 21:15:14",
-      "observer": "Kevin Hills",
-      "observerCode": "HIL04",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "Tacande Observatory, La Palma (MPC J22)",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "19.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2484/"
     }
   ]
 }
