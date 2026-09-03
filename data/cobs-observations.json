@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-03T19:17:30.155749+00:00",
+  "generated": "2026-09-03T19:42:47.380492+00:00",
   "apiVersion": "1.5",
-  "observationCount": 5,
+  "observationCount": 2,
   "observations": [
     {
       "comet": "C/2023 R1 (PANSTARRS)",
@@ -37,54 +37,6 @@
       "magnitude": "10.6",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-01 19:40:48",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-01 19:40:48",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "14.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-01 19:26:24",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
     }
   ]
 }
