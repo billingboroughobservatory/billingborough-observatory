@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-03T09:47:00.005209+00:00",
+  "generated": "2026-09-03T10:21:36.448076+00:00",
   "apiVersion": "1.5",
-  "observationCount": 8,
+  "observationCount": 7,
   "observations": [
     {
       "comet": "220P/McNaught",
@@ -32,9 +32,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "14.4",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -48,9 +48,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.0",
+      "method": "SLOAN/SDSS i′ with CCD/CMOS",
+      "methodCode": "h",
+      "magnitude": "14.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -117,22 +117,6 @@
       "magnitude": "7.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-09-01 10:19:00",
-      "observer": "Mike Olason",
-      "observerCode": "OLA",
-      "association": "",
-      "country": "United States",
-      "location": "Tucson Arizona",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "13.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
     }
   ]
 }
