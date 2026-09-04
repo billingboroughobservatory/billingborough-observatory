@@ -27,14 +27,14 @@ jobs:
 
           API_URL = "https://cobs.si/api/obs_list.api"
 
-          # Look back 48 hours so delayed COBS submissions are not missed.
-          since = datetime.now(timezone.utc) - timedelta(hours=48)
+          # Look back 30 days so the feed always has enough recent
+          # observations to provide the latest 10.
+          since = datetime.now(timezone.utc) - timedelta(days=30)
           from_date = since.strftime("%Y-%m-%d %H:%M")
 
           params = urllib.parse.urlencode({
               "format": "json",
-              "from_date": from_date,
-              "obs_type": "C"
+              "from_date": from_date
           })
 
           url = f"{API_URL}?{params}"
@@ -166,8 +166,8 @@ jobs:
               reverse=True
           )
 
-          # Keep the latest 100 observations.
-          observations = observations[:100]
+          # Keep the latest 10 observations for the website.
+          observations = observations[:10]
 
           output = {
               "source": "COBS — Comet OBServation database",
