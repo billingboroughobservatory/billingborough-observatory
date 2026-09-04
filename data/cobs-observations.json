@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-04T19:44:02.608021+00:00",
+  "generated": "2026-09-04T20:20:14.809432+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -21,6 +21,22 @@
       "magnitude": "9.2",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/130/"
+    },
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-03 12:07:00",
+      "observer": "Raymond Ramlow",
+      "observerCode": "RAM02",
+      "association": "",
+      "country": "United States",
+      "location": "Q62",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "7.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
       "comet": "245P/WISE",
@@ -80,9 +96,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "14.4",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -96,9 +112,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.0",
+      "method": "SLOAN/SDSS i′ with CCD/CMOS",
+      "methodCode": "h",
+      "magnitude": "14.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -149,22 +165,6 @@
       "magnitude": "16.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2284/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-09-01 14:15:35",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Perth Observatory, Bickley",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "7.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
     }
   ]
 }
