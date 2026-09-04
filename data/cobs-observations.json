@@ -2,9 +2,9 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-04T02:45:28.972209+00:00",
+  "generated": "2026-09-04T03:19:51.118852+00:00",
   "apiVersion": "1.5",
-  "observationCount": 2,
+  "observationCount": 1,
   "observations": [
     {
       "comet": "245P/WISE",
@@ -21,22 +21,6 @@
       "magnitude": "19.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/328/"
-    },
-    {
-      "comet": "C/2023 R1 (PANSTARRS)",
-      "mpcName": "K23R010",
-      "icqName": "2023R1",
-      "observationDate": "2026-09-02 03:06:00",
-      "observer": "Mike Olason",
-      "observerCode": "OLA",
-      "association": "",
-      "country": "United States",
-      "location": "Tucson Arizona",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "14.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2449/"
     }
   ]
 }
