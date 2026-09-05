@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-05T13:43:32.788421+00:00",
+  "generated": "2026-09-05T14:19:18.827541+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-05 14:04:00",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Koorda, W. Australia",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "8.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "11P/Tempel-Swift-LINEAR",
+      "mpcName": "11P",
+      "icqName": "0011",
+      "observationDate": "2026-09-05 09:50:24",
+      "observer": "Katsumi Yoshimoto",
+      "observerCode": "YOS02",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/483/"
+    },
     {
       "comet": "95P/Chiron",
       "mpcName": "95P",
@@ -71,22 +103,6 @@
       "cobsUrl": "https://cobs.si/comet/2490/"
     },
     {
-      "comet": "C/2023 H5 (Lemmon)",
-      "mpcName": "K23H050",
-      "icqName": "2023H5",
-      "observationDate": "2026-09-04 19:55:12",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "18.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2435/"
-    },
-    {
       "comet": "C/2026 AZ17 (Bok)",
       "mpcName": "K26A17Z",
       "icqName": "2026AZ17",
@@ -103,26 +119,10 @@
       "cobsUrl": "https://cobs.si/comet/2782/"
     },
     {
-      "comet": "C/2026 AZ17 (Bok)",
-      "mpcName": "K26A17Z",
-      "icqName": "2026AZ17",
-      "observationDate": "2026-09-04 19:40:48",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "16.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2782/"
-    },
-    {
-      "comet": "C/2026 AZ17 (Bok)",
-      "mpcName": "K26A17Z",
-      "icqName": "2026AZ17",
-      "observationDate": "2026-09-04 19:40:48",
+      "comet": "C/2023 H5 (Lemmon)",
+      "mpcName": "K23H050",
+      "icqName": "2023H5",
+      "observationDate": "2026-09-04 19:55:12",
       "observer": "Jakub Koukal",
       "observerCode": "KOU",
       "association": "Society for Interplanetary Matter",
@@ -130,9 +130,9 @@
       "location": "Valasske Mezirici",
       "method": "Unfiltered total CCD/CMOS magnitude",
       "methodCode": "C",
-      "magnitude": "16.7",
+      "magnitude": "18.5",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2782/"
+      "cobsUrl": "https://cobs.si/comet/2435/"
     },
     {
       "comet": "C/2021 G2 (ATLAS)",
@@ -151,20 +151,20 @@
       "cobsUrl": "https://cobs.si/comet/2284/"
     },
     {
-      "comet": "C/2021 G2 (ATLAS)",
-      "mpcName": "K21G020",
-      "icqName": "2021G2",
-      "observationDate": "2026-09-04 19:26:23",
+      "comet": "C/2026 AZ17 (Bok)",
+      "mpcName": "K26A17Z",
+      "icqName": "2026AZ17",
+      "observationDate": "2026-09-04 19:40:48",
       "observer": "Jakub Koukal",
       "observerCode": "KOU",
       "association": "Society for Interplanetary Matter",
       "country": "Czech Republic",
       "location": "Valasske Mezirici",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "16.5",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "16.7",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2284/"
+      "cobsUrl": "https://cobs.si/comet/2782/"
     }
   ]
 }
