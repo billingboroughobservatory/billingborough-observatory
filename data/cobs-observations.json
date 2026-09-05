@@ -2,26 +2,10 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-05T10:43:45.829108+00:00",
+  "generated": "2026-09-05T11:18:28.092859+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
-    {
-      "comet": "C/2024 A1 (ATLAS)",
-      "mpcName": "K24A010",
-      "icqName": "2024A1",
-      "observationDate": "2026-09-04 20:09:35",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "18.2",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2490/"
-    },
     {
       "comet": "C/2022 E2 (ATLAS)",
       "mpcName": "K22E020",
@@ -39,10 +23,10 @@
       "cobsUrl": "https://cobs.si/comet/2322/"
     },
     {
-      "comet": "C/2023 H5 (Lemmon)",
-      "mpcName": "K23H050",
-      "icqName": "2023H5",
-      "observationDate": "2026-09-04 19:55:12",
+      "comet": "C/2024 A1 (ATLAS)",
+      "mpcName": "K24A010",
+      "icqName": "2024A1",
+      "observationDate": "2026-09-04 20:09:35",
       "observer": "Jakub Koukal",
       "observerCode": "KOU",
       "association": "Society for Interplanetary Matter",
@@ -50,9 +34,9 @@
       "location": "Valasske Mezirici",
       "method": "Unfiltered total CCD/CMOS magnitude",
       "methodCode": "C",
-      "magnitude": "18.5",
+      "magnitude": "18.2",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2435/"
+      "cobsUrl": "https://cobs.si/comet/2490/"
     },
     {
       "comet": "C/2026 AZ17 (Bok)",
@@ -69,6 +53,22 @@
       "magnitude": "16.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2782/"
+    },
+    {
+      "comet": "C/2023 H5 (Lemmon)",
+      "mpcName": "K23H050",
+      "icqName": "2023H5",
+      "observationDate": "2026-09-04 19:55:12",
+      "observer": "Jakub Koukal",
+      "observerCode": "KOU",
+      "association": "Society for Interplanetary Matter",
+      "country": "Czech Republic",
+      "location": "Valasske Mezirici",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2435/"
     },
     {
       "comet": "C/2026 AZ17 (Bok)",
@@ -128,9 +128,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Czech Republic",
       "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "15.7",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "16.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2284/"
     },
@@ -144,9 +144,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Czech Republic",
       "location": "Valasske Mezirici",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "16.5",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "15.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2284/"
     },
