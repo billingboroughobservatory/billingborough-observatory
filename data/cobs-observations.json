@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-05T21:43:17.916638+00:00",
+  "generated": "2026-09-05T22:19:01.338955+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -151,20 +151,20 @@
       "cobsUrl": "https://cobs.si/comet/2782/"
     },
     {
-      "comet": "C/2026 AZ17 (Bok)",
-      "mpcName": "K26A17Z",
-      "icqName": "2026AZ17",
+      "comet": "C/2021 G2 (ATLAS)",
+      "mpcName": "K21G020",
+      "icqName": "2021G2",
       "observationDate": "2026-09-04 19:40:48",
       "observer": "Jakub Koukal",
       "observerCode": "KOU",
       "association": "Society for Interplanetary Matter",
       "country": "Czech Republic",
       "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "16.7",
+      "method": "SLOAN/SDSS i′ with CCD/CMOS",
+      "methodCode": "h",
+      "magnitude": "15.3",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2782/"
+      "cobsUrl": "https://cobs.si/comet/2284/"
     }
   ]
 }
