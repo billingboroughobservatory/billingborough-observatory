@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-06T02:20:30.457646+00:00",
+  "generated": "2026-09-06T02:46:00.299167+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
