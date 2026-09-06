@@ -1,8 +1,26 @@
 {
   "source": "Central Bureau for Astronomical Telegrams \u2014 Transient Object Confirmation Page",
   "sourceUrl": "https://www.cbat.eps.harvard.edu/unconf/tocp.html",
-  "generated": "2026-09-04T12:16:29.271512+00:00",
+  "generated": "2026-09-06T12:47:36.568842+00:00",
   "entries": [
+    {
+      "title": "Possible nova",
+      "designation": "PNV J00425038+4118587",
+      "category": "nova",
+      "typeLabel": "Possible nova",
+      "updated": "2026-09-04T13:14:30.000Z",
+      "observationDate": "2026 09 04.1512",
+      "magnitude": ""
+    },
+    {
+      "title": "Possible nova",
+      "designation": "J00425038+4118587",
+      "category": "nova",
+      "typeLabel": "Possible nova",
+      "updated": "2026-09-04T13:01:32.000Z",
+      "observationDate": "2026 09 04.1512",
+      "magnitude": "18"
+    },
     {
       "title": "Possible nova",
       "designation": "PNV J00425465+4122593",
@@ -343,24 +361,6 @@
       "typeLabel": "Possible transient",
       "updated": "2026-08-10T22:14:15.000Z",
       "observationDate": "2026 08 10.911",
-      "magnitude": ""
-    },
-    {
-      "title": "Possible supernova",
-      "designation": "PSN J09133817+7628181",
-      "category": "supernova",
-      "typeLabel": "Supernova",
-      "updated": "2026-08-10T01:46:05.000Z",
-      "observationDate": "2026 08 09.8037",
-      "magnitude": ""
-    },
-    {
-      "title": "Possible supernova",
-      "designation": "PSN J09133817+7628181",
-      "category": "supernova",
-      "typeLabel": "Supernova",
-      "updated": "2026-08-10T01:20:17.000Z",
-      "observationDate": "2026 08 09.8037",
       "magnitude": ""
     }
   ]
