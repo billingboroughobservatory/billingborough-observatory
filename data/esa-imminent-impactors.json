@@ -1,0 +1,16 @@
+{
+  "source": "ESA NEO Coordination Centre",
+  "sourceUrl": "https://neo.ssa.esa.int/imminent-impactors",
+  "generated": "2026-09-06T12:53:12.807643+00:00",
+  "esaLastUpdate": "2026-09-06T12:20:02Z",
+  "impactorCount": 1,
+  "observations": [
+    {
+      "designation": "CERNQ52",
+      "impactDate": "2026-09-06 16:12:15 UTC",
+      "absoluteMagnitude": "33.4",
+      "diameterRange": "0.6 - 1.2",
+      "meerkatImage": "https://neo.ssa.esa.int/o/PSDB-portlet/imageproxyservlet?imageUrl=work-dir/meerkat/portal//Impact_CERNQ52_11_2026-09-06T111847.668.png"
+    }
+  ]
+}
