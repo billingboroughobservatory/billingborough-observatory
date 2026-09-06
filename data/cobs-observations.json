@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-06T00:52:23.326005+00:00",
+  "generated": "2026-09-06T01:18:13.349236+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -71,22 +71,6 @@
       "cobsUrl": "https://cobs.si/comet/41/"
     },
     {
-      "comet": "C/2022 E2 (ATLAS)",
-      "mpcName": "K22E020",
-      "icqName": "2022E2",
-      "observationDate": "2026-09-04 20:09:35",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "16.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2322/"
-    },
-    {
       "comet": "C/2024 A1 (ATLAS)",
       "mpcName": "K24A010",
       "icqName": "2024A1",
@@ -101,6 +85,22 @@
       "magnitude": "18.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2490/"
+    },
+    {
+      "comet": "C/2022 E2 (ATLAS)",
+      "mpcName": "K22E020",
+      "icqName": "2022E2",
+      "observationDate": "2026-09-04 20:09:35",
+      "observer": "Jakub Koukal",
+      "observerCode": "KOU",
+      "association": "Society for Interplanetary Matter",
+      "country": "Czech Republic",
+      "location": "Valasske Mezirici",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "16.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2322/"
     },
     {
       "comet": "C/2026 AZ17 (Bok)",
@@ -160,9 +160,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Czech Republic",
       "location": "Valasske Mezirici",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "16.5",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "16.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2782/"
     }
