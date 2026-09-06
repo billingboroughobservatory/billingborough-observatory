@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-06T01:18:13.349236+00:00",
+  "generated": "2026-09-06T01:46:31.414397+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-05 14:45:19",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Dowerin, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "8.4",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-09-05 14:38:24",
+      "observer": "Katsumi Yoshimoto",
+      "observerCode": "YOS02",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "13.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -15,7 +47,7 @@
       "observerCode": "PEA",
       "association": "International Comet Quarterly",
       "country": "Australia",
-      "location": "Koorda, W. Australia",
+      "location": "Dowerin, W. Australia",
       "method": "In-Out method",
       "methodCode": "S",
       "magnitude": "8.5",
@@ -71,22 +103,6 @@
       "cobsUrl": "https://cobs.si/comet/41/"
     },
     {
-      "comet": "C/2024 A1 (ATLAS)",
-      "mpcName": "K24A010",
-      "icqName": "2024A1",
-      "observationDate": "2026-09-04 20:09:35",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "18.2",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2490/"
-    },
-    {
       "comet": "C/2022 E2 (ATLAS)",
       "mpcName": "K22E020",
       "icqName": "2022E2",
@@ -101,6 +117,22 @@
       "magnitude": "16.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2322/"
+    },
+    {
+      "comet": "C/2024 A1 (ATLAS)",
+      "mpcName": "K24A010",
+      "icqName": "2024A1",
+      "observationDate": "2026-09-04 20:09:35",
+      "observer": "Jakub Koukal",
+      "observerCode": "KOU",
+      "association": "Society for Interplanetary Matter",
+      "country": "Czech Republic",
+      "location": "Valasske Mezirici",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2490/"
     },
     {
       "comet": "C/2026 AZ17 (Bok)",
@@ -133,38 +165,6 @@
       "magnitude": "18.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2435/"
-    },
-    {
-      "comet": "C/2021 G2 (ATLAS)",
-      "mpcName": "K21G020",
-      "icqName": "2021G2",
-      "observationDate": "2026-09-04 19:40:48",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "15.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2284/"
-    },
-    {
-      "comet": "C/2026 AZ17 (Bok)",
-      "mpcName": "K26A17Z",
-      "icqName": "2026AZ17",
-      "observationDate": "2026-09-04 19:40:48",
-      "observer": "Jakub Koukal",
-      "observerCode": "KOU",
-      "association": "Society for Interplanetary Matter",
-      "country": "Czech Republic",
-      "location": "Valasske Mezirici",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "16.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2782/"
     }
   ]
 }
