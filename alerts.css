@@ -235,3 +235,203 @@
     }
 
 }
+
+/* ============================================================
+   ESA NEOCC — Imminent Impactors
+   ============================================================ */
+
+.esa-section {
+
+    padding-top: 20px;
+
+}
+
+.esa-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+
+    flex-wrap: wrap;
+
+}
+
+.esa-impactors-list {
+
+    display: grid;
+
+    gap: 14px;
+
+    max-width: 900px;
+
+}
+
+.esa-impactor-card {
+
+    padding: 24px 26px;
+
+    border: 1px solid #dce3e9;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+}
+
+.esa-impactor-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+.alert-type-impactor {
+
+    background: #f3e8e8;
+
+    color: #8a3535;
+
+}
+
+.esa-impact-status {
+
+    color: #8a3535;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .04em;
+
+}
+
+.esa-impactor-card h3 {
+
+    margin-bottom: 18px;
+
+    font-size: 28px;
+
+}
+
+.esa-impact-details {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+
+}
+
+.esa-impact-detail {
+
+    padding: 14px 16px;
+
+    border-radius: 8px;
+
+    background: #f5f7f9;
+
+}
+
+.esa-detail-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--light-muted);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: .04em;
+
+    text-transform: uppercase;
+
+}
+
+.esa-impact-detail strong {
+
+    display: block;
+
+    color: #172333;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+.esa-meerkat {
+
+    margin: 0 0 20px;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #edf2f6;
+
+}
+
+.esa-meerkat img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+.esa-impactor-card .text-link {
+
+    color: #285f8f;
+
+    font-weight: 600;
+
+}
+
+@media (max-width: 700px) {
+
+    .esa-impactor-card-top {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+
+    }
+
+    .esa-impact-details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .esa-impactor-card h3 {
+
+        font-size: 24px;
+
+    }
+
+}
