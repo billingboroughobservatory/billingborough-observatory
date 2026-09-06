@@ -1,0 +1,286 @@
+name: Update ESA imminent impactors
+
+on:
+  schedule:
+    - cron: "9,39 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-esa-impactors:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Fetch ESA imminent impactors
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          import urllib.request
+          from datetime import datetime, timezone
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          ESA_URL = "https://neo.ssa.esa.int/imminent-impactors"
+
+          request = urllib.request.Request(
+              ESA_URL,
+              headers={
+                  "User-Agent": "BillingboroughObservatory/1.0"
+              }
+          )
+
+          print(f"Requesting ESA NEOCC page: {ESA_URL}")
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              html = response.read().decode("utf-8", errors="replace")
+
+          print(f"Downloaded {len(html)} bytes")
+
+          class ImpactorParser(HTMLParser):
+              def __init__(self):
+                  super().__init__(
+                      convert_charrefs=True
+                  )
+
+                  self.last_update = ""
+                  self.total_impactors = None
+
+                  self.in_section = False
+                  self.section_depth = 0
+                  self.current_section = None
+
+                  self.in_h3 = False
+                  self.in_td = False
+                  self.in_last_update = False
+                  self.in_total_quantity = False
+
+                  self.text_buffer = ""
+                  self.td_buffer = ""
+
+                  self.sections = []
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+
+                  if tag == "section":
+                      self.in_section = True
+                      self.section_depth = 1
+                      self.current_section = {
+                          "name": "",
+                          "cells": [],
+                          "image": ""
+                      }
+
+                  elif self.in_section:
+                      if tag == "section":
+                          self.section_depth += 1
+
+                      if tag == "h3":
+                          self.in_h3 = True
+                          self.text_buffer = ""
+
+                      if tag == "td":
+                          self.in_td = True
+                          self.td_buffer = ""
+
+                      if tag == "img":
+                          src = attrs.get("src", "")
+                          alt = attrs.get("alt", "")
+
+                          if alt == "Meerkat Plot":
+                              self.current_section["image"] = src
+
+                  if tag == "span":
+                      classes = attrs.get("class", "")
+
+                      if "last-update-value" in classes:
+                          self.in_last_update = True
+                          self.text_buffer = ""
+
+                      if "asteroid-card__text--quantity" in classes:
+                          self.in_total_quantity = True
+                          self.text_buffer = ""
+
+              def handle_endtag(self, tag):
+                  if tag == "h3" and self.in_h3:
+                      self.in_h3 = False
+
+                      if self.current_section is not None:
+                          self.current_section["name"] = (
+                              self.text_buffer.strip()
+                          )
+
+                      self.text_buffer = ""
+
+                  elif tag == "td" and self.in_td:
+                      self.in_td = False
+
+                      if self.current_section is not None:
+                          value = " ".join(
+                              self.td_buffer.split()
+                          )
+
+                          self.current_section["cells"].append(
+                              value
+                          )
+
+                      self.td_buffer = ""
+
+                  elif tag == "span":
+                      if self.in_last_update:
+                          value = " ".join(
+                              self.text_buffer.split()
+                          )
+
+                          match = re.search(
+                              r"Last update:\s*(.+)",
+                              value
+                          )
+
+                          if match:
+                              self.last_update = (
+                                  match.group(1).strip()
+                              )
+
+                          self.in_last_update = False
+                          self.text_buffer = ""
+
+                      if self.in_total_quantity:
+                          value = " ".join(
+                              self.text_buffer.split()
+                          )
+
+                          try:
+                              self.total_impactors = int(value)
+                          except ValueError:
+                              self.total_impactors = 0
+
+                          self.in_total_quantity = False
+                          self.text_buffer = ""
+
+                  elif tag == "section" and self.in_section:
+                      if self.current_section is not None:
+                          if (
+                              self.current_section["name"]
+                              and len(
+                                  self.current_section["cells"]
+                              ) >= 3
+                          ):
+                              self.sections.append(
+                                  self.current_section
+                              )
+
+                      self.current_section = None
+                      self.in_section = False
+                      self.section_depth = 0
+
+              def handle_data(self, data):
+                  if self.in_h3:
+                      self.text_buffer += data
+
+                  if self.in_td:
+                      self.td_buffer += data
+
+                  if self.in_last_update:
+                      self.text_buffer += data
+
+                  if self.in_total_quantity:
+                      self.text_buffer += data
+
+          parser = ImpactorParser()
+          parser.feed(html)
+
+          observations = []
+
+          for section in parser.sections:
+              cells = section["cells"]
+
+              observation = {
+                  "designation": section["name"],
+                  "impactDate": cells[0],
+                  "absoluteMagnitude": cells[1],
+                  "diameterRange": cells[2],
+                  "meerkatImage": section["image"]
+              }
+
+              if observation["meerkatImage"].startswith("/"):
+                  observation["meerkatImage"] = (
+                      "https://neo.ssa.esa.int"
+                      + observation["meerkatImage"]
+                  )
+
+              observations.append(observation)
+
+          output = {
+              "source": "ESA NEO Coordination Centre",
+              "sourceUrl": ESA_URL,
+              "generated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "esaLastUpdate": parser.last_update,
+              "impactorCount": (
+                  parser.total_impactors
+                  if parser.total_impactors is not None
+                  else len(observations)
+              ),
+              "observations": observations
+          }
+
+          output_path = Path(
+              "data/esa-imminent-impactors.json"
+          )
+
+          output_path.parent.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          output_path.write_text(
+              json.dumps(
+                  output,
+                  indent=2,
+                  ensure_ascii=False
+              ),
+              encoding="utf-8"
+          )
+
+          print()
+          print(
+              f"ESA reports {output['impactorCount']} "
+              "imminent impactor(s)."
+          )
+
+          for observation in observations:
+              print(
+                  f"  {observation['designation']} | "
+                  f"{observation['impactDate']} | "
+                  f"diameter: "
+                  f"{observation['diameterRange']} m"
+              )
+
+          print()
+          print(
+              f"Saved {len(observations)} impactor(s) "
+              f"to {output_path}"
+          )
+          PY
+
+      - name: Commit updated impactor data
+        run: |
+          git config user.name "Billingborough Observatory"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/esa-imminent-impactors.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update ESA imminent impactors"
+            git push
+          fi
