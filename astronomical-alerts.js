@@ -301,6 +301,270 @@
         }
     }
 
+// ------------------------------------------------------------
+// TNS — Recent transient announcements
+// ------------------------------------------------------------
+
+const tnsList =
+    document.getElementById("tns-list");
+
+const tnsUpdated =
+    document.getElementById("tns-updated");
+
+
+function formatTNSDate(value) {
+
+    if (!value) {
+        return "Date unavailable";
+    }
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return "Date unavailable";
+    }
+
+    return date.toLocaleString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Europe/London",
+        timeZoneName: "short"
+    });
+}
+
+
+function tnsTypeLabel(type) {
+
+    switch (type) {
+
+        case "PSN":
+            return "POSSIBLE SUPERNOVA";
+
+        case "PNV":
+            return "POSSIBLE NOVA";
+
+        case "TDE":
+            return "TIDAL DISRUPTION EVENT";
+
+        case "SN":
+            return "SUPERNOVA";
+
+        default:
+            return "TRANSIENT";
+    }
+}
+
+
+async function loadTNS() {
+
+    if (!tnsList) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "data/tns-alerts.json",
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        const alerts =
+            Array.isArray(data.alerts)
+                ? data.alerts
+                : [];
+
+
+        // ----------------------------------------------------
+        // Last update information
+        // ----------------------------------------------------
+
+        if (data.generated) {
+
+            tnsUpdated.textContent =
+                `Feed checked ${formatDate(
+                    data.generated
+                )}`;
+
+        } else {
+
+            tnsUpdated.textContent =
+                "Latest TNS announcements";
+
+        }
+
+
+        // ----------------------------------------------------
+        // No alerts
+        // ----------------------------------------------------
+
+        if (!alerts.length) {
+
+            tnsList.innerHTML =
+                `
+                <div class="alert-empty">
+                    No qualifying transient announcements
+                    have been reported recently.
+                </div>
+                `;
+
+            return;
+        }
+
+
+        // ----------------------------------------------------
+        // Render TNS alerts
+        // ----------------------------------------------------
+
+        tnsList.innerHTML = alerts.map(
+            alert => {
+
+                const name =
+                    alert.name ||
+                    "Unnamed transient";
+
+                const type =
+                    alert.atType ||
+                    "TRANSIENT";
+
+                const objectUrl =
+                    alert.url ||
+                    "";
+
+
+                const received =
+                    alert.receivedTimestamp ||
+                    alert.received ||
+                    "";
+
+
+                const receivedDisplay =
+                    received
+                        ? formatTNSDate(received)
+                        : "Time unavailable";
+
+
+                return `
+                    <article class="tns-alert-card">
+
+                        <div class="tns-alert-card-top">
+
+                            <span class="alert-type alert-type-transient">
+                                ${escapeHTML(
+                                    tnsTypeLabel(type)
+                                )}
+                            </span>
+
+                            <time datetime="${escapeHTML(
+                                received
+                            )}">
+                                Report received:
+                                ${escapeHTML(
+                                    receivedDisplay
+                                )}
+                            </time>
+
+                        </div>
+
+
+                        <h3>
+
+                            ${
+                                objectUrl
+                                    ? `
+                                        <a
+                                            href="${escapeHTML(
+                                                objectUrl
+                                            )}"
+                                            target="_blank"
+                                            rel="noopener"
+                                        >
+                                            ${escapeHTML(name)}
+                                        </a>
+                                      `
+                                    : escapeHTML(name)
+                            }
+
+                        </h3>
+
+
+                        <p class="tns-meta">
+
+                            ${
+                                alert.reportId
+                                    ? `
+                                        TNS report:
+                                        ${escapeHTML(
+                                            alert.reportId
+                                        )}
+                                      `
+                                    : ""
+                            }
+
+                        </p>
+
+
+                        ${
+                            objectUrl
+                                ? `
+                                    <a
+                                        class="text-link"
+                                        href="${escapeHTML(
+                                            objectUrl
+                                        )}"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        View full details at TNS →
+                                    </a>
+                                  `
+                                : ""
+                        }
+
+                    </article>
+                `;
+            }
+        ).join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "TNS alerts:",
+            error
+        );
+
+        tnsUpdated.textContent =
+            "Feed temporarily unavailable";
+
+        tnsList.innerHTML =
+            `
+            <div class="alert-empty">
+
+                The latest TNS announcements
+                could not be loaded.
+
+                <a
+                    href="https://www.wis-tns.org/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    View the TNS directly →
+                </a>
+
+            </div>
+            `;
+
+    }
+}
 
     // ------------------------------------------------------------
     // CBAT TOCP
@@ -711,21 +975,21 @@
     // Initial load and automatic refresh
     // ------------------------------------------------------------
 
+loadESAImpactors();
+loadTNS();
+loadAlerts();
+loadCOBS();
+
+
+// Refresh all four feeds every 5 minutes.
+
+setInterval(() => {
+
     loadESAImpactors();
+    loadTNS();
     loadAlerts();
     loadCOBS();
 
-
-    // Refresh all three feeds every 5 minutes.
-    //
-    // The GitHub Actions feeds update independently.
-
-    setInterval(() => {
-
-        loadESAImpactors();
-        loadAlerts();
-        loadCOBS();
-
-    }, 5 * 60 * 1000);
+}, 5 * 60 * 1000);
 
 })();

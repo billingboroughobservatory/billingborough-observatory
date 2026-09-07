@@ -1,0 +1,310 @@
+name: Update TNS Alerts
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-tns:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Fetch TNS alerts
+        run: |
+          python <<'PY'
+          import json
+          import re
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          import requests
+          from bs4 import BeautifulSoup
+
+
+          URL = "https://www.wis-tns.org/search"
+
+          PARAMS = {
+              "reported_within_last_units": "days",
+              "reported_within_last_value": "1",
+          }
+
+          HEADERS = {
+              "User-Agent": (
+                  "Mozilla/5.0 (X11; Linux x86_64) "
+                  "AppleWebKit/537.36 "
+                  "Chrome/140 Safari/537.36"
+              )
+          }
+
+          INTERESTING_TYPES = {
+              "PSN",
+              "PNV",
+              "TDE",
+          }
+
+          OUTPUT = Path("data/tns-alerts.json")
+
+
+          def parse_report(text):
+              """
+              Parse the flattened TNS AT-report table.
+
+              TNS sometimes omits empty columns, so AT Type cannot
+              safely be obtained from a fixed field offset.
+              """
+
+              fields = [
+                  value.strip()
+                  for value in text.split("|")
+                  if value.strip()
+              ]
+
+              # Locate an actual six-digit TNS report ID followed
+              # immediately by its received timestamp.
+              report_index = None
+
+              for i, field in enumerate(fields):
+
+                  if not re.fullmatch(r"\d{6}", field):
+                      continue
+
+                  if (
+                      i + 1 < len(fields)
+                      and re.fullmatch(
+                          r"20\d{2}-\d{2}-\d{2} "
+                          r"\d{2}:\d{2}:\d{2}",
+                          fields[i + 1]
+                      )
+                  ):
+                      report_index = i
+                      break
+
+              if report_index is None:
+                  return None
+
+              report_id = fields[report_index]
+              received = fields[report_index + 1]
+
+              try:
+                  received_dt = datetime.strptime(
+                      received,
+                      "%Y-%m-%d %H:%M:%S"
+                  ).replace(tzinfo=timezone.utc)
+
+              except ValueError:
+                  return None
+
+              # Find an interesting TNS AT Type.
+              #
+              # The type occurs after the discovery magnitude,
+              # filter, and photometry fields. Because TNS can omit
+              # empty fields, search by value rather than position.
+              at_type = None
+
+              for value in INTERESTING_TYPES:
+                  if value in fields[report_index + 1:]:
+                      at_type = value
+                      break
+
+              return {
+                  "reportId": report_id,
+                  "received": received,
+                  "receivedTimestamp": received_dt.isoformat(),
+                  "atType": at_type,
+              }
+
+
+          print("Fetching TNS public search...")
+
+          response = requests.get(
+              URL,
+              params=PARAMS,
+              headers=HEADERS,
+              timeout=60,
+          )
+
+          response.raise_for_status()
+
+          print(f"HTTP status: {response.status_code}")
+          print(f"Downloaded: {len(response.content):,} bytes")
+
+          soup = BeautifulSoup(response.text, "html.parser")
+
+          object_links = soup.find_all(
+              "a",
+              href=re.compile(r"/object/[0-9a-z]+/?$")
+          )
+
+          print(f"Object links found: {len(object_links)}")
+
+          alerts = []
+          seen_reports = set()
+
+
+          for link in object_links:
+
+              name = link.get_text(" ", strip=True)
+
+              if not re.match(
+                  r"^(AT|SN)\s+20\d{2}[a-z]+$",
+                  name
+              ):
+                  continue
+
+              row = link.find_parent("tr")
+
+              if not row:
+                  continue
+
+              object_url = (
+                  "https://www.wis-tns.org"
+                  + link.get("href", "")
+              )
+
+              current = row
+
+              for _ in range(10):
+
+                  current = current.find_next_sibling("tr")
+
+                  if not current:
+                      break
+
+                  text = current.get_text(
+                      " | ",
+                      strip=True
+                  )
+
+                  if "AT reports" not in text:
+                      continue
+
+                  # If another object starts here, this isn't the
+                  # report table belonging to our current object.
+                  if re.search(
+                      r"\b(AT|SN)\s+20\d{2}[a-z]+\b",
+                      text
+                  ):
+                      break
+
+                  report = parse_report(text)
+
+                  if not report:
+                      continue
+
+                  report_id = report["reportId"]
+
+                  if report_id in seen_reports:
+                      break
+
+                  # Classified supernovae should remain visible.
+                  is_supernova = name.startswith("SN ")
+
+                  # Unclassified objects must have an interesting
+                  # AT Type such as PSN, PNV or TDE.
+                  if not is_supernova and not report["atType"]:
+                      break
+
+                  seen_reports.add(report_id)
+
+                  alerts.append({
+                      "name": name,
+                      "url": object_url,
+                      "reportId": report_id,
+                      "received": report["received"],
+                      "receivedTimestamp": (
+                          report["receivedTimestamp"]
+                      ),
+                      "atType": (
+                          report["atType"]
+                          if report["atType"]
+                          else "SN"
+                      ),
+                  })
+
+                  break
+
+
+          # Newest announcements first.
+          alerts.sort(
+              key=lambda item: item["receivedTimestamp"],
+              reverse=True
+          )
+
+          # Keep the latest 30 interesting announcements.
+          alerts = alerts[:30]
+
+
+          output = {
+              "generated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
+              "source": (
+                  "TNS public search "
+                  "(reported within last 24 hours)"
+              ),
+
+              "count": len(alerts),
+
+              "alerts": alerts,
+          }
+
+
+          OUTPUT.parent.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+          OUTPUT.write_text(
+              json.dumps(
+                  output,
+                  indent=2,
+                  ensure_ascii=False
+              ) + "\n",
+              encoding="utf-8"
+          )
+
+          print(
+              f"Qualifying TNS alerts: {len(alerts)}"
+          )
+
+          for alert in alerts[:10]:
+              print(
+                  alert["received"],
+                  alert["name"],
+                  alert["atType"]
+              )
+
+          print(f"Wrote {OUTPUT}")
+          PY
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/tns-alerts.json
+
+          if git diff --cached --quiet; then
+            echo "No TNS changes to commit."
+          else
+            git commit -m "Update TNS alerts"
+            git push
+          fi
