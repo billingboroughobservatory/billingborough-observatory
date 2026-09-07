@@ -1,9 +1,9 @@
 {
   "source": "ESA NEO Coordination Centre",
   "sourceUrl": "https://neo.ssa.esa.int/imminent-impactors",
-  "generated": "2026-09-07T07:48:34.009133+00:00",
+  "generated": "2026-09-07T08:24:00.915752+00:00",
   "esaLastUpdate": "2026-09-06T14:16:02Z",
-  "impactorCount": 2,
+  "impactorCount": 1,
   "observations": [
     {
       "designation": "2026RW1 (CERNQ52)",
@@ -11,13 +11,6 @@
       "absoluteMagnitude": "33.3",
       "diameterRange": "0.6 - 1.3",
       "meerkatImage": "https://neo.ssa.esa.int/o/PSDB-portlet/imageproxyservlet?imageUrl=work-dir/meerkat/portal//Impact_CERNQ52_13_2026-09-06T121542.128.png"
-    },
-    {
-      "designation": "2026RW1 (CERNQ52)",
-      "impactDate": "2026-09-06 16:12:15 UTC",
-      "absoluteMagnitude": "33.4",
-      "diameterRange": "0.6 - 1.2",
-      "meerkatImage": "https://neo.ssa.esa.int/o/PSDB-portlet/imageproxyservlet?imageUrl=work-dir/meerkat/portal//Impact_CERNQ52_11_2026-09-06T111847.668.png"
     }
   ]
 }
