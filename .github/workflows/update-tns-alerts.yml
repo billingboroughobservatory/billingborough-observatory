@@ -173,10 +173,15 @@ jobs:
               if not row:
                   continue
 
-              object_url = (
-                  "https://www.wis-tns.org"
-                  + link.get("href", "")
-              )
+              href = link.get("href", "")
+
+              if href.startswith("http://") or href.startswith("https://"):
+                  object_url = href
+              else:
+                  object_url = (
+                      "https://www.wis-tns.org"
+                      + href
+                  )
 
               current = row
 
