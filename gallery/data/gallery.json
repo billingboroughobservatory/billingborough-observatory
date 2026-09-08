@@ -466,6 +466,46 @@
       "section": "solar-system",
       "category": "planets",
       "subcategory": "jupiter"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Meteors_and_Fireballs/20260905_0403.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/20260905_0403_thumbnail.jpg",
+      "title": "Magnitude -4.2 Fireball Heading North",
+      "description": "Captured on MeteorCam_N 20260905_0403",
+      "date": "2026",
+      "section": "boundary-layer",
+      "category": "meteors-and-fireballs"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Meteors_and_Fireballs/20260822_235455.119_NL_UK.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/20260822_235455.119_NL_UK_thumbnail.jpg",
+      "title": "Slow moving sporadic heading SSW",
+      "description": "Captured by Meteorcam_E on 20260822_2354",
+      "date": "2026",
+      "section": "boundary-layer",
+      "category": "meteors-and-fireballs"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Meteors_and_Fireballs/1787399684408_0 (2).mp4",
+      "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/1787399684408_0 (2)_thumbnail.jpg",
+      "title": "Magnitude -5.0 Fireball Heading North",
+      "description": "Captured on MeteorCam_N 20260822_0032",
+      "date": "2026",
+      "section": "boundary-layer",
+      "category": "meteors-and-fireballs"
+    },
+    {
+      "type": "video",
+      "video": "01_The_Boundary_Layer/Meteors_and_Fireballs/1784695902815_0.mp4",
+      "thumbnail": "01_The_Boundary_Layer/Meteors_and_Fireballs/1784695902815_0_thumbnail.jpg",
+      "title": "Alpha Capricornid Heading NNW",
+      "description": "20260721_2146 Captured on MeteorCam_N",
+      "date": "2026",
+      "section": "boundary-layer",
+      "category": "meteors-and-fireballs"
     }
   ]
 }

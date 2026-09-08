@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Billingborough Observatory Meteor Radio — radio observations of meteors detected from Lincolnshire using the GRAVES transmitter and MeteorRadio.">
+    <link rel="icon"
+          type="image/png"
+          href="https://billingboroughobservatory.space/images/favicon.png">
+    <link rel="stylesheet" href="meteor-radio.css?v=1">
+    <title>Meteor Radio | Billingborough Observatory</title>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="https://billingboroughobservatory.space/">
+            <img
+                src="https://billingboroughobservatory.space/images/logo.png"
+                alt="Billingborough Observatory"
+                class="brand-logo">
+            <span>
+                <strong>Billingborough Observatory</strong>
+                <small>Lincolnshire, England</small>
+            </span>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="https://billingboroughobservatory.space/index.html">Home</a>
+            <a href="https://billingboroughobservatory.space/observatory.html">Observatory</a>
+            <a href="https://billingboroughobservatory.space/meteor-detection.html" class="active">Meteor Detection</a>
+            <a href="https://billingboroughobservatory.space/history.html">History</a>
+            <a href="https://billingboroughobservatory.space/allsky.html">Allsky Camera</a>
+            <a href="https://billingboroughobservatory.space/observing-conditions.html">Observing Conditions</a>
+            <a href="https://billingboroughobservatory.space/learn.html">Learn &amp; Explore</a>
+            <a href="https://billingboroughobservatory.space/live-cameras.html">Live Cameras</a>
+            <a href="https://billingboroughobservatory.space/astronomical-alerts.html">Astronomical Alerts</a>
+            <a href="https://gallery.billingboroughobservatory.space/">Gallery</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="meteor-hero">
+        <div class="hero-stars" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <p class="eyebrow">BILLINGBOROUGH OBSERVATORY</p>
+            <h1>Meteor<br><span>Radio</span></h1>
+            <p class="hero-text">
+                Radio observations of meteors detected from Billingborough using the
+                GRAVES transmitter and a dedicated MeteorRadio receiving station.
+            </p>
+        </div>
+    </section>
+
+    <section class="section radio-overview">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">LIVE OBSERVATIONS</p>
+                <h2>Listening for meteors in the radio sky</h2>
+                <p>
+                    The station listens continuously for brief radio echoes produced when
+                    meteoroids enter Earth's atmosphere. The observations below are generated
+                    automatically from the station's recorded data.
+                </p>
+            </div>
+
+            <div class="stats-grid" id="stats-grid" aria-live="polite">
+                <article class="stat-card">
+                    <span class="stat-label">TODAY</span>
+                    <strong id="today-count">—</strong>
+                    <span>radio detections</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">LAST DETECTION</span>
+                    <strong id="last-time">—</strong>
+                    <span id="last-date">Waiting for data</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">STRONGEST TODAY</span>
+                    <strong id="strongest-snr">—</strong>
+                    <span id="strongest-time">Waiting for data</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">STATION</span>
+                    <strong id="station-name">Billingborough</strong>
+                    <span id="station-source">MeteorRadio</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark recent-section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">RECENT DETECTIONS</p>
+                <h2>Radio echoes recorded at Billingborough</h2>
+                <p>
+                    Each detection is shown with its recorded time, duration, signal-to-noise
+                    ratio and measured frequency offset. Select an observation to examine its
+                    spectrogram in detail.
+                </p>
+            </div>
+
+            <div class="detection-grid" id="detection-grid" aria-live="polite">
+                <div class="loading-message">Loading Meteor Radio observations…</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section activity-section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">ACTIVITY</p>
+                <h2>Hourly radio activity</h2>
+                <p>
+                    This colourgramme shows the number of radio detections recorded during each
+                    UTC hour. Stronger colours indicate greater detection activity.
+                </p>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-header">
+                    <div>
+                        <strong>Detection colourgramme</strong>
+                        <span id="activity-range">Loading…</span>
+                    </div>
+                    <span id="activity-count">— detections</span>
+                </div>
+
+                <div class="colourgramme-wrap">
+                    <div class="colourgramme" id="colourgramme"
+                         aria-label="Meteor Radio hourly detection colourgramme">
+                        <div class="colourgramme-empty">Loading activity…</div>
+                    </div>
+                </div>
+
+                <div class="colourgramme-legend">
+                    <span>Fewer detections</span>
+                    <div class="legend-gradient" aria-hidden="true"></div>
+                    <span>More detections</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section station-section">
+        <div class="container split">
+            <div>
+                <p class="eyebrow">THE STATION</p>
+                <h2>How the system works</h2>
+                <p>
+                    Billingborough Observatory uses a Raspberry Pi and RTL-SDR receiver to monitor
+                    the 143.050 MHz GRAVES transmitter. When a meteoroid creates an ionised trail
+                    high in the atmosphere, that trail can briefly reflect the transmitter's signal
+                    towards the receiving station.
+                </p>
+                <p>
+                    MeteorRadio by Richard Bassom records these short-lived echoes and analyses their signal strength,
+                    duration and frequency behaviour. The resulting observations are processed on the
+                    observatory's Ubuntu system before the public data shown here is generated.
+                </p>
+            </div>
+
+            <div class="station-panel">
+                <div class="station-row">
+                    <span>Station</span>
+                    <strong>Billingborough</strong>
+                </div>
+                <div class="station-row">
+                    <span>Transmitter</span>
+                    <strong>GRAVES</strong>
+                </div>
+                <div class="station-row">
+                    <span>Frequency</span>
+                    <strong>143.050 MHz</strong>
+                </div>
+                <div class="station-row">
+                    <span>Receiver</span>
+                    <strong>RTL-SDR</strong>
+                </div>
+                <div class="station-row">
+                    <span>Software</span>
+                    <strong>MeteorRadio</strong>
+                </div>
+                <div class="station-row">
+                    <span>Time reference</span>
+                    <strong>NTP</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-wrap">
+        <div>
+            <strong>Billingborough Observatory</strong>
+            <p>Exploring the sky from Lincolnshire.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://billingboroughobservatory.space/contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/billingboroughobservatory/" target="_blank" rel="noopener" aria-label="Facebook">
+                <img src="https://billingboroughobservatory.space/images/social/facebook.svg" alt="">
+            </a>
+            <a href="https://bsky.app/profile/billingboroughobservatory.space" target="_blank" rel="noopener" aria-label="Bluesky">
+                <img src="https://billingboroughobservatory.space/images/social/bluesky.svg" alt="">
+            </a>
+            <a href="https://www.instagram.com/billingboroughobservatory/" target="_blank" rel="noopener" aria-label="Instagram">
+                <img src="https://billingboroughobservatory.space/images/social/instagram.svg" alt="">
+            </a>
+            <a href="https://www.threads.com/@billingboroughobservatory" target="_blank" rel="noopener" aria-label="Threads">
+                <img src="https://billingboroughobservatory.space/images/social/threads.svg" alt="">
+            </a>
+        </div>
+        <div class="footer-note">
+            <p>© 2026 Billingborough Observatory. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-control lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous detection">‹</button>
+
+    <div class="lightbox-content">
+        <img id="lightbox-image" src="" alt="">
+        <div class="lightbox-info">
+            <p class="lightbox-category" id="lightbox-category">METEOR RADIO</p>
+            <h2 id="lightbox-title"></h2>
+            <p id="lightbox-description"></p>
+            <p class="lightbox-date" id="lightbox-date"></p>
+        </div>
+    </div>
+
+    <button class="lightbox-control lightbox-next" id="lightbox-next" type="button" aria-label="Next detection">›</button>
+</div>
+
+<script src="meteor-radio.js?v=1"></script>
+</body>
+</html>
