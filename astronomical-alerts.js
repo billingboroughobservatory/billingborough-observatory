@@ -74,232 +74,227 @@
             timeZoneName: "short"
         });
     }
+async function loadESAImpactors() {
+    if (!esaList) {
+        return;
+    }
 
+    try {
+        const response = await fetch(
+            "data/esa-imminent-impactors.json",
+            { cache: "no-store" }
+        );
 
-    async function loadESAImpactors() {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
 
-        if (!esaList) {
+        const data = await response.json();
+
+        const observations =
+            Array.isArray(data.observations)
+                ? data.observations
+                : [];
+
+        // ----------------------------------------------------
+        // Last update information
+        // ----------------------------------------------------
+
+        if (data.esaLastUpdate && data.generated) {
+            esaUpdated.textContent =
+                `ESA source data last updated ${formatDate(
+                    data.esaLastUpdate
+                )} · Feed checked ${formatDate(
+                    data.generated
+                )}`;
+        } else if (data.esaLastUpdate) {
+            esaUpdated.textContent =
+                `ESA source data last updated ${formatDate(
+                    data.esaLastUpdate
+                )}`;
+        } else if (data.generated) {
+            esaUpdated.textContent =
+                `Feed checked ${formatDate(
+                    data.generated
+                )}`;
+        } else {
+            esaUpdated.textContent =
+                "Latest ESA information";
+        }
+
+        // ----------------------------------------------------
+        // No imminent impactors
+        // ----------------------------------------------------
+
+        if (!observations.length) {
+            esaList.innerHTML = `
+                <div class="alert-empty">
+                    ESA NEOCC currently reports no confirmed
+                    imminent impactors.
+                </div>
+            `;
+
             return;
         }
 
-        try {
+        // ----------------------------------------------------
+        // Render imminent impactors
+        // ----------------------------------------------------
 
-            const response = await fetch(
-                "data/esa-imminent-impactors.json",
-                { cache: "no-store" }
-            );
+        esaList.innerHTML = observations.map(
+            impactor => {
+                const designation =
+                    impactor.designation ||
+                    "Designation unavailable";
 
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
+                const impactDate =
+                    impactor.impactDate ||
+                    "";
 
-            const data = await response.json();
+                const absoluteMagnitude =
+                    impactor.absoluteMagnitude ||
+                    "Not available";
 
-            const observations =
-                Array.isArray(data.observations)
-                    ? data.observations
-                    : [];
+                const diameterRange =
+                    impactor.diameterRange ||
+                    "Not available";
 
+                const meerkatImage =
+                    impactor.meerkatImage ||
+                    "";
 
-            // ----------------------------------------------------
-            // Last update information
-            // ----------------------------------------------------
+                return `
+                    <article class="esa-impactor-card">
 
-            if (data.esaLastUpdate) {
+                        <div class="esa-impactor-card-top">
 
-                esaUpdated.textContent =
-                    `ESA data updated ${formatDate(
-                        data.esaLastUpdate
-                    )}`;
+                            <span class="alert-type alert-type-impactor">
+                                CONFIRMED IMPACTOR
+                            </span>
 
-            } else if (data.generated) {
+                            <span class="esa-impact-status">
+                                100% impact probability
+                            </span>
 
-                esaUpdated.textContent =
-                    `Data checked ${formatDate(
-                        data.generated
-                    )}`;
+                        </div>
 
-            } else {
+                        <h3>
+                            ${escapeHTML(
+                                designation
+                            )}
+                        </h3>
 
-                esaUpdated.textContent =
-                    "Latest ESA information";
+                        <div class="esa-impact-details">
 
-            }
+                            <div class="esa-impact-detail">
 
+                                <span class="esa-detail-label">
+                                    Nominal impact
+                                </span>
 
-            // ----------------------------------------------------
-            // No imminent impactors
-            // ----------------------------------------------------
+                                <strong>
+                                    ${escapeHTML(
+                                        formatESAImpactDate(
+                                            impactDate
+                                        )
+                                    )}
+                                </strong>
 
-            if (!observations.length) {
+                            </div>
 
-                esaList.innerHTML = `
-                    <div class="alert-empty">
-                        ESA NEOCC currently reports no confirmed
-                        imminent impactors.
-                    </div>
+                            <div class="esa-impact-detail">
+
+                                <span class="esa-detail-label">
+                                    Estimated diameter
+                                </span>
+
+                                <strong>
+                                    ${escapeHTML(
+                                        diameterRange
+                                    )} m
+                                </strong>
+
+                            </div>
+
+                            <div class="esa-impact-detail">
+
+                                <span class="esa-detail-label">
+                                    Absolute magnitude
+                                </span>
+
+                                <strong>
+                                    ${escapeHTML(
+                                        absoluteMagnitude
+                                    )}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        ${
+                            meerkatImage
+                                ? `
+                                    <div class="esa-meerkat">
+
+                                        <img
+                                            src="${escapeHTML(
+                                                meerkatImage
+                                            )}"
+                                            alt="ESA NEOCC Meerkat impact plot for ${escapeHTML(
+                                                designation
+                                            )}"
+                                            loading="lazy">
+
+                                    </div>
+                                  `
+                                : ""
+                        }
+
+                        <a
+                            class="text-link"
+                            href="https://neo.ssa.esa.int/imminent-impactors"
+                            target="_blank"
+                            rel="noopener">
+
+                            View ESA NEOCC imminent impactors →
+
+                        </a>
+
+                    </article>
                 `;
-
-                return;
             }
+        ).join("");
 
+    } catch (error) {
 
-            // ----------------------------------------------------
-            // Render imminent impactors
-            // ----------------------------------------------------
+        console.error(
+            "ESA imminent impactors:",
+            error
+        );
 
-            esaList.innerHTML = observations.map(
-                impactor => {
+        esaUpdated.textContent =
+            "ESA data temporarily unavailable";
 
-                    const designation =
-                        impactor.designation ||
-                        "Designation unavailable";
+        esaList.innerHTML = `
+            <div class="alert-empty">
 
-                    const impactDate =
-                        impactor.impactDate ||
-                        "";
+                The latest ESA imminent impactor
+                information could not be loaded.
 
-                    const absoluteMagnitude =
-                        impactor.absoluteMagnitude ||
-                        "Not available";
+                <a
+                    href="https://neo.ssa.esa.int/imminent-impactors"
+                    target="_blank"
+                    rel="noopener">
 
-                    const diameterRange =
-                        impactor.diameterRange ||
-                        "Not available";
+                    View ESA NEOCC directly →
 
-                    const meerkatImage =
-                        impactor.meerkatImage ||
-                        "";
+                </a>
 
-                    return `
-                        <article class="esa-impactor-card">
-
-                            <div class="esa-impactor-card-top">
-
-                                <span class="alert-type alert-type-impactor">
-                                    CONFIRMED IMPACTOR
-                                </span>
-
-                                <span class="esa-impact-status">
-                                    100% impact probability
-                                </span>
-
-                            </div>
-
-                            <h3>
-                                ${escapeHTML(designation)}
-                            </h3>
-
-                            <div class="esa-impact-details">
-
-                                <div class="esa-impact-detail">
-
-                                    <span class="esa-detail-label">
-                                        Nominal impact
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            formatESAImpactDate(
-                                                impactDate
-                                            )
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                                <div class="esa-impact-detail">
-
-                                    <span class="esa-detail-label">
-                                        Estimated diameter
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            diameterRange
-                                        )} m
-                                    </strong>
-
-                                </div>
-
-                                <div class="esa-impact-detail">
-
-                                    <span class="esa-detail-label">
-                                        Absolute magnitude
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            absoluteMagnitude
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                            ${
-                                meerkatImage
-                                    ? `
-                                        <div class="esa-meerkat">
-
-                                            <img
-                                                src="${escapeHTML(
-                                                    meerkatImage
-                                                )}"
-                                                alt="ESA NEOCC Meerkat impact plot for ${escapeHTML(
-                                                    designation
-                                                )}"
-                                                loading="lazy">
-
-                                        </div>
-                                      `
-                                    : ""
-                            }
-
-                            <a class="text-link"
-                               href="https://neo.ssa.esa.int/imminent-impactors"
-                               target="_blank"
-                               rel="noopener">
-
-                                View ESA NEOCC imminent impactors →
-
-                            </a>
-
-                        </article>
-                    `;
-                }
-            ).join("");
-
-
-        } catch (error) {
-
-            console.error(
-                "ESA imminent impactors:",
-                error
-            );
-
-            esaUpdated.textContent =
-                "ESA data temporarily unavailable";
-
-            esaList.innerHTML = `
-                <div class="alert-empty">
-
-                    The latest ESA imminent impactor
-                    information could not be loaded.
-
-                    <a href="https://neo.ssa.esa.int/imminent-impactors"
-                       target="_blank"
-                       rel="noopener">
-
-                        View ESA NEOCC directly →
-
-                    </a>
-
-                </div>
-            `;
-        }
+            </div>
+        `;
     }
+}
 
 // ------------------------------------------------------------
 // TNS — Recent transient announcements
