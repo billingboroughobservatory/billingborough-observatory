@@ -357,15 +357,12 @@ function tnsTypeLabel(type) {
     }
 }
 
-
 async function loadTNS() {
-
     if (!tnsList) {
         return;
     }
 
     try {
-
         const response = await fetch(
             "data/tns-alerts.json",
             { cache: "no-store" }
@@ -382,43 +379,34 @@ async function loadTNS() {
                 ? data.alerts
                 : [];
 
-
         // ----------------------------------------------------
         // Last update information
         // ----------------------------------------------------
 
         if (data.generated) {
-
             tnsUpdated.textContent =
                 `TNS data last updated ${formatDate(
                     data.generated
                 )}`;
-
         } else {
-
             tnsUpdated.textContent =
                 "Latest TNS announcements";
-
         }
-
 
         // ----------------------------------------------------
         // No alerts
         // ----------------------------------------------------
 
         if (!alerts.length) {
-
-            tnsList.innerHTML =
-                `
+            tnsList.innerHTML = `
                 <div class="alert-empty">
                     No qualifying transient announcements
                     have been reported recently.
                 </div>
-                `;
+            `;
 
             return;
         }
-
 
         // ----------------------------------------------------
         // Render TNS alerts
@@ -426,7 +414,6 @@ async function loadTNS() {
 
         tnsList.innerHTML = alerts.map(
             alert => {
-
                 const name =
                     alert.name ||
                     "Unnamed transient";
@@ -439,24 +426,31 @@ async function loadTNS() {
                     alert.url ||
                     "";
 
-
                 const received =
                     alert.receivedTimestamp ||
                     alert.received ||
                     "";
-
 
                 const receivedDisplay =
                     received
                         ? formatTNSDate(received)
                         : "Time unavailable";
 
+                const discoveryMagnitudeValue =
+                    Number.parseFloat(
+                        alert.discoveryMag
+                    );
+
+                const discoveryMagnitude =
+                    Number.isFinite(
+                        discoveryMagnitudeValue
+                    )
+                        ? `Discovery magnitude: ${discoveryMagnitudeValue.toFixed(2)} mag`
+                        : "";
 
                 return `
                     <article class="tns-alert-card">
-
                         <div class="tns-alert-card-top">
-
                             <span class="alert-type alert-type-transient">
                                 ${escapeHTML(
                                     tnsTypeLabel(type)
@@ -471,12 +465,9 @@ async function loadTNS() {
                                     receivedDisplay
                                 )}
                             </time>
-
                         </div>
 
-
                         <h3>
-
                             ${
                                 objectUrl
                                     ? `
@@ -492,12 +483,9 @@ async function loadTNS() {
                                       `
                                     : escapeHTML(name)
                             }
-
                         </h3>
 
-
                         <p class="tns-meta">
-
                             ${
                                 alert.reportId
                                     ? `
@@ -508,9 +496,12 @@ async function loadTNS() {
                                       `
                                     : ""
                             }
-
+                            ${
+                                discoveryMagnitude
+                                    ? `<br>${discoveryMagnitude}`
+                                    : ""
+                            }
                         </p>
-
 
                         ${
                             objectUrl
@@ -528,15 +519,12 @@ async function loadTNS() {
                                   `
                                 : ""
                         }
-
                     </article>
                 `;
             }
         ).join("");
 
-
     } catch (error) {
-
         console.error(
             "TNS alerts:",
             error
@@ -545,10 +533,8 @@ async function loadTNS() {
         tnsUpdated.textContent =
             "Feed temporarily unavailable";
 
-        tnsList.innerHTML =
-            `
+        tnsList.innerHTML = `
             <div class="alert-empty">
-
                 The latest TNS announcements
                 could not be loaded.
 
@@ -559,10 +545,8 @@ async function loadTNS() {
                 >
                     View the TNS directly →
                 </a>
-
             </div>
-            `;
-
+        `;
     }
 }
 

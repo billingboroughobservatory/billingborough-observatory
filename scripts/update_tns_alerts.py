@@ -248,6 +248,16 @@ def convert_record(
         "",
     ).strip()
 
+    discovery_mag = record.get(
+        "discoverymag",
+        "",
+    ).strip()
+
+    discovery_mag_filter = record.get(
+        "discmagfilter",
+        "",
+    ).strip()
+
     time_received = record.get(
         "time_received",
         "",
@@ -304,6 +314,8 @@ def convert_record(
         "objectType": name_prefix,
         "classification": classification,
         "discoveryDate": discovery_date,
+        "discoveryMag": discovery_mag,
+        "discoveryMagFilter": discovery_mag_filter,
         "lastModified": lastmodified,
         "reportingGroup": reporting_group,
     }
