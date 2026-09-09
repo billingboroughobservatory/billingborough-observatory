@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="alerts.css">
-    <meta name="description" content="Latest astronomical transient alerts from CBAT and recent comet observations from the Comet OBServation database (COBS).">
+    <meta name="description" content="Latest astronomical information from ESA NEOCC, the Transient Name Server (TNS), and the Comet OBServation database (COBS).">
     <title>Astronomical Alerts | Billingborough Observatory</title>
 </head>
 <body>
@@ -50,10 +50,10 @@
             <h1>Astronomical Alerts</h1>
 
             <p>
-                Recent astronomical transient reports from the Central Bureau for
-                Astronomical Telegrams (CBAT), together with the latest comet
-                observations submitted to the Comet OBServation database (COBS), 
-                and European Space Agency's Near-Earth Object Coordination Centre (NEOCC), Imminent impactors.
+                Recent astronomical information from the European Space Agency's
+                Near-Earth Object Coordination Centre (NEOCC), the International
+                Astronomical Union's Transient Name Server (TNS), and the Comet
+                OBServation database (COBS).
             </p>
         </div>
     </section>
@@ -190,110 +190,6 @@
 
     </div>
 </section>
-
-    <!-- =========================================================
-         CBAT TOCP
-         ========================================================= -->
-
-    <section class="section alerts-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">CBAT TOCP</p>
-
-                <h2>Recent transient reports</h2>
-
-                <p>
-                    These headlines are generated automatically from the public CBAT
-                    TOCP Atom feed. The full reports remain on the CBAT website.
-                </p>
-
-            </div>
-
-
-            <div class="alerts-toolbar">
-
-                <div class="alert-filters"
-                     role="group"
-                     aria-label="Filter alerts">
-
-                    <button class="alert-filter active"
-                            data-filter="all">
-                        All
-                    </button>
-
-                    <button class="alert-filter"
-                            data-filter="nova">
-                        Novae
-                    </button>
-
-                    <button class="alert-filter"
-                            data-filter="transient">
-                        Transients
-                    </button>
-
-                    <button class="alert-filter"
-                            data-filter="supernova">
-                        Supernovae
-                    </button>
-
-                    <button class="alert-filter"
-                            data-filter="comet">
-                        Comets
-                    </button>
-
-                </div>
-
-                <p id="alerts-updated"
-                   class="alerts-updated">
-                    Loading latest alerts…
-                </p>
-
-            </div>
-
-
-            <div id="alerts-list"
-                 class="alerts-list"
-                 aria-live="polite">
-
-                <div class="alert-loading">
-
-                    <span class="alert-spinner"
-                          aria-hidden="true"></span>
-
-                    Loading latest CBAT reports…
-
-                </div>
-
-            </div>
-
-
-            <div class="alerts-source">
-
-                <p>
-                    Source:
-                    <a href="http://www.cbat.eps.harvard.edu/unconf/tocp.html"
-                       target="_blank"
-                       rel="noopener">
-                        Central Bureau for Astronomical Telegrams —
-                        Transient Object Confirmation Page
-                    </a>.
-                </p>
-
-                <p>
-                    Billingborough Observatory displays report headlines and metadata
-                    and links to the original CBAT source rather than reproducing the
-                    full report text.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
 
     <!-- =========================================================
          COBS — RECENT COMET OBSERVATIONS
