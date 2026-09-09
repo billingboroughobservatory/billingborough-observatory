@@ -390,7 +390,7 @@ async function loadTNS() {
         if (data.generated) {
 
             tnsUpdated.textContent =
-                `Feed checked ${formatDate(
+                `TNS data last updated ${formatDate(
                     data.generated
                 )}`;
 
