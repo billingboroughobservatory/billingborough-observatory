@@ -52,6 +52,19 @@
         return IMAGE_BASE + cleanPath;
     }
 
+    function audioUrl(path) {
+        if (!path) return "";
+        if (/^https?:\/\//i.test(path)) return path;
+
+        const cleanPath = path.replace(/^\/+/, "");
+
+        if (!cleanPath.startsWith("audio/")) {
+            return IMAGE_BASE + "audio/" + cleanPath;
+        }
+
+        return IMAGE_BASE + cleanPath;
+    }
+
     function sortNewestFirst(items) {
         return [...items].sort((a, b) => {
             const da = parseDate(a.timestamp_utc)?.getTime() || 0;
@@ -122,6 +135,19 @@
                     <div class="detection-metric"><strong>${formatNumber(detection.spectral_peak_frequency_hz, 0)} Hz</strong><span>Peak offset</span></div>
                 </div>
             `;
+
+            if (detection.audio) {
+                const audioWrap = document.createElement("div");
+                audioWrap.className = "detection-audio";
+                audioWrap.innerHTML = `
+                    <span class="detection-audio-label">Detection audio</span>
+                    <audio controls preload="none">
+                        <source src="${audioUrl(detection.audio)}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                `;
+                caption.appendChild(audioWrap);
+            }
 
             card.append(imageButton, caption);
             grid.appendChild(card);
