@@ -24,252 +24,580 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests
 
       - name: Fetch TNS alerts
         run: |
           python <<'PY'
+          import csv
+          import io
           import json
-          import re
-          from datetime import datetime, timezone
+          import zipfile
+          from datetime import datetime, timedelta, timezone
           from pathlib import Path
 
           import requests
-          from bs4 import BeautifulSoup
 
 
-          URL = "https://www.wis-tns.org/search"
-
-          PARAMS = {
-              "reported_within_last_units": "days",
-              "reported_within_last_value": "1",
-          }
+          BASE_URL = (
+              "https://www.wis-tns.org/system/files/"
+              "tns_public_objects/tns_public_objects_{hour}.csv.zip"
+          )
 
           HEADERS = {
               "User-Agent": (
-                  'tns_marker{"tns_id":4565,"type": "user", "name":"minnican"} '
-                  "Mozilla/5.0 (X11; Linux x86_64) "
-                  "AppleWebKit/537.36 "
-                  "Chrome/140 Safari/537.36"
+                  'tns_marker{"tns_id":4565,"type": "user", "name":"minnican"}'
               )
-          }
-
-          INTERESTING_TYPES = {
-              "PSN",
-              "PNV",
-              "TDE",
           }
 
           OUTPUT = Path("data/tns-alerts.json")
 
+          NOW = datetime.now(timezone.utc)
+          CUTOFF = NOW - timedelta(hours=24)
 
-          def parse_report(text):
-              """
-              Parse the flattened TNS AT-report table.
+          print("Current UTC time:", NOW.isoformat())
+          print("24-hour cutoff:", CUTOFF.isoformat())
 
-              TNS sometimes omits empty columns, so AT Type cannot
-              safely be obtained from a fixed field offset.
-              """
 
-              fields = [
-                  value.strip()
-                  for value in text.split("|")
-                  if value.strip()
-              ]
+          def parse_tns_datetime(value):
+              """Parse a TNS timestamp into an aware UTC datetime."""
 
-              # Locate an actual six-digit TNS report ID followed
-              # immediately by its received timestamp.
-              report_index = None
-
-              for i, field in enumerate(fields):
-
-                  if not re.fullmatch(r"\d{6}", field):
-                      continue
-
-                  if (
-                      i + 1 < len(fields)
-                      and re.fullmatch(
-                          r"20\d{2}-\d{2}-\d{2} "
-                          r"\d{2}:\d{2}:\d{2}",
-                          fields[i + 1]
-                      )
-                  ):
-                      report_index = i
-                      break
-
-              if report_index is None:
+              if not value:
                   return None
 
-              report_id = fields[report_index]
-              received = fields[report_index + 1]
+              value = value.strip()
+
+              formats = (
+                  "%Y-%m-%d %H:%M:%S",
+                  "%Y-%m-%d %H:%M:%S.%f",
+              )
+
+              for fmt in formats:
+                  try:
+                      return datetime.strptime(
+                          value,
+                          fmt
+                      ).replace(tzinfo=timezone.utc)
+                  except ValueError:
+                      pass
+
+              return None
+
+
+          def parse_iso_datetime(value):
+              """Parse an ISO timestamp into an aware UTC datetime."""
+
+              if not value:
+                  return None
 
               try:
-                  received_dt = datetime.strptime(
-                      received,
-                      "%Y-%m-%d %H:%M:%S"
-                  ).replace(tzinfo=timezone.utc)
+                  parsed = datetime.fromisoformat(
+                      value.replace("Z", "+00:00")
+                  )
+
+                  if parsed.tzinfo is None:
+                      parsed = parsed.replace(
+                          tzinfo=timezone.utc
+                      )
+
+                  return parsed.astimezone(timezone.utc)
 
               except ValueError:
                   return None
 
-              # Find an interesting TNS AT Type.
-              #
-              # The type occurs after the discovery magnitude,
-              # filter, and photometry fields. Because TNS can omit
-              # empty fields, search by value rather than position.
-              at_type = None
 
-              for value in INTERESTING_TYPES:
-                  if value in fields[report_index + 1:]:
-                      at_type = value
-                      break
+          def freshness(alert):
+              """
+              Return the best available timestamp for an existing alert.
 
-              return {
-                  "reportId": report_id,
-                  "received": received,
-                  "receivedTimestamp": received_dt.isoformat(),
-                  "atType": at_type,
+              Newly generated records use lastModified where possible,
+              while older records from the previous JSON may only have
+              receivedTimestamp.
+              """
+
+              last_modified = parse_tns_datetime(
+                  alert.get("lastModified", "")
+              )
+
+              if last_modified is not None:
+                  return last_modified
+
+              received_timestamp = parse_iso_datetime(
+                  alert.get("receivedTimestamp", "")
+              )
+
+              if received_timestamp is not None:
+                  return received_timestamp
+
+              return parse_tns_datetime(
+                  alert.get("received", "")
+              )
+
+
+          # ------------------------------------------------------------------
+          # Load the existing JSON.
+          #
+          # This is important because the TNS hourly files only contain
+          # objects from individual hourly periods. Carrying forward the
+          # existing JSON allows us to maintain a genuine rolling 24-hour
+          # window without downloading all 24 hourly files on every run.
+          # ------------------------------------------------------------------
+
+          existing_alerts = []
+          existing_generated = None
+
+          if OUTPUT.exists():
+
+              try:
+                  existing_data = json.loads(
+                      OUTPUT.read_text(
+                          encoding="utf-8"
+                      )
+                  )
+
+                  existing_alerts = existing_data.get(
+                      "alerts",
+                      []
+                  )
+
+                  existing_generated = existing_data.get(
+                      "generated"
+                  )
+
+                  print(
+                      "Existing alerts loaded:",
+                      len(existing_alerts)
+                  )
+
+              except Exception as exc:
+
+                  print(
+                      "Could not read existing JSON:",
+                      exc
+                  )
+
+
+          # ------------------------------------------------------------------
+          # Start with existing alerts that are still within the rolling
+          # 24-hour window.
+          # ------------------------------------------------------------------
+
+          merged = {}
+
+          for alert in existing_alerts:
+
+              timestamp = freshness(alert)
+
+              if timestamp is None:
+                  continue
+
+              if timestamp < CUTOFF:
+                  continue
+
+              name = (
+                  alert.get("name") or ""
+              ).strip()
+
+              object_id = (
+                  str(alert.get("objectId") or "")
+                  .strip()
+              )
+
+              key = object_id or name
+
+              if not key:
+                  continue
+
+              merged[key] = alert
+
+
+          print(
+              "Existing alerts retained:",
+              len(merged)
+          )
+
+
+          # ------------------------------------------------------------------
+          # Download the latest three available hourly TNS files.
+          #
+          # The files are named for the hour following the period they
+          # contain. For example, file 08 contains the 07:00-08:00 UTC
+          # period.
+          # ------------------------------------------------------------------
+
+          records = {}
+
+          for hours_ago in range(3):
+
+              target = NOW - timedelta(
+                  hours=hours_ago
+              )
+
+              hour = target.strftime("%H")
+
+              url = BASE_URL.format(
+                  hour=hour
+              )
+
+              print(
+                  f"Fetching hour {hour} "
+                  f"({target.strftime('%Y-%m-%d %H:%M UTC')})"
+              )
+
+              try:
+
+                  response = requests.post(
+                      url,
+                      headers=HEADERS,
+                      timeout=60,
+                  )
+
+                  if response.status_code == 404:
+
+                      print(
+                          f"  Hour {hour}: not available"
+                      )
+
+                      continue
+
+                  response.raise_for_status()
+
+                  with zipfile.ZipFile(
+                      io.BytesIO(response.content)
+                  ) as archive:
+
+                      csv_names = [
+                          name
+                          for name in archive.namelist()
+                          if name.lower().endswith(".csv")
+                      ]
+
+                      if not csv_names:
+
+                          print(
+                              f"  Hour {hour}: "
+                              "no CSV in ZIP"
+                          )
+
+                          continue
+
+                      csv_name = csv_names[0]
+
+                      with archive.open(
+                          csv_name
+                      ) as csv_file:
+
+                          text = io.TextIOWrapper(
+                              csv_file,
+                              encoding="utf-8-sig"
+                          )
+
+                          period = next(
+                              text,
+                              ""
+                          ).strip()
+
+                          print(
+                              f"  Period: {period}"
+                          )
+
+                          reader = csv.DictReader(text)
+
+                          count = 0
+
+                          for row in reader:
+
+                              objid = (
+                                  row.get("objid") or ""
+                              ).strip()
+
+                              if not objid:
+                                  continue
+
+                              existing = records.get(
+                                  objid
+                              )
+
+                              if existing is None:
+
+                                  records[objid] = row
+
+                              else:
+
+                                  existing_modified = (
+                                      existing.get(
+                                          "lastmodified"
+                                      )
+                                      or ""
+                                  ).strip()
+
+                                  new_modified = (
+                                      row.get(
+                                          "lastmodified"
+                                      )
+                                      or ""
+                                  ).strip()
+
+                                  if new_modified > existing_modified:
+
+                                      records[objid] = row
+
+                              count += 1
+
+                          print(
+                              f"  Records in file: {count}"
+                          )
+
+              except Exception as exc:
+
+                  print(
+                      f"  Hour {hour}: "
+                      f"could not be downloaded/read: {exc}"
+                  )
+
+
+          print(
+              "Unique TNS objects collected:",
+              len(records)
+          )
+
+
+          # ------------------------------------------------------------------
+          # Convert new TNS records into the site's JSON format.
+          #
+          # We use lastmodified as the freshness timestamp for the rolling
+          # window because TNS can update an existing object when it receives
+          # a classification. Its original time_received may therefore be
+          # much older than the alert update.
+          # ------------------------------------------------------------------
+
+          new_alerts = {}
+
+          for row in records.values():
+
+              name_prefix = (
+                  row.get("name_prefix") or ""
+              ).strip()
+
+              name = (
+                  row.get("name") or ""
+              ).strip()
+
+              object_type = name_prefix.upper()
+
+              if not name:
+                  continue
+
+              if object_type not in {
+                  "AT",
+                  "SN",
+              }:
+                  continue
+
+              time_received = (
+                  row.get("time_received") or ""
+              ).strip()
+
+              received_dt = parse_tns_datetime(
+                  time_received
+              )
+
+              if received_dt is None:
+                  continue
+
+              classification = (
+                  row.get("type") or ""
+              ).strip()
+
+              reporting_group = (
+                  row.get("reporting_group") or ""
+              ).strip()
+
+              discovery_date = (
+                  row.get("discoverydate") or ""
+              ).strip()
+
+              last_modified = (
+                  row.get("lastmodified") or ""
+              ).strip()
+
+              modified_dt = parse_tns_datetime(
+                  last_modified
+              )
+
+              # Prefer lastmodified because this detects recent
+              # classifications/updates to existing objects.
+              event_dt = (
+                  modified_dt
+                  if modified_dt is not None
+                  else received_dt
+              )
+
+              if event_dt is None:
+                  continue
+
+              # Ignore future-dated records caused by clock differences,
+              # but allow a small five-minute tolerance.
+              if event_dt > NOW + timedelta(minutes=5):
+                  continue
+
+              if event_dt < CUTOFF:
+                  continue
+
+              objid = (
+                  row.get("objid") or ""
+              ).strip()
+
+              object_url = (
+                  "https://www.wis-tns.org/object/"
+                  + name
+              )
+
+              alert = {
+                  "name": (
+                      f"{object_type} {name}"
+                  ),
+                  "url": object_url,
+                  "objectId": objid,
+                  "received": time_received,
+                  "receivedTimestamp": (
+                      received_dt.isoformat()
+                  ),
+                  "objectType": object_type,
+                  "classification": classification,
+                  "discoveryDate": discovery_date,
+                  "lastModified": last_modified,
+                  "reportingGroup": reporting_group,
               }
 
+              # Keep the newest version if the same object occurs
+              # more than once.
+              key = objid or name
 
-          print("Fetching TNS public search...")
+              existing_new = new_alerts.get(
+                  key
+              )
 
-          response = requests.get(
-              URL,
-              params=PARAMS,
-              headers=HEADERS,
-              timeout=60,
-          )
+              if existing_new is None:
 
-          response.raise_for_status()
+                  new_alerts[key] = alert
 
-          print(f"HTTP status: {response.status_code}")
-          print(f"Downloaded: {len(response.content):,} bytes")
-
-          soup = BeautifulSoup(response.text, "html.parser")
-
-          object_links = soup.find_all(
-              "a",
-              href=re.compile(r"/object/[0-9a-z]+/?$")
-          )
-
-          print(f"Object links found: {len(object_links)}")
-
-          alerts = []
-          seen_reports = set()
-
-
-          for link in object_links:
-
-              name = link.get_text(" ", strip=True)
-
-              if not re.match(
-                  r"^(AT|SN)\s+20\d{2}[a-z]+$",
-                  name
-              ):
-                  continue
-
-              row = link.find_parent("tr")
-
-              if not row:
-                  continue
-
-              href = link.get("href", "")
-
-              if href.startswith("http://") or href.startswith("https://"):
-                  object_url = href
               else:
-                  object_url = (
-                      "https://www.wis-tns.org"
-                      + href
+
+                  old_dt = freshness(
+                      existing_new
                   )
 
-              current = row
+                  if old_dt is None or event_dt > old_dt:
 
-              for _ in range(10):
+                      new_alerts[key] = alert
 
-                  current = current.find_next_sibling("tr")
 
-                  if not current:
-                      break
+          print(
+              "New/updated qualifying alerts:",
+              len(new_alerts)
+          )
 
-                  text = current.get_text(
-                      " | ",
-                      strip=True
+
+          # ------------------------------------------------------------------
+          # Merge the newly downloaded records with the existing rolling
+          # 24-hour data.
+          # ------------------------------------------------------------------
+
+          for key, alert in new_alerts.items():
+
+              existing = merged.get(key)
+
+              if existing is None:
+
+                  merged[key] = alert
+                  continue
+
+              new_timestamp = freshness(
+                  alert
+              )
+
+              old_timestamp = freshness(
+                  existing
+              )
+
+              if (
+                  old_timestamp is None
+                  or (
+                      new_timestamp is not None
+                      and new_timestamp > old_timestamp
                   )
+              ):
 
-                  if "AT reports" not in text:
-                      continue
-
-                  # If another object starts here, this isn't the
-                  # report table belonging to our current object.
-                  if re.search(
-                      r"\b(AT|SN)\s+20\d{2}[a-z]+\b",
-                      text
-                  ):
-                      break
-
-                  report = parse_report(text)
-
-                  if not report:
-                      continue
-
-                  report_id = report["reportId"]
-
-                  if report_id in seen_reports:
-                      break
-
-                  # Classified supernovae should remain visible.
-                  is_supernova = name.startswith("SN ")
-
-                  # Unclassified objects must have an interesting
-                  # AT Type such as PSN, PNV or TDE.
-                  if not is_supernova and not report["atType"]:
-                      break
-
-                  seen_reports.add(report_id)
-
-                  alerts.append({
-                      "name": name,
-                      "url": object_url,
-                      "reportId": report_id,
-                      "received": report["received"],
-                      "receivedTimestamp": (
-                          report["receivedTimestamp"]
-                      ),
-                      "atType": (
-                          report["atType"]
-                          if report["atType"]
-                          else "SN"
-                      ),
-                  })
-
-                  break
+                  merged[key] = alert
 
 
-          # Newest announcements first.
-          alerts.sort(
-              key=lambda item: item["receivedTimestamp"],
+          # ------------------------------------------------------------------
+          # Remove anything that is now outside the rolling 24-hour window.
+          # ------------------------------------------------------------------
+
+          filtered = []
+
+          for alert in merged.values():
+
+              timestamp = freshness(
+                  alert
+              )
+
+              if timestamp is None:
+                  continue
+
+              if timestamp < CUTOFF:
+                  continue
+
+              filtered.append(
+                  alert
+              )
+
+
+          # Newest activity first.
+          filtered.sort(
+              key=lambda alert: (
+                  freshness(alert)
+                  or datetime.min.replace(
+                      tzinfo=timezone.utc
+                  )
+              ),
               reverse=True
           )
 
-          # Keep the latest 30 interesting announcements.
-          alerts = alerts[:30]
+          # Keep the latest 30 alerts.
+          filtered = filtered[:30]
+
+
+          # ------------------------------------------------------------------
+          # Preserve the previous generated timestamp if the actual alert
+          # data has not changed. This prevents a new Git commit every
+          # 15 minutes merely because the generated timestamp changed.
+          # ------------------------------------------------------------------
+
+          previous_alerts = existing_alerts
+
+          if previous_alerts == filtered:
+
+              generated = (
+                  existing_generated
+                  or NOW.isoformat()
+              )
+
+          else:
+
+              generated = NOW.isoformat()
 
 
           output = {
-              "generated": datetime.now(
-                  timezone.utc
-              ).isoformat(),
-
+              "generated": generated,
               "source": (
-                  "TNS public search "
-                  "(reported within last 24 hours)"
+                  "TNS hourly public-object feed "
+                  "(rolling 24 hours)"
               ),
-
-              "count": len(alerts),
-
-              "alerts": alerts,
+              "count": len(filtered),
+              "alerts": filtered,
           }
 
 
@@ -287,18 +615,30 @@ jobs:
               encoding="utf-8"
           )
 
+
           print(
-              f"Qualifying TNS alerts: {len(alerts)}"
+              f"Qualifying TNS alerts: "
+              f"{len(filtered)}"
           )
 
-          for alert in alerts[:10]:
+          for alert in filtered[:10]:
+
+              classification = (
+                  alert["classification"]
+                  if alert["classification"]
+                  else alert["objectType"]
+              )
+
               print(
                   alert["received"],
                   alert["name"],
-                  alert["atType"]
+                  classification,
+                  alert["lastModified"]
               )
 
-          print(f"Wrote {OUTPUT}")
+          print(
+              f"Wrote {OUTPUT}"
+          )
           PY
 
       - name: Commit updated data
