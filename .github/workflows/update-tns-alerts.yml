@@ -47,7 +47,10 @@ jobs:
 
           HEADERS = {
               "User-Agent": (
-                  'tns_marker{"tns_id":4565,"type":"user","name":"minnican"}'
+                  'tns_marker{"tns_id":4565,"type": "user", "name":"minnican"} '
+                  "Mozilla/5.0 (X11; Linux x86_64) "
+                  "AppleWebKit/537.36 "
+                  "Chrome/140 Safari/537.36"
               )
           }
 
@@ -311,3 +314,4 @@ jobs:
             git commit -m "Update TNS alerts"
             git push
           fi
+          
