@@ -791,17 +791,15 @@ async function loadTNS() {
 
 loadESAImpactors();
 loadTNS();
-loadAlerts();
 loadCOBS();
 
 
-// Refresh all four feeds every 5 minutes.
+// Refresh all three feeds every 5 minutes.
 
 setInterval(() => {
 
     loadESAImpactors();
     loadTNS();
-    loadAlerts();
     loadCOBS();
 
 }, 5 * 60 * 1000);
