@@ -4,3 +4,4 @@ gallery/gallery.css.before-gallery-navigation
 .gitignore
 gallery/data/gallery.json.backup
 gallery/images/
+gallery/index.html.before-meteor-radio-nav
