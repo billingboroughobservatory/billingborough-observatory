@@ -363,6 +363,21 @@ jobs:
 
 
           # ------------------------------------------------------------------
+          # SAFETY CHECK
+          #
+          # If every TNS download failed, stop the workflow rather than
+          # replacing valid existing alert data with an empty JSON file.
+          # ------------------------------------------------------------------
+
+          if not records:
+
+              raise RuntimeError(
+                  "No TNS hourly data could be downloaded. "
+                  "Refusing to overwrite existing TNS alert data."
+              )
+
+
+          # ------------------------------------------------------------------
           # Convert new TNS records into the site's JSON format.
           #
           # We use lastmodified as the freshness timestamp for the rolling
