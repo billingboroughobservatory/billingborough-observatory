@@ -99,6 +99,14 @@ h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; margin
 .stat-card strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 30px; line-height: 1.15; margin-bottom: 5px; }
 .stat-card > span:last-child { color: var(--light-muted); font-size: 12px; }
 
+.monthly-highlight-card {
+    border-color: rgba(142,197,255,.22);
+}
+
+.monthly-highlight-card:hover {
+    border-color: rgba(142,197,255,.75);
+}
+
 .detection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .detection-card {
     background: #111f31;

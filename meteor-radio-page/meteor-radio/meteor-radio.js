@@ -5,6 +5,7 @@
     const IMAGE_BASE = "https://meteor-radio.billingboroughobservatory.space/";
 
     let detections = [];
+    let lightboxDetections = detections;
     let currentIndex = 0;
 
     const $ = (id) => document.getElementById(id);
@@ -154,6 +155,73 @@
         });
     }
 
+    function renderMonthlyHighlights(data) {
+        const grid = $("monthly-highlights-grid");
+
+        if (!grid) return;
+
+        grid.innerHTML = "";
+
+        if (!Array.isArray(data) || !data.length) {
+            grid.innerHTML = '<div class="loading-message">No qualifying radio highlights have been recorded this month yet.</div>';
+            return;
+        }
+
+        data.slice(0, 12).forEach((d) => {
+            const card = document.createElement("article");
+            card.className = "detection-card monthly-highlight-card";
+
+            const image = imageUrl(d.detail_image || d.full_image);
+
+            card.innerHTML = `
+                <button class="detection-image-button" type="button" aria-label="View radio detection spectrogram">
+                    <img class="detection-image"
+                         src="${image}"
+                         alt="Meteor Radio spectrogram recorded ${formatDate(d.timestamp_utc)} at ${formatTime(d.timestamp_utc)} UTC"
+                         loading="lazy">
+                </button>
+
+                <div class="detection-caption">
+                    <p class="detection-category">HIGHLIGHTED RADIO ECHO</p>
+                    <h3>${formatDate(d.timestamp_utc)} · ${formatTime(d.timestamp_utc)} UTC</h3>
+                    <p>Strong radio detection selected from this month's observations.</p>
+
+                    <div class="detection-metrics">
+                        <div class="detection-metric">
+                            <strong>${formatNumber(d.duration_seconds, 2)} s</strong>
+                            <span>DURATION</span>
+                        </div>
+                        <div class="detection-metric">
+                            <strong>${formatNumber(d.snr, 1)} dB</strong>
+                            <span>SNR</span>
+                        </div>
+                        <div class="detection-metric">
+                            <strong>${formatNumber(d.spectral_peak_frequency_hz, 0)} Hz</strong>
+                            <span>PEAK OFFSET</span>
+                        </div>
+                    </div>
+
+                    ${d.audio ? `
+                        <div class="detection-audio">
+                            <span class="detection-audio-label">Listen to recording</span>
+                            <audio controls preload="none">
+                                <source src="${audioUrl(d.audio)}" type="audio/wav">
+                                Your browser does not support audio playback.
+                            </audio>
+                        </div>
+                    ` : ""}
+                </div>
+            `;
+
+            card.querySelector(".detection-image-button").addEventListener("click", () => {
+                const highlightIndex = data.indexOf(d);
+                openLightbox(highlightIndex, data);
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
     function renderColourgramme(data) {
         const grid = $("colourgramme");
         grid.innerHTML = "";
@@ -292,15 +360,20 @@
             `${monthDetections} detection${monthDetections === 1 ? "" : "s"}`;
     }
 
-    function openLightbox(index) {
-        if (!detections.length) return;
-        currentIndex = Math.max(0, Math.min(index, detections.length - 1));
-        const d = detections[currentIndex];
+    function openLightbox(index, collection = detections) {
+        if (!collection.length) return;
+
+        lightboxDetections = collection;
+        currentIndex = Math.max(0, Math.min(index, lightboxDetections.length - 1));
+
+        const d = lightboxDetections[currentIndex];
+
         $("lightbox-image").src = imageUrl(d.detail_image || d.full_image);
         $("lightbox-image").alt = `Meteor Radio spectrogram recorded ${formatDate(d.timestamp_utc)} at ${formatTime(d.timestamp_utc)} UTC`;
         $("lightbox-title").textContent = `${formatDate(d.timestamp_utc)} · ${formatTime(d.timestamp_utc)} UTC`;
         $("lightbox-description").textContent = `Duration ${formatNumber(d.duration_seconds, 2)} s · SNR ${formatNumber(d.snr, 1)} dB · frequency offset ${formatNumber(d.spectral_peak_frequency_hz, 0)} Hz`;
         $("lightbox-date").textContent = `143.050 MHz GRAVES · MeteorRadio detection`;
+
         $("lightbox").classList.add("open");
         $("lightbox").setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -314,9 +387,10 @@
     }
 
     function moveLightbox(step) {
-        if (!detections.length) return;
-        currentIndex = (currentIndex + step + detections.length) % detections.length;
-        openLightbox(currentIndex);
+        if (!lightboxDetections.length) return;
+
+        currentIndex = (currentIndex + step + lightboxDetections.length) % lightboxDetections.length;
+        openLightbox(currentIndex, lightboxDetections);
     }
 
     async function loadData() {
@@ -331,6 +405,7 @@
 
             renderStats(detections);
             renderCards(detections);
+            renderMonthlyHighlights(json.monthly_highlights || []);
             renderColourgramme(detections);
         } catch (error) {
             console.error("Meteor Radio data error:", error);
