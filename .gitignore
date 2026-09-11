@@ -5,3 +5,7 @@ gallery/gallery.css.before-gallery-navigation
 gallery/data/gallery.json.backup
 gallery/images/
 gallery/index.html.before-meteor-radio-nav
+meteor-radio-page/meteor-radio/index.html.before-monthly-highlights
+meteor-radio-page/meteor-radio/meteor-radio.css.before-monthly-highlights
+.gitignore
+meteor-radio-page/meteor-radio/meteor-radio.js.before-monthly-highlights
