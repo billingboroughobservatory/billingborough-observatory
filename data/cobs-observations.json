@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-12T21:24:48.062784+00:00",
+  "generated": "2026-09-12T23:17:05.886838+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-12 14:15:22",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "9.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "C/2023 R1 (PANSTARRS)",
+      "mpcName": "K23R010",
+      "icqName": "2023R1",
+      "observationDate": "2026-09-12 12:51:53",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2449/"
+    },
     {
       "comet": "C/2024 J3 (ATLAS)",
       "mpcName": "K24J030",
@@ -133,38 +165,6 @@
       "magnitude": "14.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2579/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-09-11 11:04:00",
-      "observer": "Mike Olason",
-      "observerCode": "OLA",
-      "association": "",
-      "country": "United States",
-      "location": "Tucson Arizona",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "13.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-09-11 10:48:00",
-      "observer": "Mike Olason",
-      "observerCode": "OLA",
-      "association": "",
-      "country": "United States",
-      "location": "Tucson Arizona",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "12.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/130/"
     }
   ]
 }
