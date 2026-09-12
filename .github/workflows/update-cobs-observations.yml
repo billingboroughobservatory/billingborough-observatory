@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: observatory-data-updates
+  cancel-in-progress: false
+
 jobs:
   update-cobs:
     runs-on: ubuntu-latest
@@ -208,5 +212,9 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Update COBS comet observations"
+
+            git fetch origin main
+            git rebase origin/main
             git push
+
           fi
