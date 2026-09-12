@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-12T13:05:26.280464+00:00",
+  "generated": "2026-09-12T16:14:44.237322+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2024 J3 (ATLAS)",
+      "mpcName": "K24J030",
+      "icqName": "2024J3",
+      "observationDate": "2026-09-12 09:22:00",
+      "observer": "David Swan",
+      "observerCode": "SWA01",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "UDRO, Great Basin Desert, Beryl Junction, Utah, USA",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "14.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2535/"
+    },
+    {
+      "comet": "220P/McNaught",
+      "mpcName": "220P",
+      "icqName": "0220",
+      "observationDate": "2026-09-12 04:31:00",
+      "observer": "Douglas Heggie",
+      "observerCode": "HEG",
+      "association": "",
+      "country": "United Kingdom",
+      "location": "ASERO, Valdin",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "10.9",
+      "conditions": ":",
+      "cobsUrl": "https://cobs.si/comet/130/"
+    },
     {
       "comet": "220P/McNaught",
       "mpcName": "220P",
@@ -133,38 +165,6 @@
       "magnitude": "12.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "78P/Gehrels",
-      "mpcName": "78P",
-      "icqName": "0078",
-      "observationDate": "2026-09-11 04:46:21",
-      "observer": "Kevin Hills",
-      "observerCode": "HIL04",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "Tacande Observatory, La Palma (MPC J22)",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/18/"
-    },
-    {
-      "comet": "65P/Gunn",
-      "mpcName": "65P",
-      "icqName": "0065",
-      "observationDate": "2026-09-11 04:30:56",
-      "observer": "Kevin Hills",
-      "observerCode": "HIL04",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "Tacande Observatory, La Palma (MPC J22)",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "19.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/67/"
     }
   ]
 }
