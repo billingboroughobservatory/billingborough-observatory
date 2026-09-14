@@ -1,8 +1,22 @@
 {
-  "generated": "2026-09-14T16:10:52.374461+00:00",
+  "generated": "2026-09-14T18:10:52.560944+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "AT 2026absi",
+      "url": "https://www.wis-tns.org/object/2026absi",
+      "objectId": "220209",
+      "received": "2026-09-14 17:25:03",
+      "receivedTimestamp": "2026-09-14T17:25:03+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-09-14 15:49:24.384",
+      "discoveryMag": "19.59",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-09-14 17:25:06",
+      "reportingGroup": "GOTO"
+    },
     {
       "name": "AT 2026abeq",
       "url": "https://www.wis-tns.org/object/2026abeq",
@@ -407,20 +421,6 @@
       "discoveryMag": "21.32",
       "discoveryMagFilter": "153",
       "lastModified": "2026-09-14 12:14:15",
-      "reportingGroup": "WFST"
-    },
-    {
-      "name": "AT 2026abrh",
-      "url": "https://www.wis-tns.org/object/2026abrh",
-      "objectId": "220181",
-      "received": "2026-09-14 12:13:56",
-      "receivedTimestamp": "2026-09-14T12:13:56+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-08-28 17:21:07.200",
-      "discoveryMag": "20.88",
-      "discoveryMagFilter": "153",
-      "lastModified": "2026-09-14 12:14:14",
       "reportingGroup": "WFST"
     }
   ]
