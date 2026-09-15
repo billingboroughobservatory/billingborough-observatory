@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-15T01:23:54.307311+00:00",
+  "generated": "2026-09-15T06:38:43.809354+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-09-14 19:49:00",
+      "observer": "Christian Harder",
+      "observerCode": "HAR11",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "Jeersdorf f",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "14.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -149,22 +165,6 @@
       "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-09-12 04:31:00",
-      "observer": "Douglas Heggie",
-      "observerCode": "HEG",
-      "association": "",
-      "country": "United Kingdom",
-      "location": "ASERO, Valdin",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "10.9",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/130/"
     }
   ]
 }
