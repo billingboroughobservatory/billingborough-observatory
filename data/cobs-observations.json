@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-16T06:40:17.665939+00:00",
+  "generated": "2026-09-16T12:34:18.575410+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "2P/Encke",
+      "mpcName": "2P",
+      "icqName": "0002",
+      "observationDate": "2026-09-15 21:50:24",
+      "observer": "Sergey Shurpakov",
+      "observerCode": "SHU",
+      "association": "British Astronomical Association",
+      "country": "Belarus",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.4",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/41/"
+    },
     {
       "comet": "C/2024 J3 (ATLAS)",
       "mpcName": "K24J030",
@@ -21,6 +37,22 @@
       "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
+    },
+    {
+      "comet": "14P/Wolf",
+      "mpcName": "14P",
+      "icqName": "0014",
+      "observationDate": "2026-09-15 21:07:12",
+      "observer": "Sergey Shurpakov",
+      "observerCode": "SHU",
+      "association": "British Astronomical Association",
+      "country": "Belarus",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/54/"
     },
     {
       "comet": "C/2026 A2 (Bok)",
@@ -103,6 +135,22 @@
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
     {
+      "comet": "11P/Tempel-Swift-LINEAR",
+      "mpcName": "11P",
+      "icqName": "0011",
+      "observationDate": "2026-09-15 19:55:12",
+      "observer": "Sergey Shurpakov",
+      "observerCode": "SHU",
+      "association": "British Astronomical Association",
+      "country": "Belarus",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "18.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/483/"
+    },
+    {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
       "icqName": "2026A2",
@@ -117,54 +165,6 @@
       "magnitude": "14.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-15 19:40:48",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "13.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-15 19:26:24",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-09-15 19:20:40",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "15.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
