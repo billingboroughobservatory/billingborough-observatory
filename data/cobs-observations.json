@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-15T23:09:59.697933+00:00",
+  "generated": "2026-09-16T01:23:40.604578+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -21,6 +21,22 @@
       "magnitude": "12.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-09-15 20:40:37",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
     },
     {
       "comet": "C/2026 A2 (Bok)",
@@ -103,6 +119,22 @@
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
     {
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-09-15 19:20:40",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "15.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/74/"
+    },
+    {
       "comet": "C/2021 G2 (ATLAS)",
       "mpcName": "K21G020",
       "icqName": "2021G2",
@@ -133,38 +165,6 @@
       "magnitude": "15.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2284/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-09-15 15:42:05",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "12.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-09-15 14:15:22",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "9.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
     }
   ]
 }
