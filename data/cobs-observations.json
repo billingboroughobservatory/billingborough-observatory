@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-17T12:46:18.147529+00:00",
+  "generated": "2026-09-17T17:36:39.797103+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -55,22 +55,6 @@
       "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-09-16 23:02:24",
-      "observer": "Maik Meyer",
-      "observerCode": "MEY",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
-    },
-    {
       "comet": "2P/Encke",
       "mpcName": "2P",
       "icqName": "0002",
@@ -85,6 +69,22 @@
       "magnitude": "18.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/41/"
+    },
+    {
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-09-16 23:02:24",
+      "observer": "Maik Meyer",
+      "observerCode": "MEY",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/74/"
     },
     {
       "comet": "88P/Howell",
