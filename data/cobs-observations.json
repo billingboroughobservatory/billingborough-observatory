@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-18T01:14:18.131754+00:00",
+  "generated": "2026-09-18T06:36:12.051366+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -69,6 +69,22 @@
       "magnitude": "9.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-09-17 12:43:12",
+      "observer": "Michael Mattiazzo",
+      "observerCode": "MAT08",
+      "association": "British Astronomical Association",
+      "country": "Australia",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "11.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
       "comet": "220P/McNaught",
@@ -149,22 +165,6 @@
       "magnitude": "18.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/41/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-09-16 22:30:00",
-      "observer": "Christian Harder",
-      "observerCode": "HAR11",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "Jeersdorf f",
-      "method": "In-Out method",
-      "methodCode": "S",
-      "magnitude": "14.9",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
