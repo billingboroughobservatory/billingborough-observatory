@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-17T23:03:27.074112+00:00",
+  "generated": "2026-09-18T01:14:18.131754+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-09-17 22:48:00",
+      "observer": "Tiago Ferreira",
+      "observerCode": "FERac",
+      "association": "",
+      "country": "Portugal",
+      "location": "Dobsonian Power (MPC R39)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "15.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
+    },
     {
       "comet": "C/2024 T5 (ATLAS)",
       "mpcName": "K24T050",
@@ -103,6 +119,22 @@
       "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-09-16 23:02:24",
+      "observer": "Maik Meyer",
+      "observerCode": "MEY",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/74/"
+    },
+    {
       "comet": "2P/Encke",
       "mpcName": "2P",
       "icqName": "0002",
@@ -122,22 +154,6 @@
       "comet": "88P/Howell",
       "mpcName": "88P",
       "icqName": "0088",
-      "observationDate": "2026-09-16 23:02:24",
-      "observer": "Maik Meyer",
-      "observerCode": "MEY",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "14.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
       "observationDate": "2026-09-16 22:30:00",
       "observer": "Christian Harder",
       "observerCode": "HAR11",
@@ -149,22 +165,6 @@
       "magnitude": "14.9",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/74/"
-    },
-    {
-      "comet": "11P/Tempel-Swift-LINEAR",
-      "mpcName": "11P",
-      "icqName": "0011",
-      "observationDate": "2026-09-16 22:19:11",
-      "observer": "Sergey Shurpakov",
-      "observerCode": "SHU",
-      "association": "British Astronomical Association",
-      "country": "Belarus",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "18.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/483/"
     }
   ]
 }
