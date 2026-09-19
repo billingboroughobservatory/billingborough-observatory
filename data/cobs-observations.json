@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-19T16:46:32.701036+00:00",
+  "generated": "2026-09-19T19:17:56.765778+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -160,9 +160,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.6",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     }
