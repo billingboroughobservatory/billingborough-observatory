@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-19T09:25:42.657084+00:00",
+  "generated": "2026-09-19T13:22:42.177138+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -96,9 +96,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "13.8",
+      "method": "SLOAN/SDSS i′ with CCD/CMOS",
+      "methodCode": "h",
+      "magnitude": "12.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -112,9 +112,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "12.2",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "13.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -160,9 +160,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.6",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     }
