@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-21T16:59:48.486962+00:00",
+  "generated": "2026-09-21T21:00:15.320823+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -35,6 +35,22 @@
       "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
       "methodCode": "V",
       "magnitude": "14.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2535/"
+    },
+    {
+      "comet": "C/2024 J3 (ATLAS)",
+      "mpcName": "K24J030",
+      "icqName": "2024J3",
+      "observationDate": "2026-09-20 20:40:44",
+      "observer": "Jordi Solaz",
+      "observerCode": "SOL02",
+      "association": "",
+      "country": "Spain",
+      "location": "Escaldarium Observatory,Caldes de Montbui (MPC D28)",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -149,22 +165,6 @@
       "magnitude": "19.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2435/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-09-19 21:39:00",
-      "observer": "Tomasz Sciezor",
-      "observerCode": "SCI",
-      "association": "Polish Comet Observers",
-      "country": "Poland",
-      "location": "Cracow",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "13.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/130/"
     }
   ]
 }
