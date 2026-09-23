@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-22T22:00:59.650337+00:00",
+  "generated": "2026-09-23T00:23:22.406837+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -55,6 +55,22 @@
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-09-21 20:35:48",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
+    },
+    {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
       "icqName": "2026A2",
@@ -87,6 +103,22 @@
       "cobsUrl": "https://cobs.si/comet/130/"
     },
     {
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-09-21 19:20:47",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "15.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/74/"
+    },
+    {
       "comet": "C/2024 J3 (ATLAS)",
       "mpcName": "K24J030",
       "icqName": "2024J3",
@@ -101,22 +133,6 @@
       "magnitude": "13.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-09-21 18:28:47",
-      "observer": "Yoshimi Nagai",
-      "observerCode": "NAG08",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "14.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
     },
     {
       "comet": "78P/Gehrels",
@@ -135,10 +151,10 @@
       "cobsUrl": "https://cobs.si/comet/18/"
     },
     {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-09-21 18:14:24",
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-09-21 18:28:47",
       "observer": "Yoshimi Nagai",
       "observerCode": "NAG08",
       "association": "International Comet Quarterly",
@@ -146,25 +162,9 @@
       "location": "",
       "method": "CCD Visual equivalent",
       "methodCode": "Z",
-      "magnitude": "12.8",
+      "magnitude": "14.8",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-09-21 18:00:00",
-      "observer": "Yoshimi Nagai",
-      "observerCode": "NAG08",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "12.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
+      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
