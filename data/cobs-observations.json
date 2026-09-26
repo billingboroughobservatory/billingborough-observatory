@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-25T21:48:17.265310+00:00",
+  "generated": "2026-09-26T00:34:07.634513+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -103,6 +103,22 @@
       "cobsUrl": "https://cobs.si/comet/130/"
     },
     {
+      "comet": "78P/Gehrels",
+      "mpcName": "78P",
+      "icqName": "0078",
+      "observationDate": "2026-09-23 20:38:25",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "14.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/18/"
+    },
+    {
       "comet": "220P/McNaught",
       "mpcName": "220P",
       "icqName": "0220",
@@ -149,22 +165,6 @@
       "magnitude": "10.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/111/"
-    },
-    {
-      "comet": "C/2024 R4 (PANSTARRS)",
-      "mpcName": "K24R040",
-      "icqName": "2024R4",
-      "observationDate": "2026-09-23 03:07:11",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "15.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2563/"
     }
   ]
 }
