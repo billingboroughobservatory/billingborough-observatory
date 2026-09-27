@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-27T15:37:47.329094+00:00",
+  "generated": "2026-09-27T19:15:47.505770+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-09-27 15:34:00",
+      "observer": "David Swan",
+      "observerCode": "SWA01",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "Siding Spring, Coonabarabran, New South Wales, Australia",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "13.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
+    },
     {
       "comet": "88P/Howell",
       "mpcName": "88P",
@@ -80,9 +96,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.5",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -96,9 +112,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.6",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -149,22 +165,6 @@
       "magnitude": "15.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2563/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-09-26 19:55:11",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
     }
   ]
 }
