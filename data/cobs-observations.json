@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-28T01:08:41.712228+00:00",
+  "generated": "2026-09-28T06:48:53.700154+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -37,6 +37,22 @@
       "magnitude": "13.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2579/"
+    },
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-27 12:02:05",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Lighthouse Observatory, Kalamunda, W. Australia",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "9.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
       "comet": "88P/Howell",
@@ -112,9 +128,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.5",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -128,9 +144,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.6",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -147,22 +163,6 @@
       "method": "SLOAN/SDSS i′ with CCD/CMOS",
       "methodCode": "h",
       "magnitude": "14.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2563/"
-    },
-    {
-      "comet": "C/2024 R4 (PANSTARRS)",
-      "mpcName": "K24R040",
-      "icqName": "2024R4",
-      "observationDate": "2026-09-26 20:24:00",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "15.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2563/"
     }
