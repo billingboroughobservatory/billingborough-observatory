@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-09-29T07:28:54.532738+00:00",
+  "generated": "2026-09-29T14:19:05.223102+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -64,9 +64,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "12.5",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -80,9 +80,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.0",
+      "method": "SLOAN/SDSS i′ with CCD/CMOS",
+      "methodCode": "h",
+      "magnitude": "12.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
     },
@@ -101,6 +101,22 @@
       "magnitude": "13.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
+    },
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-09-28 11:46:01",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "9.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
       "comet": "161P/Hartley-IRAS",
@@ -149,22 +165,6 @@
       "magnitude": "9.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-09-26 21:50:24",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "13.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
