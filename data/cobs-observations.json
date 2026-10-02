@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-02T15:44:36.266411+00:00",
+  "generated": "2026-10-02T20:40:07.993763+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -35,6 +35,22 @@
       "method": "Unfiltered total CCD/CMOS magnitude",
       "methodCode": "C",
       "magnitude": "11.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-01 20:16:35",
+      "observer": "Tiago Ferreira",
+      "observerCode": "FERac",
+      "association": "",
+      "country": "Portugal",
+      "location": "Dobsonian Power (MPC R39)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "15.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
     },
@@ -149,22 +165,6 @@
       "magnitude": "9.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-01 12:43:12",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "13.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
