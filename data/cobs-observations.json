@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-02T02:32:52.679268+00:00",
+  "generated": "2026-10-02T08:57:50.117121+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -37,6 +37,22 @@
       "magnitude": "13.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-01 19:21:00",
+      "observer": "Tomislav Anic",
+      "observerCode": "ANIaa",
+      "association": "",
+      "country": "Croatia",
+      "location": "Rijeka",
+      "method": "photographic",
+      "methodCode": "P",
+      "magnitude": "13.6",
+      "conditions": ":",
+      "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
       "comet": "C/2024 T5 (ATLAS)",
@@ -135,36 +151,20 @@
       "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
-      "comet": "260P/McNaught",
-      "mpcName": "260P",
-      "icqName": "0260",
-      "observationDate": "2026-09-30 22:19:11",
-      "observer": "Sergey Shurpakov",
-      "observerCode": "SHU",
-      "association": "British Astronomical Association",
-      "country": "Belarus",
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-10-01 10:47:59",
+      "observer": "Yoshimi Nagai",
+      "observerCode": "NAG08",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
       "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "15.6",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "10.2",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/754/"
-    },
-    {
-      "comet": "2P/Encke",
-      "mpcName": "2P",
-      "icqName": "0002",
-      "observationDate": "2026-09-30 20:38:23",
-      "observer": "Sergey Shurpakov",
-      "observerCode": "SHU",
-      "association": "British Astronomical Association",
-      "country": "Belarus",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "17.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/41/"
+      "cobsUrl": "https://cobs.si/comet/53/"
     }
   ]
 }
