@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-03T11:34:13.739396+00:00",
+  "generated": "2026-10-03T15:14:37.382038+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -80,9 +80,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.2",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -96,9 +96,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.0",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -135,22 +135,6 @@
       "cobsUrl": "https://cobs.si/comet/2/"
     },
     {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-02 19:55:12",
-      "observer": "Maik Meyer",
-      "observerCode": "MEY",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
       "comet": "11P/Tempel-Swift-LINEAR",
       "mpcName": "11P",
       "icqName": "0011",
@@ -165,6 +149,22 @@
       "magnitude": "17.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/483/"
+    },
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-02 19:55:12",
+      "observer": "Maik Meyer",
+      "observerCode": "MEY",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
