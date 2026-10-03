@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-03T15:14:37.382038+00:00",
+  "generated": "2026-10-03T18:48:57.978459+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2024 R4 (PANSTARRS)",
+      "mpcName": "K24R040",
+      "icqName": "2024R4",
+      "observationDate": "2026-10-03 02:09:35",
+      "observer": "Walter Kutschera",
+      "observerCode": "KUT",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "15.1",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2563/"
+    },
     {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
@@ -80,9 +96,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "14.0",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "13.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -96,9 +112,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.2",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "14.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -149,22 +165,6 @@
       "magnitude": "17.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/483/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-02 19:55:12",
-      "observer": "Maik Meyer",
-      "observerCode": "MEY",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
