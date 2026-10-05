@@ -1,8 +1,36 @@
 {
-  "generated": "2026-10-05T20:12:44.184052+00:00",
+  "generated": "2026-10-05T21:12:44.339312+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "AT 2026adfa",
+      "url": "https://www.wis-tns.org/object/2026adfa",
+      "objectId": "221272",
+      "received": "2026-09-29 08:51:15",
+      "receivedTimestamp": "2026-09-29T08:51:15+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-09-29 05:40:27.552",
+      "discoveryMag": "18.62",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-10-05 20:58:32",
+      "reportingGroup": "GOTO"
+    },
+    {
+      "name": "AT 2026aekc",
+      "url": "https://www.wis-tns.org/object/2026aekc",
+      "objectId": "222115",
+      "received": "2026-10-05 20:57:44",
+      "receivedTimestamp": "2026-10-05T20:57:44+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-10-05 14:49:58.656",
+      "discoveryMag": "18.67",
+      "discoveryMagFilter": "72",
+      "lastModified": "2026-10-05 20:57:46",
+      "reportingGroup": "ATLAS"
+    },
     {
       "name": "AT 2026nuw",
       "url": "https://www.wis-tns.org/object/2026nuw",
@@ -394,34 +422,6 @@
       "discoveryMagFilter": "120",
       "lastModified": "2026-10-05 15:21:34",
       "reportingGroup": "GOTO"
-    },
-    {
-      "name": "AT 2026acng",
-      "url": "https://www.wis-tns.org/object/2026acng",
-      "objectId": "220781",
-      "received": "2026-09-21 08:47:03",
-      "receivedTimestamp": "2026-09-21T08:47:03+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-09-20 03:48:51.552",
-      "discoveryMag": "19.03",
-      "discoveryMagFilter": "120",
-      "lastModified": "2026-10-05 15:21:16",
-      "reportingGroup": "GOTO"
-    },
-    {
-      "name": "SN 2026aboe",
-      "url": "https://www.wis-tns.org/object/2026aboe",
-      "objectId": "220098",
-      "received": "2026-09-13 21:42:16",
-      "receivedTimestamp": "2026-09-13T21:42:16+00:00",
-      "objectType": "SN",
-      "classification": "SN Ia",
-      "discoveryDate": "2026-09-13 07:20:58.272",
-      "discoveryMag": "20.47",
-      "discoveryMagFilter": "56",
-      "lastModified": "2026-10-05 15:20:20",
-      "reportingGroup": "YSE"
     }
   ]
 }
