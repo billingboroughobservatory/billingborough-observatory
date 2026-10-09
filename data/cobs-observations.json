@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-08T23:55:49.632319+00:00",
+  "generated": "2026-10-09T05:59:13.918736+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -21,6 +21,38 @@
       "magnitude": "14.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-08 14:09:35",
+      "observer": "Osamu Miyazaki",
+      "observerCode": "MIY01",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "11.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-10-08 13:40:48",
+      "observer": "Osamu Miyazaki",
+      "observerCode": "MIY01",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "10.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
       "comet": "P/2026 R2 (Leonard)",
@@ -133,38 +165,6 @@
       "magnitude": "12.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "220P/McNaught",
-      "mpcName": "220P",
-      "icqName": "0220",
-      "observationDate": "2026-10-07 20:52:48",
-      "observer": "Harri Kiiskinen",
-      "observerCode": "KII",
-      "association": "URSA Astronomical Association",
-      "country": "Finland",
-      "location": "Hankasalmi observatory (62.25470 N, 26.59640 E); Comet Alt. 19.0; Moon Alt. -21.0",
-      "method": "Kron/Cousins R with CCD/CMOS",
-      "methodCode": "k",
-      "magnitude": "11.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "260P/McNaught",
-      "mpcName": "260P",
-      "icqName": "0260",
-      "observationDate": "2026-10-07 20:38:24",
-      "observer": "Harri Kiiskinen",
-      "observerCode": "KII",
-      "association": "URSA Astronomical Association",
-      "country": "Finland",
-      "location": "Hankasalmi observatory (62.25470 N, 26.59640 E); Comet Alt. 35.2; Moon Alt. -21.2",
-      "method": "Kron/Cousins R with CCD/CMOS",
-      "methodCode": "k",
-      "magnitude": "14.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/754/"
     }
   ]
 }
