@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-09T23:10:59.269266+00:00",
+  "generated": "2026-10-10T02:41:40.471215+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "88P/Howell",
+      "mpcName": "88P",
+      "icqName": "0088",
+      "observationDate": "2026-10-09 22:45:47",
+      "observer": "Tiago Ferreira",
+      "observerCode": "FERac",
+      "association": "",
+      "country": "Portugal",
+      "location": "Dobsonian Power (MPC R39)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "19.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/74/"
+    },
     {
       "comet": "220P/McNaught",
       "mpcName": "220P",
@@ -32,9 +48,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "12.0",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "13.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/130/"
     },
@@ -48,9 +64,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "13.9",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "12.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/130/"
     },
@@ -71,22 +87,6 @@
       "cobsUrl": "https://cobs.si/comet/74/"
     },
     {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-10-09 20:09:35",
-      "observer": "Sergey Shurpakov",
-      "observerCode": "SHU",
-      "association": "British Astronomical Association",
-      "country": "Belarus",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
       "icqName": "2026A2",
@@ -101,6 +101,22 @@
       "magnitude": "13.1",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-09 20:09:35",
+      "observer": "Sergey Shurpakov",
+      "observerCode": "SHU",
+      "association": "British Astronomical Association",
+      "country": "Belarus",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "14.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
       "comet": "161P/Hartley-IRAS",
@@ -128,9 +144,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "13.8",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "10.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
     },
@@ -144,27 +160,11 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "10.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "2P/Encke",
-      "mpcName": "2P",
-      "icqName": "0002",
-      "observationDate": "2026-10-09 18:43:11",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
       "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
       "methodCode": "g",
-      "magnitude": "17.8",
+      "magnitude": "13.8",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/41/"
+      "cobsUrl": "https://cobs.si/comet/393/"
     }
   ]
 }
