@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-10T02:41:40.471215+00:00",
+  "generated": "2026-10-10T09:44:02.924566+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -87,22 +87,6 @@
       "cobsUrl": "https://cobs.si/comet/74/"
     },
     {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-09 20:09:35",
-      "observer": "Nick Quinn",
-      "observerCode": "QUI02",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "13.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
       "icqName": "0161",
@@ -117,6 +101,22 @@
       "magnitude": "14.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-09 20:09:35",
+      "observer": "Nick Quinn",
+      "observerCode": "QUI02",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "13.1",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
       "comet": "161P/Hartley-IRAS",
@@ -144,9 +144,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "10.3",
+      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
+      "methodCode": "g",
+      "magnitude": "13.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
     },
@@ -160,9 +160,9 @@
       "association": "Society for Interplanetary Matter",
       "country": "Slovakia",
       "location": "",
-      "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
-      "methodCode": "g",
-      "magnitude": "13.8",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "10.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
     }
