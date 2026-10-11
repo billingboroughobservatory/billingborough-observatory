@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-11T08:44:59.080700+00:00",
+  "generated": "2026-10-11T15:35:57.552801+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "260P/McNaught",
+      "mpcName": "260P",
+      "icqName": "0260",
+      "observationDate": "2026-10-11 08:50:00",
+      "observer": "David Swan",
+      "observerCode": "SWA01",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "Sierra Remote Observatory at Auberry California USA",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "15.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/754/"
+    },
     {
       "comet": "169P/NEAT",
       "mpcName": "169P",
@@ -149,22 +165,6 @@
       "magnitude": "12.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-10-10 11:45:36",
-      "observer": "Yoshimi Nagai",
-      "observerCode": "NAG08",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "11.2",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
     }
   ]
 }
