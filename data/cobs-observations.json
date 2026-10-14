@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-14T06:07:09.548383+00:00",
+  "generated": "2026-10-14T11:45:02.084180+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -87,6 +87,22 @@
       "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-10-13 12:10:08",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Lighthouse Observatory, Kalamunda, W. Australia",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "10.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
       "icqName": "0161",
@@ -149,22 +165,6 @@
       "magnitude": "14.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "P/2026 R2 (Leonard)",
-      "mpcName": "K26R020",
-      "icqName": "P2026R2",
-      "observationDate": "2026-10-13 02:41:00",
-      "observer": "Mike Olason",
-      "observerCode": "OLA",
-      "association": "",
-      "country": "United States",
-      "location": "Tucson Arizona",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "11.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2795/"
     }
   ]
 }
