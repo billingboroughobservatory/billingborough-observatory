@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-15T12:50:26.087671+00:00",
+  "generated": "2026-10-15T17:44:56.864195+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-14 23:16:48",
+      "observer": "Walter Kutschera",
+      "observerCode": "KUT",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "12.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "C/2024 J3 (ATLAS)",
+      "mpcName": "K24J030",
+      "icqName": "2024J3",
+      "observationDate": "2026-10-14 21:36:00",
+      "observer": "Walter Kutschera",
+      "observerCode": "KUT",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "13.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2535/"
+    },
     {
       "comet": "C/2024 J3 (ATLAS)",
       "mpcName": "K24J030",
@@ -133,38 +165,6 @@
       "magnitude": "16.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/41/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-10-14 12:57:35",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "10.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-14 12:43:11",
-      "observer": "Osamu Miyazaki",
-      "observerCode": "MIY01",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "In-Out method",
-      "methodCode": "S",
-      "magnitude": "13.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
