@@ -144,17 +144,22 @@
 
                 <div class="video-wrapper">
 
+
                     <iframe
-
-                        src="https://www.youtube.com/live/cvtXrj6Bekc"
-
+                        id="live-youtube-frame"
+                        src="about:blank"
                         title="Live stream from Billingborough Observatory"
-
                         allow="autoplay; encrypted-media; picture-in-picture"
-
-                        allowfullscreen>
-
+                        allowfullscreen
+                        hidden>
                     </iframe>
+
+                    <div id="live-youtube-status"
+                         role="status"
+                         style="padding: 2rem; color: #cbd5e1; text-align: center;">
+                        Checking livestream status…
+                    </div>
+
 
                 </div>
 
@@ -562,6 +567,63 @@ setInterval(
     refreshSolarImage,
     300000
 );
+
+
+// Automatic YouTube livestream integration
+const liveYoutubeFrame = document.getElementById("live-youtube-frame");
+const liveYoutubeStatus = document.getElementById("live-youtube-status");
+const liveYoutubeDataUrl = "data/youtube-live.json";
+let currentYoutubeVideoId = null;
+let currentYoutubeLiveState = null;
+
+async function refreshYoutubeLiveStream() {
+    try {
+        const response = await fetch(
+            liveYoutubeDataUrl + "?t=" + Date.now(),
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        if (data.isLive && data.videoId) {
+            if (currentYoutubeVideoId !== data.videoId) {
+                liveYoutubeFrame.src =
+                    "https://www.youtube-nocookie.com/embed/" +
+                    encodeURIComponent(data.videoId);
+
+                currentYoutubeVideoId = data.videoId;
+            }
+
+            liveYoutubeFrame.hidden = false;
+            liveYoutubeStatus.hidden = true;
+            currentYoutubeLiveState = true;
+        } else {
+            liveYoutubeFrame.hidden = true;
+            liveYoutubeFrame.src = "about:blank";
+            liveYoutubeStatus.textContent =
+                "There is no livestream running at present. Please check back later.";
+            liveYoutubeStatus.hidden = false;
+            currentYoutubeVideoId = null;
+            currentYoutubeLiveState = false;
+        }
+    } catch (error) {
+        console.error("Could not refresh YouTube livestream status:", error);
+
+        if (currentYoutubeLiveState === null) {
+            liveYoutubeFrame.hidden = true;
+            liveYoutubeStatus.textContent =
+                "Livestream status is temporarily unavailable. Please try again shortly.";
+            liveYoutubeStatus.hidden = false;
+        }
+    }
+}
+
+refreshYoutubeLiveStream();
+setInterval(refreshYoutubeLiveStream, 300000);
 
 </script>
 
