@@ -1,0 +1,128 @@
+name: Update YouTube live broadcast
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: observatory-data-updates
+  cancel-in-progress: false
+
+jobs:
+  update-youtube-live:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Discover current live broadcast
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          CHANNEL_ID = "UCccorppDsBV6KsN6zUe7axg"
+          API_URL = "https://www.googleapis.com/youtube/v3/search"
+          OUTPUT = Path("data/youtube-live.json")
+
+          api_key = os.environ.get("YOUTUBE_API_KEY")
+          if not api_key:
+              raise RuntimeError("YOUTUBE_API_KEY secret is missing.")
+
+          params = urllib.parse.urlencode({
+              "key": api_key,
+              "channelId": CHANNEL_ID,
+              "eventType": "live",
+              "type": "video",
+              "part": "snippet",
+              "maxResults": 1,
+          })
+
+          request = urllib.request.Request(
+              f"{API_URL}?{params}",
+              headers={
+                  "User-Agent": "BillingboroughObservatory/1.0"
+              },
+          )
+
+          print(f"Checking for a live broadcast on {CHANNEL_ID}")
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              payload = json.load(response)
+
+          items = payload.get("items", [])
+
+          video_id = None
+          if items:
+              video_id = (
+                  items[0].get("id", {}).get("videoId")
+              )
+
+          if video_id:
+              desired = {
+                  "channelId": CHANNEL_ID,
+                  "isLive": True,
+                  "videoId": video_id,
+                  "watchUrl": f"https://www.youtube.com/watch?v={video_id}",
+                  "embedUrl": f"https://www.youtube-nocookie.com/embed/{video_id}",
+              }
+              print(f"Live broadcast found: {video_id}")
+          else:
+              desired = {
+                  "channelId": CHANNEL_ID,
+                  "isLive": False,
+                  "videoId": None,
+                  "watchUrl": None,
+                  "embedUrl": None,
+              }
+              print("No live broadcast is currently listed.")
+
+          OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+
+          existing = {}
+          if OUTPUT.exists():
+              existing = json.loads(OUTPUT.read_text(encoding="utf-8"))
+
+          # Avoid needless commits when the broadcast hasn't changed.
+          fields = ("channelId", "isLive", "videoId")
+          if all(existing.get(key) == desired[key] for key in fields):
+              print("Broadcast state unchanged; no update needed.")
+          else:
+              desired["updatedAt"] = datetime.now(
+                  timezone.utc
+              ).isoformat()
+
+              OUTPUT.write_text(
+                  json.dumps(desired, indent=2) + "\n",
+                  encoding="utf-8",
+              )
+              print(f"Updated {OUTPUT}")
+          PY
+
+      - name: Commit updated broadcast status
+        run: |
+          git config user.name "Billingborough Observatory"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/youtube-live.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update YouTube live broadcast status"
+
+            git fetch origin main
+            git rebase origin/main
+            git push
+          fi
