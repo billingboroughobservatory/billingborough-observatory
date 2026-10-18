@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-18T20:33:56.894493+00:00",
+  "generated": "2026-10-18T22:34:38.575591+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -23,6 +23,22 @@
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-18 19:39:00",
+      "observer": "Tomasz Sciezor",
+      "observerCode": "SCI",
+      "association": "Polish Comet Observers",
+      "country": "Poland",
+      "location": "Cracow",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "11.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
       "icqName": "2026A2",
@@ -35,22 +51,6 @@
       "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
       "methodCode": "g",
       "magnitude": "12.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-18 19:12:00",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "12.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
@@ -69,6 +69,22 @@
       "magnitude": "12.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-18 19:12:00",
+      "observer": "Tibor Csorgei",
+      "observerCode": "CSO",
+      "association": "Society for Interplanetary Matter",
+      "country": "Slovakia",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "12.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
       "comet": "2P/Encke",
@@ -149,22 +165,6 @@
       "magnitude": "11.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-10-18 17:31:12",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "SLOAN/SDSS i′ with CCD/CMOS",
-      "methodCode": "h",
-      "magnitude": "14.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
     }
   ]
 }
