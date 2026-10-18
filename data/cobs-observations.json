@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-17T23:22:35.016728+00:00",
+  "generated": "2026-10-18T01:30:13.799476+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -151,20 +151,20 @@
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-10-16 18:57:35",
-      "observer": "Sergey Shurpakov",
-      "observerCode": "SHU",
-      "association": "British Astronomical Association",
-      "country": "Belarus",
-      "location": "",
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-10-16 19:11:20",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
       "method": "Unfiltered total CCD/CMOS magnitude",
       "methodCode": "C",
-      "magnitude": "14.4",
+      "magnitude": "13.7",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
+      "cobsUrl": "https://cobs.si/comet/2579/"
     }
   ]
 }
