@@ -63,11 +63,67 @@ jobs:
 
           items = payload.get("items", [])
 
+          # Read the previous state before deciding whether the stream
+          # is offline. An empty search result is not proof it has ended.
+          existing = {}
+          if OUTPUT.exists():
+              existing = json.loads(OUTPUT.read_text(encoding="utf-8"))
+
           video_id = None
+          confirmed_offline = False
+
           if items:
-              video_id = (
-                  items[0].get("id", {}).get("videoId")
+              video_id = items[0].get("id", {}).get("videoId")
+
+          if not video_id:
+              previous_id = existing.get("videoId") or "cvtXrj6Bekc"
+              print(
+                  "Channel search returned no broadcast; checking "
+                  f"previous video {previous_id} directly."
               )
+
+              check_params = urllib.parse.urlencode({
+                  "key": api_key,
+                  "id": previous_id,
+                  "part": "snippet,liveStreamingDetails",
+              })
+
+              check_request = urllib.request.Request(
+                  "https://www.googleapis.com/youtube/v3/videos?"
+                  + check_params,
+                  headers={
+                      "User-Agent": "BillingboroughObservatory/1.0"
+                  },
+              )
+
+              with urllib.request.urlopen(
+                  check_request, timeout=30
+              ) as response:
+                  video_payload = json.load(response)
+
+              for video in video_payload.get("items", []):
+                  details = video.get("liveStreamingDetails", {})
+                  snippet = video.get("snippet", {})
+
+                  if (
+                      snippet.get("liveBroadcastContent") == "live"
+                      or (
+                          details.get("actualStartTime")
+                          and not details.get("actualEndTime")
+                      )
+                  ):
+                      video_id = video.get("id")
+                      print(
+                          "Known broadcast confirmed by video lookup: "
+                          f"{video_id}"
+                      )
+                      break
+
+                  if details.get("actualEndTime"):
+                      confirmed_offline = True
+                      print(
+                          f"YouTube confirms that {previous_id} has ended."
+                      )
 
           if video_id:
               desired = {
@@ -78,6 +134,32 @@ jobs:
                   "embedUrl": f"https://www.youtube-nocookie.com/embed/{video_id}",
               }
               print(f"Live broadcast found: {video_id}")
+
+          elif confirmed_offline:
+              desired = {
+                  "channelId": CHANNEL_ID,
+                  "isLive": False,
+                  "videoId": None,
+                  "watchUrl": None,
+                  "embedUrl": None,
+              }
+              print("The previous broadcast has ended.")
+
+          elif existing.get("videoId"):
+              # The API has not established that the known broadcast
+              # ended, so retain its previous state instead of hiding it.
+              desired = {
+                  "channelId": CHANNEL_ID,
+                  "isLive": existing.get("isLive", True),
+                  "videoId": existing["videoId"],
+                  "watchUrl": existing.get("watchUrl"),
+                  "embedUrl": existing.get("embedUrl"),
+              }
+              print(
+                  "Broadcast status is inconclusive; preserving "
+                  f"the previous video {existing['videoId']}."
+              )
+
           else:
               desired = {
                   "channelId": CHANNEL_ID,
@@ -86,13 +168,9 @@ jobs:
                   "watchUrl": None,
                   "embedUrl": None,
               }
-              print("No live broadcast is currently listed.")
+              print("No broadcast has been found yet.")
 
           OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
-          existing = {}
-          if OUTPUT.exists():
-              existing = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
           # Avoid needless commits when the broadcast hasn't changed.
           fields = ("channelId", "isLive", "videoId")
