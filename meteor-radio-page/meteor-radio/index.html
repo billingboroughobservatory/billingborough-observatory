@@ -161,6 +161,24 @@
                     <span>More detections</span>
                 </div>
             </div>
+            <div class="activity-card historical-activity-card">
+                <div class="activity-header">
+                    <div>
+                        <strong>Historical hourly activity</strong>
+                        <span id="history-range">Loading historical range…</span>
+                    </div>
+                    <span id="history-count">— detections</span>
+                </div>
+                <p class="history-intro">Each row represents a UTC date; columns show detections in each hour. The month column also marks meteor-shower peaks, with shading that gradually intensifies towards the peak across each shower’s approximate activity period.</p>
+                <div class="historical-colourgramme-wrap" tabindex="0" aria-label="Scrollable historical hourly activity plot">
+                    <div class="historical-colourgramme" id="historical-colourgramme" aria-label="Historical hourly radio detection colourgramme">
+                        <div class="historical-empty">Loading historical activity…</div>
+                    </div>
+                </div>
+                <div class="colourgramme-legend">
+                    <span>Fewer detections</span><div class="legend-gradient" aria-hidden="true"></div><span>More detections</span>
+                </div>
+            </div>
         </div>
     </section>
 
