@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-19T22:17:17.465857+00:00",
+  "generated": "2026-10-20T01:13:25.904933+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "220P/McNaught",
+      "mpcName": "220P",
+      "icqName": "0220",
+      "observationDate": "2026-10-19 15:52:17",
+      "observer": "Teerasak Thaluang",
+      "observerCode": "THA",
+      "association": "",
+      "country": "Thailand",
+      "location": "SSTAC, Pak Chong (MPC O58)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "15.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/130/"
+    },
     {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
@@ -87,22 +103,6 @@
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-18 19:12:00",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "12.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
       "icqName": "0161",
@@ -117,6 +117,22 @@
       "magnitude": "12.7",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-18 19:12:00",
+      "observer": "Tibor Csorgei",
+      "observerCode": "CSO",
+      "association": "Society for Interplanetary Matter",
+      "country": "Slovakia",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "12.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
       "comet": "2P/Encke",
@@ -147,22 +163,6 @@
       "method": "Gunn g or SLOAN/SDSS g' with CCD/CMOS",
       "methodCode": "g",
       "magnitude": "16.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/41/"
-    },
-    {
-      "comet": "2P/Encke",
-      "mpcName": "2P",
-      "icqName": "0002",
-      "observationDate": "2026-10-18 18:28:47",
-      "observer": "Tibor Csorgei",
-      "observerCode": "CSO",
-      "association": "Society for Interplanetary Matter",
-      "country": "Slovakia",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "17.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/41/"
     }
