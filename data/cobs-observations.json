@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-21T07:29:35.141130+00:00",
+  "generated": "2026-10-21T13:11:30.696463+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "2P/Encke",
+      "mpcName": "2P",
+      "icqName": "0002",
+      "observationDate": "2026-10-20 21:12:33",
+      "observer": "Jordi Solaz",
+      "observerCode": "SOL02",
+      "association": "",
+      "country": "Spain",
+      "location": "Escaldarium Observatory,Caldes de Montbui (MPC D28)",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "16.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/41/"
+    },
     {
       "comet": "C/2024 T5 (ATLAS)",
       "mpcName": "K24T050",
@@ -21,6 +37,22 @@
       "magnitude": "13.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2579/"
+    },
+    {
+      "comet": "P/2026 T1 (ATLAS)",
+      "mpcName": "K26T010",
+      "icqName": "P2026T1",
+      "observationDate": "2026-10-20 18:47:41",
+      "observer": "Jordi Solaz",
+      "observerCode": "SOL02",
+      "association": "",
+      "country": "Spain",
+      "location": "Escaldarium Observatory,Caldes de Montbui (MPC D28)",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "14.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2799/"
     },
     {
       "comet": "10P/Tempel",
@@ -133,38 +165,6 @@
       "magnitude": "15.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/754/"
-    },
-    {
-      "comet": "78P/Gehrels",
-      "mpcName": "78P",
-      "icqName": "0078",
-      "observationDate": "2026-10-20 00:55:00",
-      "observer": "Christian Harder",
-      "observerCode": "HAR11",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "Jeersdorf f",
-      "method": "In-Out method",
-      "methodCode": "S",
-      "magnitude": "16.0",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/18/"
-    },
-    {
-      "comet": "2P/Encke",
-      "mpcName": "2P",
-      "icqName": "0002",
-      "observationDate": "2026-10-20 00:43:12",
-      "observer": "Walter Kutschera",
-      "observerCode": "KUT",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/41/"
     }
   ]
 }
