@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-23T12:02:02.567479+00:00",
+  "generated": "2026-10-23T16:59:26.037321+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -87,22 +87,6 @@
       "cobsUrl": "https://cobs.si/comet/18/"
     },
     {
-      "comet": "C/2024 T5 (ATLAS)",
-      "mpcName": "K24T050",
-      "icqName": "2024T5",
-      "observationDate": "2026-10-22 16:33:36",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "13.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2579/"
-    },
-    {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
       "icqName": "0161",
@@ -117,6 +101,22 @@
       "magnitude": "14.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-10-22 16:33:36",
+      "observer": "Toru Yusa",
+      "observerCode": "YUS",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "13.4",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
     },
     {
       "comet": "260P/McNaught",
