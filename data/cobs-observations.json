@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-23T01:26:09.651124+00:00",
+  "generated": "2026-10-23T06:27:30.327105+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-10-22 18:57:35",
+      "observer": "Osamu Miyazaki",
+      "observerCode": "MIY01",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "12.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
+    },
     {
       "comet": "161P/Hartley-IRAS",
       "mpcName": "161P",
@@ -149,22 +165,6 @@
       "magnitude": "11.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "P/2026 T1 (ATLAS)",
-      "mpcName": "K26T010",
-      "icqName": "P2026T1",
-      "observationDate": "2026-10-21 11:02:24",
-      "observer": "Yoshimi Nagai",
-      "observerCode": "NAG08",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "14.2",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2799/"
     }
   ]
 }
