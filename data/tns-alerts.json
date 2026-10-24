@@ -1,8 +1,22 @@
 {
-  "generated": "2026-10-24T11:46:32.975797+00:00",
+  "generated": "2026-10-24T12:02:32.943484+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
-  "count": 11,
+  "count": 12,
   "alerts": [
+    {
+      "name": "AT 2026agpu",
+      "url": "https://www.wis-tns.org/object/2026agpu",
+      "objectId": "223865",
+      "received": "2026-10-24 11:23:04",
+      "receivedTimestamp": "2026-10-24T11:23:04+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-10-24 10:46:24.000",
+      "discoveryMag": "18.75",
+      "discoveryMagFilter": "112",
+      "lastModified": "2026-10-24 11:23:06",
+      "reportingGroup": "ZTF"
+    },
     {
       "name": "AT 2026agpt",
       "url": "https://www.wis-tns.org/object/2026agpt",
