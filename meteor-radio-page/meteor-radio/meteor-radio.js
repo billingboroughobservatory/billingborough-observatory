@@ -269,15 +269,19 @@
             }
         });
 
-        const maxCount = Math.max(1, ...visibleCounts);
+        const maxCount = 100;
         const heatColours = [
             "#000004", "#1b0c41", "#4a0c6b", "#781c6d", "#a52c60",
             "#cf4446", "#ed6925", "#fb9b06", "#f7d13d", "#fcffa4"
         ];
         function heatColour(value) {
             if (value <= 0) return "#edf1f5";
-            const position = Math.min(heatColours.length - 1,
-                Math.ceil((value / maxCount) * (heatColours.length - 1)));
+            if (value >= 100) {
+                return heatColours[heatColours.length - 1];
+            }
+            const position = Math.floor(
+                (value / 100) * (heatColours.length - 1)
+            );
             return heatColours[position];
         }
 
@@ -375,15 +379,19 @@
             counts.set(key, (counts.get(key) || 0) + 1);
         });
 
-        const maxCount = Math.max(1, ...counts.values());
+        const maxCount = 100;
         const heatColours = [
             "#000004", "#1b0c41", "#4a0c6b", "#781c6d", "#a52c60",
             "#cf4446", "#ed6925", "#fb9b06", "#f7d13d", "#fcffa4"
         ];
         function heatColour(value) {
             if (value <= 0) return "#edf1f5";
-            const position = Math.min(heatColours.length - 1,
-                Math.ceil((value / maxCount) * (heatColours.length - 1)));
+            if (value >= 100) {
+                return heatColours[heatColours.length - 1];
+            }
+            const position = Math.floor(
+                (value / 100) * (heatColours.length - 1)
+            );
             return heatColours[position];
         }
 
