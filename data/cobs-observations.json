@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-25T06:48:45.391563+00:00",
+  "generated": "2026-10-25T12:31:57.203357+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2025 V2 (Rankin)",
+      "mpcName": "K25V020",
+      "icqName": "2025V2",
+      "observationDate": "2026-10-25 06:14:24",
+      "observer": "Martin Mašek",
+      "observerCode": "MAS01",
+      "association": "Society for Interplanetary Matter",
+      "country": "Czech Republic",
+      "location": "CTA-N La Palma (28.76000 N, 17.89000 W); Comet Alt. 13.5; Moon Alt. 2.9",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "16.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2676/"
+    },
     {
       "comet": "C/2024 T5 (ATLAS)",
       "mpcName": "K24T050",
@@ -149,22 +165,6 @@
       "magnitude": "13.7",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "88P/Howell",
-      "mpcName": "88P",
-      "icqName": "0088",
-      "observationDate": "2026-10-22 21:06:00",
-      "observer": "Tomasz Sciezor",
-      "observerCode": "SCI",
-      "association": "Polish Comet Observers",
-      "country": "Poland",
-      "location": "Cracow",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.7",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/74/"
     }
   ]
 }
