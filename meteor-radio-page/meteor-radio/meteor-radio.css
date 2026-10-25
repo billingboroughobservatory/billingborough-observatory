@@ -154,7 +154,7 @@ h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; margin
 
 .activity-card { background: #fff; border: 1px solid #dce3e9; border-radius: 10px; padding: 25px; }
 .activity-header { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; margin-bottom: 25px; }
-.activity-header strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 22px; }
+.activity-header strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 22px; color: #172333; }
 .activity-header span { color: var(--light-muted); font-size: 12px; }
 .colourgramme-wrap {
     overflow-x: auto;
