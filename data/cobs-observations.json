@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-27T01:25:55.753201+00:00",
+  "generated": "2026-10-27T06:47:28.970330+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -21,6 +21,38 @@
       "magnitude": "16.5",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2676/"
+    },
+    {
+      "comet": "C/2024 J3 (ATLAS)",
+      "mpcName": "K24J030",
+      "icqName": "2024J3",
+      "observationDate": "2026-10-24 18:57:35",
+      "observer": "Steffen Fritsche",
+      "observerCode": "FRI02",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "Koeditz",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "13.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2535/"
+    },
+    {
+      "comet": "P/2026 T1 (ATLAS)",
+      "mpcName": "K26T010",
+      "icqName": "P2026T1",
+      "observationDate": "2026-10-24 18:00:00",
+      "observer": "Steffen Fritsche",
+      "observerCode": "FRI02",
+      "association": "VdS Fachgruppe Kometen",
+      "country": "Germany",
+      "location": "Koeditz",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "14.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2799/"
     },
     {
       "comet": "C/2024 T5 (ATLAS)",
@@ -133,38 +165,6 @@
       "magnitude": "11.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "P/2026 T1 (ATLAS)",
-      "mpcName": "K26T010",
-      "icqName": "P2026T1",
-      "observationDate": "2026-10-23 09:21:36",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "15.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2799/"
-    },
-    {
-      "comet": "78P/Gehrels",
-      "mpcName": "78P",
-      "icqName": "0078",
-      "observationDate": "2026-10-23 03:35:59",
-      "observer": "Uwe Pilz",
-      "observerCode": "PIL01",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "Leipzig",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "14.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/18/"
     }
   ]
 }
