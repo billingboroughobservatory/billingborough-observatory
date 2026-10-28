@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-28T08:23:02.961461+00:00",
+  "generated": "2026-10-28T15:24:39.802919+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-27 21:54:00",
+      "observer": "Robert Arnold",
+      "observerCode": "ARN01",
+      "association": "",
+      "country": "United Kingdom",
+      "location": "ASERO, Valdin",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "13.1",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
     {
       "comet": "C/2024 J3 (ATLAS)",
       "mpcName": "K24J030",
@@ -149,22 +165,6 @@
       "magnitude": "14.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2799/"
-    },
-    {
-      "comet": "260P/McNaught",
-      "mpcName": "260P",
-      "icqName": "0260",
-      "observationDate": "2026-10-26 22:25:00",
-      "observer": "Tomasz Sciezor",
-      "observerCode": "SCI",
-      "association": "Polish Comet Observers",
-      "country": "Poland",
-      "location": "Cracow",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/754/"
     }
   ]
 }
