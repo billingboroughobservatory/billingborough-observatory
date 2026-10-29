@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-29T19:12:34.457243+00:00",
+  "generated": "2026-10-29T23:33:17.397780+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-10-29 16:28:05",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "11.7",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -103,6 +119,22 @@
       "cobsUrl": "https://cobs.si/comet/41/"
     },
     {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-28 12:41:21",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Perth Observatory, Bickley",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "11.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
+    {
       "comet": "10P/Tempel",
       "mpcName": "10P",
       "icqName": "0010",
@@ -133,38 +165,6 @@
       "magnitude": "14.2",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-10-28 11:16:47",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "12.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "C/2024 R4 (PANSTARRS)",
-      "mpcName": "K24R040",
-      "icqName": "2024R4",
-      "observationDate": "2026-10-28 10:47:59",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "15.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2563/"
     }
   ]
 }
