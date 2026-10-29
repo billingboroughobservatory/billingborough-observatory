@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-29T13:39:32.674938+00:00",
+  "generated": "2026-10-29T19:12:34.457243+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -21,6 +21,38 @@
       "magnitude": "11.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "2P/Encke",
+      "mpcName": "2P",
+      "icqName": "0002",
+      "observationDate": "2026-10-29 07:32:00",
+      "observer": "David Swan",
+      "observerCode": "SWA01",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "UDRO, nr Beryl, Utah, USA",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "16.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/41/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-28 19:43:00",
+      "observer": "Robert Arnold",
+      "observerCode": "ARN01",
+      "association": "",
+      "country": "United Kingdom",
+      "location": "ASERO, Valdin",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "12.5",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
       "comet": "78P/Gehrels",
@@ -133,38 +165,6 @@
       "magnitude": "15.0",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2563/"
-    },
-    {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-10-28 10:19:11",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "13.2",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "P/2026 T1 (ATLAS)",
-      "mpcName": "K26T010",
-      "icqName": "P2026T1",
-      "observationDate": "2026-10-28 09:50:24",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "15.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2799/"
     }
   ]
 }
