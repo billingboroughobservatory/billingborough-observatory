@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-30T09:54:08.779982+00:00",
+  "generated": "2026-10-30T16:40:33.800245+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-10-29 19:26:00",
+      "observer": "Robert Arnold",
+      "observerCode": "ARN01",
+      "association": "",
+      "country": "United Kingdom",
+      "location": "ASERO, Valdin",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "13.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -149,22 +165,6 @@
       "magnitude": "12.4",
       "conditions": ":",
       "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-10-28 20:38:23",
-      "observer": "Walter Kutschera",
-      "observerCode": "KUT",
-      "association": "VdS Fachgruppe Kometen",
-      "country": "Germany",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.8",
-      "conditions": ":",
-      "cobsUrl": "https://cobs.si/comet/2535/"
     }
   ]
 }
