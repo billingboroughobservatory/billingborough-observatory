@@ -1,8 +1,36 @@
 {
-  "generated": "2026-10-31T09:00:28.844653+00:00",
+  "generated": "2026-10-31T11:00:29.073816+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "AT 2026ahpf",
+      "url": "https://www.wis-tns.org/object/2026ahpf",
+      "objectId": "224532",
+      "received": "2026-10-31 10:54:36",
+      "receivedTimestamp": "2026-10-31T10:54:36+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-10-30 14:43:45.408",
+      "discoveryMag": "19.31",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-10-31 10:54:38",
+      "reportingGroup": "GOTO"
+    },
+    {
+      "name": "SN 2026afxj",
+      "url": "https://www.wis-tns.org/object/2026afxj",
+      "objectId": "223273",
+      "received": "2026-10-20 12:21:47",
+      "receivedTimestamp": "2026-10-20T12:21:47+00:00",
+      "objectType": "SN",
+      "classification": "SN Ia",
+      "discoveryDate": "2026-10-20 00:01:56.640",
+      "discoveryMag": "18.025",
+      "discoveryMagFilter": "72",
+      "lastModified": "2026-10-31 10:01:39",
+      "reportingGroup": "ATLAS"
+    },
     {
       "name": "AT 2026ahof",
       "url": "https://www.wis-tns.org/object/2026ahof",
@@ -393,34 +421,6 @@
       "discoveryMag": "20.56",
       "discoveryMagFilter": "26",
       "lastModified": "2026-10-30 23:30:43",
-      "reportingGroup": "Pan-STARRS"
-    },
-    {
-      "name": "AT 2025akbj",
-      "url": "https://www.wis-tns.org/object/2025akbj",
-      "objectId": "197199",
-      "received": "2025-12-30 20:06:46",
-      "receivedTimestamp": "2025-12-30T20:06:46+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2025-12-17 11:55:12.002",
-      "discoveryMag": "19.8315",
-      "discoveryMagFilter": "111",
-      "lastModified": "2026-10-30 23:30:31",
-      "reportingGroup": "ZTF"
-    },
-    {
-      "name": "AT 2025ajsa",
-      "url": "https://www.wis-tns.org/object/2025ajsa",
-      "objectId": "196953",
-      "received": "2025-12-29 18:41:05",
-      "receivedTimestamp": "2025-12-29T18:41:05+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2025-11-11 08:49:18.912",
-      "discoveryMag": "20.83",
-      "discoveryMagFilter": "26",
-      "lastModified": "2026-10-30 23:30:18",
       "reportingGroup": "Pan-STARRS"
     }
   ]
