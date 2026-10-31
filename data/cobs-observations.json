@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-10-30T21:26:37.110245+00:00",
+  "generated": "2026-10-31T01:00:21.437755+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -151,20 +151,20 @@
       "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-10-29 19:26:00",
-      "observer": "Robert Arnold",
-      "observerCode": "ARN01",
-      "association": "",
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-10-29 19:40:48",
+      "observer": "Mark Phillips",
+      "observerCode": "PHI02",
+      "association": "British Astronomical Association",
       "country": "United Kingdom",
-      "location": "ASERO, Valdin",
-      "method": "CCD Visual equivalent",
-      "methodCode": "Z",
-      "magnitude": "13.8",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "12.9",
       "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
+      "cobsUrl": "https://cobs.si/comet/2723/"
     }
   ]
 }
