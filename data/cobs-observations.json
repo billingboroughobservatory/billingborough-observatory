@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-03T02:37:40.968591+00:00",
+  "generated": "2026-11-03T10:01:57.905212+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -87,22 +87,6 @@
       "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
-      "comet": "C/2026 A2 (Bok)",
-      "mpcName": "K26A020",
-      "icqName": "2026A2",
-      "observationDate": "2026-11-01 19:55:12",
-      "observer": "Mark Phillips",
-      "observerCode": "PHI02",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "12.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
       "comet": "10P/Tempel",
       "mpcName": "10P",
       "icqName": "0010",
@@ -117,6 +101,22 @@
       "magnitude": "10.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-11-01 19:55:12",
+      "observer": "Mark Phillips",
+      "observerCode": "PHI02",
+      "association": "British Astronomical Association",
+      "country": "United Kingdom",
+      "location": "",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "12.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
     },
     {
       "comet": "P/2026 T1 (ATLAS)",
