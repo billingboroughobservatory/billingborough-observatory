@@ -1,8 +1,36 @@
 {
-  "generated": "2026-11-03T21:01:03.995797+00:00",
+  "generated": "2026-11-03T22:01:04.648335+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "AT 2026aiai",
+      "url": "https://www.wis-tns.org/object/2026aiai",
+      "objectId": "224825",
+      "received": "2026-11-03 21:21:47",
+      "receivedTimestamp": "2026-11-03T21:21:47+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-11-01 15:18:08.640",
+      "discoveryMag": "19.92",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-11-03 21:21:49",
+      "reportingGroup": "GOTO"
+    },
+    {
+      "name": "AT 2026aiah",
+      "url": "https://www.wis-tns.org/object/2026aiah",
+      "objectId": "224824",
+      "received": "2026-11-03 21:20:53",
+      "receivedTimestamp": "2026-11-03T21:20:53+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-10-24 05:48:36.576",
+      "discoveryMag": "19.55",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-11-03 21:20:55",
+      "reportingGroup": "GOTO"
+    },
     {
       "name": "AT 2026aiag",
       "url": "https://www.wis-tns.org/object/2026aiag",
@@ -393,34 +421,6 @@
       "discoveryMag": "20.11",
       "discoveryMagFilter": "120",
       "lastModified": "2026-11-03 19:16:51",
-      "reportingGroup": "GOTO"
-    },
-    {
-      "name": "AT 2026ahtz",
-      "url": "https://www.wis-tns.org/object/2026ahtz",
-      "objectId": "224656",
-      "received": "2026-11-01 20:20:05",
-      "receivedTimestamp": "2026-11-01T20:20:05+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-10-30 14:40:46.560",
-      "discoveryMag": "19.06",
-      "discoveryMagFilter": "120",
-      "lastModified": "2026-11-03 19:15:58",
-      "reportingGroup": "GOTO"
-    },
-    {
-      "name": "AT 2026ahzl",
-      "url": "https://www.wis-tns.org/object/2026ahzl",
-      "objectId": "224802",
-      "received": "2026-11-03 19:15:40",
-      "receivedTimestamp": "2026-11-03T19:15:40+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-11-01 15:26:12.480",
-      "discoveryMag": "20.07",
-      "discoveryMagFilter": "120",
-      "lastModified": "2026-11-03 19:15:42",
       "reportingGroup": "GOTO"
     }
   ]
