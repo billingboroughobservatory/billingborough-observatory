@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-02T20:17:06.888747+00:00",
+  "generated": "2026-11-03T02:37:40.968591+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-11-02 19:40:47",
+      "observer": "Pieter-Jan Dekelver",
+      "observerCode": "DEK01",
+      "association": "International Comet Quarterly",
+      "country": "Belgium",
+      "location": "",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "12.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
+    },
     {
       "comet": "2P/Encke",
       "mpcName": "2P",
@@ -71,22 +87,6 @@
       "cobsUrl": "https://cobs.si/comet/393/"
     },
     {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-11-01 19:55:12",
-      "observer": "Juan Jose Gonzalez Suarez",
-      "observerCode": "GON05",
-      "association": "International Comet Quarterly",
-      "country": "Spain",
-      "location": "",
-      "method": "In-Out method",
-      "methodCode": "S",
-      "magnitude": "10.6",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
       "comet": "C/2026 A2 (Bok)",
       "mpcName": "K26A020",
       "icqName": "2026A2",
@@ -101,6 +101,22 @@
       "magnitude": "12.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-11-01 19:55:12",
+      "observer": "Juan Jose Gonzalez Suarez",
+      "observerCode": "GON05",
+      "association": "International Comet Quarterly",
+      "country": "Spain",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "10.6",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
     },
     {
       "comet": "P/2026 T1 (ATLAS)",
@@ -149,22 +165,6 @@
       "magnitude": "14.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/130/"
-    },
-    {
-      "comet": "C/2024 R4 (PANSTARRS)",
-      "mpcName": "K24R040",
-      "icqName": "2024R4",
-      "observationDate": "2026-10-31 20:52:48",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "17.1",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2563/"
     }
   ]
 }
