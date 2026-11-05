@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-05T00:18:57.486817+00:00",
+  "generated": "2026-11-05T07:18:59.293115+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-11-04 14:46:52",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, Perth, W. Australia",
+      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
+      "methodCode": "V",
+      "magnitude": "11.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -21,6 +37,22 @@
       "magnitude": "11.9",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
+      "comet": "123P/West-Hartley",
+      "mpcName": "123P",
+      "icqName": "0123",
+      "observationDate": "2026-11-04 12:09:00",
+      "observer": "Mike Olason",
+      "observerCode": "OLA",
+      "association": "",
+      "country": "United States",
+      "location": "Tucson Arizona",
+      "method": "CCD Visual equivalent",
+      "methodCode": "Z",
+      "magnitude": "15.8",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/88/"
     },
     {
       "comet": "C/2026 A2 (Bok)",
@@ -133,38 +165,6 @@
       "magnitude": "12.6",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/393/"
-    },
-    {
-      "comet": "C/2024 T5 (ATLAS)",
-      "mpcName": "K24T050",
-      "icqName": "2024T5",
-      "observationDate": "2026-11-03 17:45:36",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "13.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2579/"
-    },
-    {
-      "comet": "C/2024 T5 (ATLAS)",
-      "mpcName": "K24T050",
-      "icqName": "2024T5",
-      "observationDate": "2026-11-03 17:45:21",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "13.5",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2579/"
     }
   ]
 }
