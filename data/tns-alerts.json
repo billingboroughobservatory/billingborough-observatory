@@ -1,8 +1,36 @@
 {
-  "generated": "2026-11-06T19:02:26.922237+00:00",
+  "generated": "2026-11-06T20:02:27.116256+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "SN 2026aguc",
+      "url": "https://www.wis-tns.org/object/2026aguc",
+      "objectId": "223978",
+      "received": "2026-10-25 10:45:53",
+      "receivedTimestamp": "2026-10-25T10:45:53+00:00",
+      "objectType": "SN",
+      "classification": "SN Ia-91T-like",
+      "discoveryDate": "2026-10-25 09:42:27.996",
+      "discoveryMag": "19.1849",
+      "discoveryMagFilter": "111",
+      "lastModified": "2026-11-06 19:29:49",
+      "reportingGroup": "ZTF"
+    },
+    {
+      "name": "SN 2026agpt",
+      "url": "https://www.wis-tns.org/object/2026agpt",
+      "objectId": "223864",
+      "received": "2026-10-24 10:44:10",
+      "receivedTimestamp": "2026-10-24T10:44:10+00:00",
+      "objectType": "SN",
+      "classification": "SN Ia",
+      "discoveryDate": "2026-10-20 07:25:21.999",
+      "discoveryMag": "20.2572",
+      "discoveryMagFilter": "111",
+      "lastModified": "2026-11-06 19:29:48",
+      "reportingGroup": "ZTF"
+    },
     {
       "name": "SN 2026ahmz",
       "url": "https://www.wis-tns.org/object/2026ahmz",
@@ -16,20 +44,6 @@
       "discoveryMagFilter": "120",
       "lastModified": "2026-11-06 18:54:50",
       "reportingGroup": "GOTO"
-    },
-    {
-      "name": "SN 2026agpt",
-      "url": "https://www.wis-tns.org/object/2026agpt",
-      "objectId": "223864",
-      "received": "2026-10-24 10:44:10",
-      "receivedTimestamp": "2026-10-24T10:44:10+00:00",
-      "objectType": "SN",
-      "classification": "SN Ia",
-      "discoveryDate": "2026-10-20 07:25:21.999",
-      "discoveryMag": "20.2572",
-      "discoveryMagFilter": "111",
-      "lastModified": "2026-11-06 18:09:37",
-      "reportingGroup": "ZTF"
     },
     {
       "name": "AT 2026aikp",
@@ -408,20 +422,6 @@
       "discoveryMagFilter": "162",
       "lastModified": "2026-11-06 16:32:08",
       "reportingGroup": "ALeRCE"
-    },
-    {
-      "name": "AT 2026aike",
-      "url": "https://www.wis-tns.org/object/2026aike",
-      "objectId": "225087",
-      "received": "2026-11-06 16:31:38",
-      "receivedTimestamp": "2026-11-06T16:31:38+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-11-06 07:22:35.000",
-      "discoveryMag": "22.7526",
-      "discoveryMagFilter": "22",
-      "lastModified": "2026-11-06 16:31:42",
-      "reportingGroup": "Shadow"
     }
   ]
 }
