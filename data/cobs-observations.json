@@ -2,10 +2,42 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-08T18:28:42.200329+00:00",
+  "generated": "2026-11-08T22:26:27.392570+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2026 A2 (Bok)",
+      "mpcName": "K26A020",
+      "icqName": "2026A2",
+      "observationDate": "2026-11-08 17:45:00",
+      "observer": "Eryk Banach",
+      "observerCode": "BAN02",
+      "association": "",
+      "country": "Poland",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "11.9",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2723/"
+    },
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-11-08 17:20:00",
+      "observer": "Eryk Banach",
+      "observerCode": "BAN02",
+      "association": "",
+      "country": "Poland",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "10.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
     {
       "comet": "C/2024 T5 (ATLAS)",
       "mpcName": "K24T050",
@@ -133,38 +165,6 @@
       "magnitude": "11.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-11-07 14:02:07",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Nedlands, Perth, W. Australia",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "12.0",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "2P/Encke",
-      "mpcName": "2P",
-      "icqName": "0002",
-      "observationDate": "2026-11-07 13:47:29",
-      "observer": "Andrew Pearce",
-      "observerCode": "PEA",
-      "association": "International Comet Quarterly",
-      "country": "Australia",
-      "location": "Perth Observatory, Bickley",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "17.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/41/"
     }
   ]
 }
