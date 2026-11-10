@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-10T02:40:44.197453+00:00",
+  "generated": "2026-11-10T11:00:43.247514+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "161P/Hartley-IRAS",
+      "mpcName": "161P",
+      "icqName": "0161",
+      "observationDate": "2026-11-09 18:09:00",
+      "observer": "Michel Deconinck",
+      "observerCode": "DEC",
+      "association": "ALPO Comet Section",
+      "country": "Belgium",
+      "location": "Fernelmont",
+      "method": "In-focus",
+      "methodCode": "I",
+      "magnitude": "11.0",
+      "conditions": ":",
+      "cobsUrl": "https://cobs.si/comet/393/"
+    },
     {
       "comet": "C/2025 J1 (Borisov)",
       "mpcName": "K25J010",
@@ -149,22 +165,6 @@
       "magnitude": "16.3",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2344/"
-    },
-    {
-      "comet": "C/2025 J1 (Borisov)",
-      "mpcName": "K25J010",
-      "icqName": "2025J1",
-      "observationDate": "2026-11-09 02:09:35",
-      "observer": "Pieter-Jan Dekelver",
-      "observerCode": "DEK01",
-      "association": "International Comet Quarterly",
-      "country": "Belgium",
-      "location": "",
-      "method": "Johnson/Bessel/Kron/Cousins V with CCD/CMOS",
-      "methodCode": "V",
-      "magnitude": "17.9",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2629/"
     }
   ]
 }
