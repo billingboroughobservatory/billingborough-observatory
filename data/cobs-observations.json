@@ -2,7 +2,7 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-12T02:29:48.401487+00:00",
+  "generated": "2026-11-12T10:13:23.777686+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
@@ -23,6 +23,22 @@
       "cobsUrl": "https://cobs.si/comet/18/"
     },
     {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-11-11 18:57:35",
+      "observer": "Osamu Miyazaki",
+      "observerCode": "MIY01",
+      "association": "International Comet Quarterly",
+      "country": "Japan",
+      "location": "",
+      "method": "In-Out method",
+      "methodCode": "S",
+      "magnitude": "13.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
+    },
+    {
       "comet": "C/2014 UN271 (Bernardinelli-Bernstein)",
       "mpcName": "K14UR1N",
       "icqName": "2014UNR1",
@@ -37,6 +53,22 @@
       "magnitude": "14.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2/"
+    },
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-11-11 18:20:06",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, W. Australia",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "13.3",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
     },
     {
       "comet": "C/2024 T5 (ATLAS)",
@@ -103,6 +135,22 @@
       "cobsUrl": "https://cobs.si/comet/41/"
     },
     {
+      "comet": "10P/Tempel",
+      "mpcName": "10P",
+      "icqName": "0010",
+      "observationDate": "2026-11-11 12:47:14",
+      "observer": "Andrew Pearce",
+      "observerCode": "PEA",
+      "association": "International Comet Quarterly",
+      "country": "Australia",
+      "location": "Nedlands, W. Australia",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "12.0",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/53/"
+    },
+    {
       "comet": "P/2026 R2 (Leonard)",
       "mpcName": "K26R020",
       "icqName": "P2026R2",
@@ -117,54 +165,6 @@
       "magnitude": "13.8",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2795/"
-    },
-    {
-      "comet": "10P/Tempel",
-      "mpcName": "10P",
-      "icqName": "0010",
-      "observationDate": "2026-11-11 12:14:23",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "12.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/53/"
-    },
-    {
-      "comet": "C/2024 J3 (ATLAS)",
-      "mpcName": "K24J030",
-      "icqName": "2024J3",
-      "observationDate": "2026-11-11 11:31:12",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "14.3",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/2535/"
-    },
-    {
-      "comet": "161P/Hartley-IRAS",
-      "mpcName": "161P",
-      "icqName": "0161",
-      "observationDate": "2026-11-11 11:02:24",
-      "observer": "Toru Yusa",
-      "observerCode": "YUS",
-      "association": "International Comet Quarterly",
-      "country": "Japan",
-      "location": "",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "11.8",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/393/"
     }
   ]
 }
