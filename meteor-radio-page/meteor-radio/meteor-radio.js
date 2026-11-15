@@ -4,6 +4,11 @@
     const DATA_URL = "https://meteor-radio.billingboroughobservatory.space/detections.json";
     const IMAGE_BASE = "https://meteor-radio.billingboroughobservatory.space/";
 
+    const HEAT_COLOURS = [
+        "#000004", "#1b0c41", "#4a0c6b", "#781c6d", "#a52c60",
+        "#cf4446", "#ed6925", "#fb9b06", "#f7d13d", "#fcffa4"
+    ];
+
     let detections = [];
     let lightboxDetections = detections;
     let currentIndex = 0;
@@ -12,7 +17,13 @@
 
     function parseDate(value) {
         if (!value) return null;
-        const date = new Date(value.endsWith("Z") ? value : `${value}Z`);
+        const normalized = String(value)
+            .trim()
+            .replace(/^(\d{4}-\d{2}-\d{2})\s+/, "$1T");
+        const iso = /(Z|[+-]\d{2}:?\d{2})$/i.test(normalized)
+            ? normalized
+            : `${normalized}Z`;
+        const date = new Date(iso);
         return Number.isNaN(date.getTime()) ? null : date;
     }
 
@@ -38,6 +49,17 @@
     function formatNumber(value, digits = 1) {
         const n = Number(value);
         return Number.isFinite(n) ? n.toFixed(digits) : "—";
+    }
+
+    function heatColour(value) {
+        if (value <= 0) return "#edf1f5";
+        if (value >= 100) {
+            return HEAT_COLOURS[HEAT_COLOURS.length - 1];
+        }
+        const position = Math.floor(
+            (value / 100) * (HEAT_COLOURS.length - 1)
+        );
+        return HEAT_COLOURS[position];
     }
 
     function imageUrl(path) {
@@ -100,6 +122,7 @@
 
     function renderCards(data) {
         const grid = $("detection-grid");
+        if (!grid) return;
         grid.innerHTML = "";
 
         if (!data.length) {
@@ -107,7 +130,9 @@
             return;
         }
 
-        data.slice(0, 12).forEach((detection, index) => {
+        const recent = data.slice(0, 12);
+
+        recent.forEach((detection, index) => {
             const card = document.createElement("article");
             card.className = "detection-card";
 
@@ -115,7 +140,7 @@
             imageButton.className = "detection-image-button";
             imageButton.type = "button";
             imageButton.setAttribute("aria-label", `Open detection from ${formatDate(detection.timestamp_utc)} ${formatTime(detection.timestamp_utc)}`);
-            imageButton.addEventListener("click", () => openLightbox(index));
+            imageButton.addEventListener("click", () => openLightbox(index, recent));
 
             const image = document.createElement("img");
             image.className = "detection-image";
@@ -157,7 +182,6 @@
 
     function renderMonthlyHighlights(data) {
         const grid = $("monthly-highlights-grid");
-
         if (!grid) return;
 
         grid.innerHTML = "";
@@ -167,7 +191,9 @@
             return;
         }
 
-        data.slice(0, 12).forEach((d) => {
+        const highlights = data.slice(0, 12);
+
+        highlights.forEach((d, highlightIndex) => {
             const card = document.createElement("article");
             card.className = "detection-card monthly-highlight-card";
 
@@ -214,8 +240,7 @@
             `;
 
             card.querySelector(".detection-image-button").addEventListener("click", () => {
-                const highlightIndex = data.indexOf(d);
-                openLightbox(highlightIndex, data);
+                openLightbox(highlightIndex, highlights);
             });
 
             grid.appendChild(card);
@@ -224,6 +249,7 @@
 
     function renderColourgramme(data) {
         const grid = $("colourgramme");
+        if (!grid) return;
         grid.innerHTML = "";
 
         const now = new Date();
@@ -261,29 +287,7 @@
             counts.set(key, (counts.get(key) || 0) + 1);
         });
 
-        const visibleCounts = [];
-        days.forEach(date => {
-            const dateString = date.toISOString().slice(0, 10);
-            for (let hour = 0; hour < 24; hour++) {
-                visibleCounts.push(counts.get(`${dateString}-${hour}`) || 0);
-            }
-        });
-
         const maxCount = 100;
-        const heatColours = [
-            "#000004", "#1b0c41", "#4a0c6b", "#781c6d", "#a52c60",
-            "#cf4446", "#ed6925", "#fb9b06", "#f7d13d", "#fcffa4"
-        ];
-        function heatColour(value) {
-            if (value <= 0) return "#edf1f5";
-            if (value >= 100) {
-                return heatColours[heatColours.length - 1];
-            }
-            const position = Math.floor(
-                (value / 100) * (heatColours.length - 1)
-            );
-            return heatColours[position];
-        }
 
         const corner = document.createElement("div");
         corner.className = "colourgramme-header";
@@ -379,23 +383,6 @@
             counts.set(key, (counts.get(key) || 0) + 1);
         });
 
-        const maxCount = 100;
-        const heatColours = [
-            "#000004", "#1b0c41", "#4a0c6b", "#781c6d", "#a52c60",
-            "#cf4446", "#ed6925", "#fb9b06", "#f7d13d", "#fcffa4"
-        ];
-        function heatColour(value) {
-            if (value <= 0) return "#edf1f5";
-            if (value >= 100) {
-                return heatColours[heatColours.length - 1];
-            }
-            const position = Math.floor(
-                (value / 100) * (heatColours.length - 1)
-            );
-            return heatColours[position];
-        }
-
-        const columns = 26; // month label, date, and 24 UTC hours
         grid.style.gridTemplateColumns = `150px 34px repeat(24, minmax(11px, 1fr))`;
         grid.style.gridTemplateRows = `28px repeat(${days.length}, 22px)`;
         grid.style.setProperty("--history-rows", days.length);
@@ -415,19 +402,6 @@
         for (let hour = 0; hour < 24; hour++) {
             addCell("history-header history-hour-header", String(hour).padStart(2, "0"), 1, hour + 3);
         }
-
-        let currentMonth = "";
-        let monthStartIndex = 0;
-        const monthGroups = [];
-        days.forEach((date, index) => {
-            const monthKey = date.toISOString().slice(0, 7);
-            if (monthKey !== currentMonth) {
-                if (currentMonth) monthGroups.push({ key: currentMonth, start: monthStartIndex, length: index - monthStartIndex });
-                currentMonth = monthKey;
-                monthStartIndex = index;
-            }
-        });
-        monthGroups.push({ key: currentMonth, start: monthStartIndex, length: days.length - monthStartIndex });
 
         // Approximate annual activity windows and peak dates for major showers.
         // Dates are calendar guides; activity profiles are illustrative, not predictions.
@@ -455,6 +429,7 @@
             const [month, day] = monthDay.split("-").map(Number);
             return new Date(Date.UTC(year, month - 1, day));
         };
+
         // Keep the annotation visually restrained: shade only the three days
         // either side of each peak, with the strongest shade on the peak date.
         const showerActivity = date => {
@@ -497,7 +472,6 @@
                 1
             );
             if (activity.intensity > 0 && !activity.peakNames.length) {
-                // Restrained gold shading, limited to three days either side of peak.
                 const alpha = 0.12 + activity.intensity * 0.42;
                 monthCell.style.backgroundColor = `rgba(224, 160, 32, ${alpha.toFixed(3)})`;
                 monthCell.style.color = activity.intensity > 0.58 ? "#6b4200" : "#39485a";
@@ -580,8 +554,30 @@
             renderHistoricalColourgramme(detections);
         } catch (error) {
             console.error("Meteor Radio data error:", error);
-            $("detection-grid").innerHTML = '<div class="error-message">Meteor Radio data is temporarily unavailable. Please try again later.</div>';
-            $("timeline").innerHTML = '<div class="timeline-empty">Activity data is temporarily unavailable.</div>';
+
+            const detectionGrid = $("detection-grid");
+            if (detectionGrid) {
+                detectionGrid.innerHTML =
+                    '<div class="error-message">Meteor Radio data is temporarily unavailable. Please try again later.</div>';
+            }
+
+            const highlightsGrid = $("monthly-highlights-grid");
+            if (highlightsGrid) {
+                highlightsGrid.innerHTML =
+                    '<div class="error-message">Monthly highlights are temporarily unavailable.</div>';
+            }
+
+            const colourgramme = $("colourgramme");
+            if (colourgramme) {
+                colourgramme.innerHTML =
+                    '<div class="colourgramme-empty">Activity data is temporarily unavailable.</div>';
+            }
+
+            const historicalColourgramme = $("historical-colourgramme");
+            if (historicalColourgramme) {
+                historicalColourgramme.innerHTML =
+                    '<div class="historical-empty">Historical activity data is temporarily unavailable.</div>';
+            }
         }
     }
 
