@@ -2,11 +2,11 @@
 
 import argparse
 import json
-import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import quote
 from PIL import Image
 import tkinter as tk
 from tkinter import filedialog
@@ -24,6 +24,8 @@ IMAGE_ROOT = GALLERY_DIR / "images"
 SERVER_ROOT = Path("/srv/billingborough-gallery")
 SERVER_IMAGE_ROOT = SERVER_ROOT / "images"
 SERVER_JSON_FILE = SERVER_ROOT / "data" / "gallery.json"
+
+GALLERY_BASE_URL = "https://gallery.billingboroughobservatory.space"
 
 
 # --------------------------------------------------
@@ -53,22 +55,44 @@ def choose(items, prompt):
 
 
 def run_command(command):
-    result = subprocess.run(
-        command,
-        capture_output=True,
-        text=True
-    )
+    result = subprocess.run(command)
 
     if result.returncode != 0:
-        print(result.stdout)
-        print(result.stderr)
-        fail("Command failed.")
-
-    return result.stdout
+        fail(f"Command failed: {' '.join(command)}")
 
 
 def relative_image_path(path):
     return path.relative_to(IMAGE_ROOT).as_posix()
+
+
+def verify_http_200(url, label):
+    result = subprocess.run(
+        [
+            "curl",
+            "-s",
+            "-o",
+            "/dev/null",
+            "-w",
+            "%{http_code}",
+            "--connect-timeout",
+            "10",
+            "--max-time",
+            "20",
+            url,
+        ],
+        capture_output=True,
+        text=True,
+    )
+
+    status_code = result.stdout.strip() or "no response"
+
+    if result.returncode != 0 or status_code != "200":
+        fail(
+            f"{label} was uploaded but returned HTTP {status_code}\n"
+            f"URL: {url}"
+        )
+
+    print(f"{label}: HTTP {status_code}")
 
 
 # --------------------------------------------------
@@ -96,7 +120,7 @@ if not sections:
 # --------------------------------------------------
 
 parser = argparse.ArgumentParser(
-    description="Add an image to the Billingborough Observatory gallery."
+    description="Add an image or video to the Billingborough Observatory gallery."
 )
 
 parser.add_argument(
@@ -162,15 +186,10 @@ allowed_video_extensions = {
 extension = source.suffix.lower()
 
 if extension in allowed_image_extensions:
-
     media_type = "image"
-
 elif extension in allowed_video_extensions:
-
     media_type = "video"
-
 else:
-
     fail(
         "Unsupported media type. "
         "Use JPG, JPEG, PNG, WebP, MP4 or WebM."
@@ -179,6 +198,7 @@ else:
 
 print(f"\nSelected: {source.name}")
 print(f"Type:     {media_type}")
+
 
 # --------------------------------------------------
 # VIDEO THUMBNAIL
@@ -215,36 +235,22 @@ if media_type == "video":
     thumbnail_source = Path(selected_thumbnail)
 
     if not thumbnail_source.exists():
-        fail(
-            f"Thumbnail image does not exist: "
-            f"{thumbnail_source}"
-        )
+        fail(f"Thumbnail image does not exist: {thumbnail_source}")
 
     if not thumbnail_source.is_file():
-        fail(
-            f"Thumbnail is not a file: "
-            f"{thumbnail_source}"
-        )
+        fail(f"Thumbnail is not a file: {thumbnail_source}")
 
     if thumbnail_source.suffix.lower() not in allowed_image_extensions:
-        fail(
-            "Unsupported thumbnail type. "
-            "Use JPG, JPEG, PNG or WebP."
-        )
+        fail("Unsupported thumbnail type. Use JPG, JPEG, PNG or WebP.")
 
-    print(
-        f"Thumbnail: {thumbnail_source.name}"
-    )
+    print(f"Thumbnail: {thumbnail_source.name}")
 
 
 # --------------------------------------------------
 # SECTION
 # --------------------------------------------------
 
-section = choose(
-    sections,
-    "Choose a section"
-)
+section = choose(sections, "Choose a section")
 
 
 # --------------------------------------------------
@@ -254,15 +260,9 @@ section = choose(
 categories = section.get("categories", [])
 
 if not categories:
-    fail(
-        f"No categories are defined for "
-        f"{section['title']}."
-    )
+    fail(f"No categories are defined for {section['title']}.")
 
-category = choose(
-    categories,
-    "Choose a category"
-)
+category = choose(categories, "Choose a category")
 
 
 # --------------------------------------------------
@@ -270,15 +270,10 @@ category = choose(
 # --------------------------------------------------
 
 children = category.get("children", [])
-
 subcategory = None
 
 if children:
-
-    subcategory = choose(
-        children,
-        "Choose a subject"
-    )
+    subcategory = choose(children, "Choose a subject")
 
 
 # --------------------------------------------------
@@ -288,21 +283,14 @@ if children:
 print()
 
 title = input("Title: ").strip()
-
 if not title:
     fail("A title is required.")
 
-
 description = input("Description: ").strip()
-
 if not description:
     fail("A description is required.")
 
-
-date = input("Date [2026]: ").strip()
-
-if not date:
-    date = "2026"
+date = input("Date [2026]: ").strip() or "2026"
 
 
 # --------------------------------------------------
@@ -316,10 +304,6 @@ destination_parts = [
 
 if subcategory:
     destination_parts.append(subcategory["title"])
-
-
-# Convert the actual hierarchy titles to the
-# existing directory naming convention.
 
 directory_map = {
     "The Boundary Layer": "01_The_Boundary_Layer",
@@ -352,73 +336,41 @@ directory_map = {
     "Neptune": "07_Neptune",
 }
 
-
 directory_parts = [
     directory_map.get(part, part.replace(" ", "_"))
     for part in destination_parts
 ]
 
-destination_directory = IMAGE_ROOT.joinpath(
-    *directory_parts
-)
+destination_directory = IMAGE_ROOT.joinpath(*directory_parts)
+destination_directory.mkdir(parents=True, exist_ok=True)
 
-destination_directory.mkdir(
-    parents=True,
-    exist_ok=True
-)
-
-destination_file = (
-    destination_directory /
-    source.name
-)
-
-relative_path = relative_image_path(
-    destination_file
-)
+destination_file = destination_directory / source.name
+relative_path = relative_image_path(destination_file)
 
 thumbnail_destination = None
 thumbnail_relative_path = None
 
 if media_type == "video":
-
     thumbnail_destination = (
-        destination_directory /
-        f"{source.stem}_thumbnail.jpg"
+        destination_directory / f"{source.stem}_thumbnail.jpg"
     )
+    thumbnail_relative_path = relative_image_path(thumbnail_destination)
 
-    thumbnail_relative_path = relative_image_path(
-        thumbnail_destination
-    )
 
 # --------------------------------------------------
 # CHECK FOR DUPLICATES
 # --------------------------------------------------
 
 if destination_file.exists():
-    fail(
-        f"A file with this filename already exists:\n"
-        f"{destination_file}"
-    )
+    fail(f"A file with this filename already exists:\n{destination_file}")
 
 if thumbnail_destination and thumbnail_destination.exists():
-    fail(
-        f"The thumbnail already exists:\n"
-        f"{thumbnail_destination}"
-    )
+    fail(f"The thumbnail already exists:\n{thumbnail_destination}")
 
 for existing in data.get("images", []):
-
-    existing_path = (
-        existing.get("image")
-        or existing.get("video")
-    )
-
+    existing_path = existing.get("image") or existing.get("video")
     if existing_path == relative_path:
-
-        fail(
-            "This media path is already present "
-            "in gallery.json."
-        )
+        fail("This media path is already present in gallery.json.")
 
 
 # --------------------------------------------------
@@ -426,7 +378,6 @@ for existing in data.get("images", []):
 # --------------------------------------------------
 
 if media_type == "video":
-
     entry = {
         "type": "video",
         "video": relative_path,
@@ -437,9 +388,7 @@ if media_type == "video":
         "section": section["id"],
         "category": category["id"]
     }
-
 else:
-
     entry = {
         "type": "image",
         "image": relative_path,
@@ -463,21 +412,16 @@ print("\n----------------------------------------------")
 print("Gallery entry")
 print("----------------------------------------------")
 if media_type == "video":
-
-    print(f"Type:        video")
+    print("Type:        video")
     print(f"Video:       {relative_path}")
     print(f"Thumbnail:   {thumbnail_relative_path}")
-
 else:
-
-    print(f"Type:        image")
+    print("Type:        image")
     print(f"Image:       {relative_path}")
 print(f"Section:     {section['title']}")
 print(f"Category:    {category['title']}")
-
 if subcategory:
     print(f"Subject:     {subcategory['title']}")
-
 print(f"Title:       {title}")
 print(f"Description: {description}")
 print(f"Date:        {date}")
@@ -486,7 +430,6 @@ print("----------------------------------------------")
 if args.dry_run:
     print("\nDRY RUN — no files have been changed.")
     sys.exit(0)
-
 
 confirmation = input(
     "\nAdd this media and publish it? [y/N]: "
@@ -502,31 +445,16 @@ if confirmation not in {"y", "yes"}:
 # --------------------------------------------------
 
 print("\nCopying media...")
-
-shutil.copy2(
-    source,
-    destination_file
-)
+shutil.copy2(source, destination_file)
 
 if media_type == "video":
-
     print("Creating thumbnail...")
 
     with Image.open(thumbnail_source) as img:
-
         img = img.convert("RGB")
-
         width = 640
-
-        height = round(
-            img.height * width / img.width
-        )
-
-        img = img.resize(
-            (width, height),
-            Image.Resampling.LANCZOS
-        )
-
+        height = round(img.height * width / img.width)
+        img = img.resize((width, height), Image.Resampling.LANCZOS)
         img.save(
             thumbnail_destination,
             "JPEG",
@@ -534,10 +462,7 @@ if media_type == "video":
             optimize=True
         )
 
-    print(
-        f"Thumbnail created: "
-        f"{thumbnail_destination.name}"
-    )
+    print(f"Thumbnail created: {thumbnail_destination.name}")
 
 
 # --------------------------------------------------
@@ -549,12 +474,7 @@ print("Updating gallery.json...")
 data.setdefault("images", []).append(entry)
 
 with JSON_FILE.open("w", encoding="utf-8") as f:
-    json.dump(
-        data,
-        f,
-        indent=2,
-        ensure_ascii=False
-    )
+    json.dump(data, f, indent=2, ensure_ascii=False)
     f.write("\n")
 
 
@@ -566,61 +486,49 @@ try:
     with JSON_FILE.open(encoding="utf-8") as f:
         json.load(f)
 except json.JSONDecodeError as e:
-
     destination_file.unlink(missing_ok=True)
-
     if thumbnail_destination:
-        thumbnail_destination.unlink(
-            missing_ok=True
-        )
-
-    fail(
-        f"gallery.json became invalid: {e}"
-    )
-
+        thumbnail_destination.unlink(missing_ok=True)
+    fail(f"gallery.json became invalid: {e}")
 
 print("JSON OK.")
 
 
 # --------------------------------------------------
-# RSYNC IMAGE
+# RSYNC MEDIA & JSON
 # --------------------------------------------------
 
-print("\nUploading media to server...")
+server_dest_dir = SERVER_IMAGE_ROOT / destination_file.relative_to(IMAGE_ROOT).parent
 
+print("\nEnsuring server directories exist...")
+run_command(["sudo", "mkdir", "-p", str(server_dest_dir), str(SERVER_JSON_FILE.parent)])
+
+print("\nUploading media to server...")
 run_command([
     "sudo",
     "rsync",
     "-avh",
     str(destination_file),
-    f"{SERVER_IMAGE_ROOT}/{destination_file.relative_to(IMAGE_ROOT).parent}/"
+    f"{server_dest_dir}/",
 ])
 
 if thumbnail_destination:
-
     print("\nUploading thumbnail to server...")
-
     run_command([
         "sudo",
         "rsync",
         "-avh",
         str(thumbnail_destination),
-        f"{SERVER_IMAGE_ROOT}/{thumbnail_destination.relative_to(IMAGE_ROOT).parent}/"
+        f"{server_dest_dir}/",
     ])
 
-
-# --------------------------------------------------
-# RSYNC JSON
-# --------------------------------------------------
-
 print("\nUploading gallery.json...")
-
 run_command([
     "sudo",
     "rsync",
     "-avh",
     str(JSON_FILE),
-    str(SERVER_JSON_FILE)
+    str(SERVER_JSON_FILE),
 ])
 
 
@@ -630,70 +538,14 @@ run_command([
 
 print("\nVerifying server files...")
 
-remote_media = (
-    "https://gallery.billingboroughobservatory.space/"
-    "images/"
-    + relative_path
-)
-
-result = subprocess.run(
-    [
-        "curl",
-        "-s",
-        "-o",
-        "/dev/null",
-        "-w",
-        "%{http_code}",
-        remote_media
-    ],
-    capture_output=True,
-    text=True
-)
-
-if result.stdout.strip() != "200":
-
-    fail(
-        f"Image was uploaded but returned HTTP "
-        f"{result.stdout.strip()}"
-    )
-
-
-print(
-    f"Media: HTTP {result.stdout.strip()}"
-)
+remote_media = f"{GALLERY_BASE_URL}/images/{quote(relative_path, safe='/')}"
+verify_http_200(remote_media, "Media")
 
 if thumbnail_relative_path:
-
     remote_thumbnail = (
-        "https://gallery.billingboroughobservatory.space/"
-        "images/"
-        + thumbnail_relative_path
+        f"{GALLERY_BASE_URL}/images/{quote(thumbnail_relative_path, safe='/')}"
     )
-
-    result = subprocess.run(
-        [
-            "curl",
-            "-s",
-            "-o",
-            "/dev/null",
-            "-w",
-            "%{http_code}",
-            remote_thumbnail
-        ],
-        capture_output=True,
-        text=True
-    )
-
-    if result.stdout.strip() != "200":
-
-        fail(
-            "Thumbnail was uploaded but returned "
-            f"HTTP {result.stdout.strip()}"
-        )
-
-    print(
-        f"Thumbnail: HTTP {result.stdout.strip()}"
-    )
+    verify_http_200(remote_thumbnail, "Thumbnail")
 
 print("\nValidating remote gallery.json...")
 
@@ -701,18 +553,23 @@ result = subprocess.run(
     [
         "curl",
         "-s",
-        "https://gallery.billingboroughobservatory.space/"
-        "data/gallery.json"
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "20",
+        f"{GALLERY_BASE_URL}/data/gallery.json",
     ],
     capture_output=True,
-    text=True
+    text=True,
 )
+
+if result.returncode != 0:
+    fail("Could not download remote gallery.json for validation.")
 
 try:
     json.loads(result.stdout)
 except json.JSONDecodeError:
     fail("Remote gallery.json is not valid JSON.")
-
 
 print("Remote JSON OK.")
 
@@ -723,13 +580,8 @@ print(f"\nAdded: {title}")
 print(f"Location: {relative_path}")
 
 if media_type == "video":
-    print(
-        "\nThe video and thumbnail are now "
-        "live in the gallery."
-    )
+    print("\nThe video and thumbnail are now live in the gallery.")
 else:
-    print(
-        "\nThe image is now live in the gallery."
-    )
+    print("\nThe image is now live in the gallery.")
 
 print("\nRemember to commit the changes to Git.")
