@@ -506,6 +506,17 @@
       "date": "2026",
       "section": "boundary-layer",
       "category": "meteors-and-fireballs"
+    },
+    {
+      "type": "image",
+      "image": "02_The_Solar_System/The_Planets/05_Saturn/Saturn_20261113.png",
+      "thumbnail": "02_The_Solar_System/The_Planets/05_Saturn/Saturn_20261113.png",
+      "title": "Saturn 2026 First Light",
+      "description": "Captured using the 305 mm Dobsonian on the 13th November. Frosty night.",
+      "date": "2026",
+      "section": "solar-system",
+      "category": "planets",
+      "subcategory": "saturn"
     }
   ]
 }
