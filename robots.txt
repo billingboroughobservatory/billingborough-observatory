@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://billingboroughobservatory.space/sitemap.xml
