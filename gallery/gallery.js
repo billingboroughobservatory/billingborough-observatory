@@ -25,21 +25,53 @@ let currentSubcategory = null;
 
 
 /* ==================================================
+   HELPERS
+   ================================================== */
+
+function mediaUrl(relativePath) {
+    if (!relativePath) {
+        return "";
+    }
+
+    return (
+        "images/" +
+        String(relativePath)
+            .split("/")
+            .map(encodeURIComponent)
+            .join("/")
+    );
+}
+
+function createNavigationHeading(eyebrowText, headingText) {
+    const heading = document.createElement("div");
+    heading.className = "gallery-navigation-heading";
+
+    const eyebrow = document.createElement("span");
+    eyebrow.textContent = eyebrowText;
+
+    const strong = document.createElement("strong");
+    strong.textContent = headingText;
+
+    heading.append(eyebrow, strong);
+    return heading;
+}
+
+
+/* ==================================================
    LOAD GALLERY
    ================================================== */
 
 async function loadGallery() {
-
     try {
-
-        const response = await fetch("data/gallery.json");
+        const response = await fetch("data/gallery.json", {
+            cache: "no-store"
+        });
 
         if (!response.ok) {
             throw new Error("Unable to load gallery data.");
         }
 
         galleryData = await response.json();
-
         galleryImages = galleryData.images || [];
 
         galleryIntro.textContent =
@@ -47,9 +79,7 @@ async function loadGallery() {
             "A visual record of astronomical observations.";
 
         showSections();
-
     } catch (error) {
-
         console.error(error);
 
         galleryIntro.textContent =
@@ -69,83 +99,61 @@ async function loadGallery() {
    ================================================== */
 
 function clearNavigation(backFunction = showSections, backLabel = "Gallery") {
-
     galleryFilters.innerHTML = "";
 
     const backButton = document.createElement("button");
-
     backButton.type = "button";
     backButton.className = "gallery-filter gallery-back";
     backButton.textContent = `← ${backLabel}`;
-
     backButton.addEventListener("click", backFunction);
 
     galleryFilters.appendChild(backButton);
 }
 
-
 function showSections() {
-
     currentSection = null;
     currentCategory = null;
     currentSubcategory = null;
 
     galleryFilters.innerHTML = "";
-
     galleryGrid.innerHTML = "";
 
-    const heading = document.createElement("div");
-    heading.className = "gallery-navigation-heading";
+    galleryGrid.appendChild(
+        createNavigationHeading("Explore the gallery", "Choose a subject")
+    );
 
-    heading.innerHTML = `
-        <span>Explore the gallery</span>
-        <strong>Choose a subject</strong>
-    `;
-
-    galleryGrid.appendChild(heading);
-
-    galleryData.sections.forEach(section => {
-
+    (galleryData.sections || []).forEach((section, index) => {
         const button = document.createElement("button");
-
         button.type = "button";
         button.className = "gallery-navigation-card";
 
-        button.innerHTML = `
-            <span class="gallery-navigation-number">
-                ${section.id === "boundary-layer" ? "01" :
-                  section.id === "solar-system" ? "02" : "03"}
-            </span>
+        const number = document.createElement("span");
+        number.className = "gallery-navigation-number";
+        number.textContent = String(index + 1).padStart(2, "0");
 
-            <span class="gallery-navigation-title">
-                ${section.title}
-            </span>
+        const title = document.createElement("span");
+        title.className = "gallery-navigation-title";
+        title.textContent = section.title || "";
 
-            <span class="gallery-navigation-description">
-                ${section.description || ""}
-            </span>
+        const description = document.createElement("span");
+        description.className = "gallery-navigation-description";
+        description.textContent = section.description || "";
 
-            <span class="gallery-navigation-arrow">→</span>
-        `;
+        const arrow = document.createElement("span");
+        arrow.className = "gallery-navigation-arrow";
+        arrow.textContent = "→";
 
+        button.append(number, title, description, arrow);
         button.addEventListener("click", () => {
             showCategories(section.id);
         });
 
         galleryGrid.appendChild(button);
-
     });
-
 }
 
-
 function showCategories(sectionId) {
-
-    const section =
-        galleryData.sections.find(
-            item => item.id === sectionId
-        );
-
+    const section = galleryData.sections.find(item => item.id === sectionId);
     if (!section) {
         return;
     }
@@ -154,28 +162,15 @@ function showCategories(sectionId) {
     currentCategory = null;
     currentSubcategory = null;
 
-    clearNavigation(
-    showSections,
-    "Gallery"
-);
-
+    clearNavigation(showSections, "Gallery");
     galleryGrid.innerHTML = "";
 
-    const heading = document.createElement("div");
+    galleryGrid.appendChild(
+        createNavigationHeading(section.title || "", "Choose a subject")
+    );
 
-    heading.className = "gallery-navigation-heading";
-
-    heading.innerHTML = `
-        <span>${section.title}</span>
-        <strong>Choose a subject</strong>
-    `;
-
-    galleryGrid.appendChild(heading);
-
-    section.categories.forEach(category => {
-
+    (section.categories || []).forEach(category => {
         const button = document.createElement("button");
-
         button.type = "button";
         button.className = "gallery-navigation-card";
 
@@ -183,48 +178,36 @@ function showCategories(sectionId) {
             Array.isArray(category.children) &&
             category.children.length > 0;
 
-        button.innerHTML = `
-            <span class="gallery-navigation-title">
-                ${category.title}
-            </span>
+        const title = document.createElement("span");
+        title.className = "gallery-navigation-title";
+        title.textContent = category.title || "";
 
-            <span class="gallery-navigation-description">
-                ${hasChildren
-                    ? `${category.children.length} subjects`
-                    : ""}
-            </span>
+        const description = document.createElement("span");
+        description.className = "gallery-navigation-description";
+        description.textContent = hasChildren
+            ? `${category.children.length} subjects`
+            : "";
 
-            <span class="gallery-navigation-arrow">→</span>
-        `;
+        const arrow = document.createElement("span");
+        arrow.className = "gallery-navigation-arrow";
+        arrow.textContent = "→";
 
+        button.append(title, description, arrow);
         button.addEventListener("click", () => {
-
             if (hasChildren) {
                 showSubcategories(sectionId, category.id);
             } else {
                 showImages(sectionId, category.id);
             }
-
         });
 
         galleryGrid.appendChild(button);
-
     });
-
 }
 
-
 function showSubcategories(sectionId, categoryId) {
-
-    const section =
-        galleryData.sections.find(
-            item => item.id === sectionId
-        );
-
-    const category =
-        section?.categories.find(
-            item => item.id === categoryId
-        );
+    const section = galleryData.sections.find(item => item.id === sectionId);
+    const category = section?.categories.find(item => item.id === categoryId);
 
     if (!category || !category.children) {
         return;
@@ -234,53 +217,39 @@ function showSubcategories(sectionId, categoryId) {
     currentCategory = categoryId;
     currentSubcategory = null;
 
-    clearNavigation(
-    () => showCategories(sectionId),
-    section.title
-);
-
+    clearNavigation(() => showCategories(sectionId), section.title);
     galleryGrid.innerHTML = "";
 
-    const heading = document.createElement("div");
+    const promptTitle =
+        category.id === "planets" ? "Choose a planet" : "Choose a subject";
 
-    heading.className = "gallery-navigation-heading";
-
-    heading.innerHTML = `
-        <span>${section.title} / ${category.title}</span>
-        <strong>Choose a planet</strong>
-    `;
-
-    galleryGrid.appendChild(heading);
+    galleryGrid.appendChild(
+        createNavigationHeading(
+            `${section.title} / ${category.title}`,
+            promptTitle
+        )
+    );
 
     category.children.forEach(child => {
-
         const button = document.createElement("button");
-
         button.type = "button";
         button.className = "gallery-navigation-card";
 
-        button.innerHTML = `
-            <span class="gallery-navigation-title">
-                ${child.title}
-            </span>
+        const title = document.createElement("span");
+        title.className = "gallery-navigation-title";
+        title.textContent = child.title || "";
 
-            <span class="gallery-navigation-arrow">→</span>
-        `;
+        const arrow = document.createElement("span");
+        arrow.className = "gallery-navigation-arrow";
+        arrow.textContent = "→";
 
+        button.append(title, arrow);
         button.addEventListener("click", () => {
-
-            showImages(
-                sectionId,
-                categoryId,
-                child.id
-            );
-
+            showImages(sectionId, categoryId, child.id);
         });
 
         galleryGrid.appendChild(button);
-
     });
-
 }
 
 
@@ -288,188 +257,105 @@ function showSubcategories(sectionId, categoryId) {
    IMAGE DISPLAY
    ================================================== */
 
-function showImages(
-    sectionId,
-    categoryId,
-    subcategoryId = null
-) {
-
+function showImages(sectionId, categoryId, subcategoryId = null) {
     currentSection = sectionId;
     currentCategory = categoryId;
     currentSubcategory = subcategoryId;
 
-    const section =
-        galleryData.sections.find(
-            item => item.id === sectionId
-        );
-
-    const category =
-        section?.categories.find(
-            item => item.id === categoryId
-        );
+    const section = galleryData.sections.find(item => item.id === sectionId);
+    const category = section?.categories.find(item => item.id === categoryId);
 
     if (subcategoryId) {
-
-        // Individual planet → back to The Planets
         clearNavigation(
             () => showSubcategories(sectionId, categoryId),
             category?.title || "Back"
         );
-
     } else {
-
-        // Category → back to its section
         clearNavigation(
             () => showCategories(sectionId),
             section?.title || "Back"
         );
-
     }
 
     let title = category?.title || "";
 
     if (subcategoryId && category?.children) {
-
-        const child =
-            category.children.find(
-                item => item.id === subcategoryId
-            );
-
+        const child = category.children.find(item => item.id === subcategoryId);
         if (child) {
             title = child.title;
         }
-
     }
 
-    const heading = document.createElement("div");
-
-    heading.className = "gallery-navigation-heading";
-
-    heading.innerHTML = `
-        <span>${section?.title || ""}</span>
-        <strong>${title}</strong>
-    `;
-
     galleryGrid.innerHTML = "";
-    galleryGrid.appendChild(heading);
+    galleryGrid.appendChild(
+        createNavigationHeading(section?.title || "", title)
+    );
 
     visibleImages = galleryImages.filter(image => {
-
         if (image.section !== sectionId) {
             return false;
         }
-
         if (image.category !== categoryId) {
             return false;
         }
-
-        if (
-            subcategoryId &&
-            image.subcategory !== subcategoryId
-        ) {
+        if (subcategoryId && image.subcategory !== subcategoryId) {
             return false;
         }
-
         return true;
-
     });
 
     if (visibleImages.length === 0) {
-
         const empty = document.createElement("p");
-
         empty.className = "gallery-empty";
-
-        empty.textContent =
-            "There are no photographs in this section yet.";
-
+        empty.textContent = "There are no photographs in this section yet.";
         galleryGrid.appendChild(empty);
-
         return;
     }
 
     visibleImages.forEach((image, index) => {
-
         const article = document.createElement("article");
-
         article.className = "gallery-card";
 
         const button = document.createElement("button");
-
         button.type = "button";
         button.className = "gallery-image-button";
-
         button.setAttribute(
             "aria-label",
             `Open ${image.title || "gallery image"}`
         );
 
         const img = document.createElement("img");
-
         img.className = "gallery-image";
-
-        img.src =
-            `images/${image.thumbnail || image.image}`;
-
-        img.alt =
-            image.title ||
-            "Billingborough Observatory";
-
+        img.src = mediaUrl(image.thumbnail || image.image);
+        img.alt = image.title || "Billingborough Observatory";
         img.loading = "lazy";
 
         button.appendChild(img);
-
-        button.addEventListener(
-            "click",
-            () => openLightbox(index)
-        );
+        button.addEventListener("click", () => openLightbox(index));
 
         const caption = document.createElement("div");
-
         caption.className = "gallery-caption";
 
-        const titleElement =
-            document.createElement("h3");
-
-        titleElement.textContent =
-            image.title ||
-            "Billingborough Observatory";
-
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = image.title || "Billingborough Observatory";
         caption.appendChild(titleElement);
 
         if (image.description) {
-
-            const description =
-                document.createElement("p");
-
-            description.textContent =
-                image.description;
-
+            const description = document.createElement("p");
+            description.textContent = image.description;
             caption.appendChild(description);
-
         }
 
         if (image.date) {
-
-            const date =
-                document.createElement("p");
-
+            const date = document.createElement("p");
             date.className = "gallery-date";
-
-            date.textContent =
-                image.date;
-
+            date.textContent = image.date;
             caption.appendChild(date);
-
         }
 
-        article.appendChild(button);
-        article.appendChild(caption);
-
+        article.append(button, caption);
         galleryGrid.appendChild(article);
-
     });
-
 }
 
 
@@ -478,27 +364,15 @@ function showImages(
    ================================================== */
 
 function openLightbox(index) {
-
     currentIndex = index;
-
     updateLightbox();
 
     lightbox.classList.add("open");
-
-    lightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.classList.add(
-        "lightbox-open"
-    );
-
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
 }
 
-
 function closeLightbox() {
-
     if (lightboxVideo) {
         lightboxVideo.pause();
         lightboxVideo.removeAttribute("src");
@@ -506,109 +380,61 @@ function closeLightbox() {
     }
 
     lightbox.classList.remove("open");
-
-    lightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.classList.remove(
-        "lightbox-open"
-    );
-
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
 }
 
-
 function updateLightbox() {
-
     const image = visibleImages[currentIndex];
-
     if (!image) {
         return;
     }
 
     if (image.type === "video") {
-
         lightboxImage.style.display = "none";
 
         lightboxVideo.style.display = "block";
-
-        lightboxVideo.src =
-            `images/${image.video}`;
-
-        lightboxVideo.poster =
-            `images/${image.thumbnail}`;
-
+        lightboxVideo.src = mediaUrl(image.video);
+        lightboxVideo.poster = mediaUrl(image.thumbnail);
         lightboxVideo.controls = true;
-
         lightboxVideo.playsInline = true;
-
         lightboxVideo.preload = "metadata";
-
         lightboxVideo.load();
-
     } else {
-
         lightboxVideo.pause();
-
         lightboxVideo.removeAttribute("src");
-
         lightboxVideo.removeAttribute("poster");
-
         lightboxVideo.style.display = "none";
 
         lightboxImage.style.display = "block";
-
-        lightboxImage.src =
-            `images/${image.image}`;
-
-        lightboxImage.alt =
-            image.title ||
-            "Billingborough Observatory";
+        lightboxImage.src = mediaUrl(image.image);
+        lightboxImage.alt = image.title || "Billingborough Observatory";
     }
 
-    lightboxCategory.textContent =
-        image.category || "";
-
-    lightboxTitle.textContent =
-        image.title ||
-        "Billingborough Observatory";
-
-    lightboxDescription.textContent =
-        image.description || "";
-
-    lightboxDate.textContent =
-        image.date || "";
+    lightboxCategory.textContent = image.category || "";
+    lightboxTitle.textContent = image.title || "Billingborough Observatory";
+    lightboxDescription.textContent = image.description || "";
+    lightboxDate.textContent = image.date || "";
 }
-
 
 function previousImage() {
-
     if (!visibleImages.length) {
         return;
     }
 
     currentIndex =
-        (currentIndex - 1 + visibleImages.length)
-        % visibleImages.length;
+        (currentIndex - 1 + visibleImages.length) % visibleImages.length;
 
     updateLightbox();
-
 }
 
-
 function nextImage() {
-
     if (!visibleImages.length) {
         return;
     }
 
-    currentIndex =
-        (currentIndex + 1)
-        % visibleImages.length;
-
+    currentIndex = (currentIndex + 1) % visibleImages.length;
     updateLightbox();
-
 }
 
 
@@ -616,54 +442,29 @@ function nextImage() {
    EVENTS
    ================================================== */
 
-lightboxClose.addEventListener(
-    "click",
-    closeLightbox
-);
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxPrev.addEventListener("click", previousImage);
+lightboxNext.addEventListener("click", nextImage);
 
-lightboxPrev.addEventListener(
-    "click",
-    previousImage
-);
-
-lightboxNext.addEventListener(
-    "click",
-    nextImage
-);
-
-lightbox.addEventListener(
-    "click",
-    event => {
-
-        if (event.target === lightbox) {
-            closeLightbox();
-        }
-
+lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) {
+        closeLightbox();
     }
-);
+});
 
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (!lightbox.classList.contains("open")) {
-            return;
-        }
-
-        if (event.key === "Escape") {
-            closeLightbox();
-        }
-
-        if (event.key === "ArrowLeft") {
-            previousImage();
-        }
-
-        if (event.key === "ArrowRight") {
-            nextImage();
-        }
-
+document.addEventListener("keydown", event => {
+    if (!lightbox.classList.contains("open")) {
+        return;
     }
-);
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    } else if (event.key === "ArrowLeft") {
+        previousImage();
+    } else if (event.key === "ArrowRight") {
+        nextImage();
+    }
+});
 
 
 /* ==================================================
@@ -671,5 +472,3 @@ document.addEventListener(
    ================================================== */
 
 loadGallery();
-
-console.log("GALLERY JS VERSION 7 LOADED");
