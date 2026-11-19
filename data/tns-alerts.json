@@ -1,8 +1,36 @@
 {
-  "generated": "2026-11-19T22:05:15.812130+00:00",
+  "generated": "2026-11-19T23:05:20.972450+00:00",
   "source": "TNS hourly public-object feed (rolling 24 hours)",
   "count": 30,
   "alerts": [
+    {
+      "name": "SN 2026ajkc",
+      "url": "https://www.wis-tns.org/object/2026ajkc",
+      "objectId": "225767",
+      "received": "2026-11-13 09:55:05",
+      "receivedTimestamp": "2026-11-13T09:55:05+00:00",
+      "objectType": "SN",
+      "classification": "SN Ia",
+      "discoveryDate": "2026-11-12 05:31:31.008",
+      "discoveryMag": "18.268",
+      "discoveryMagFilter": "72",
+      "lastModified": "2026-11-19 22:19:28",
+      "reportingGroup": "ATLAS"
+    },
+    {
+      "name": "AT 2026akgw",
+      "url": "https://www.wis-tns.org/object/2026akgw",
+      "objectId": "226369",
+      "received": "2026-11-19 22:17:16",
+      "receivedTimestamp": "2026-11-19T22:17:16+00:00",
+      "objectType": "AT",
+      "classification": "",
+      "discoveryDate": "2026-11-15 19:41:38.112",
+      "discoveryMag": "19.98",
+      "discoveryMagFilter": "120",
+      "lastModified": "2026-11-19 22:17:19",
+      "reportingGroup": "GOTO"
+    },
     {
       "name": "AT 2024aike",
       "url": "https://www.wis-tns.org/object/2024aike",
@@ -393,34 +421,6 @@
       "discoveryMag": "22.4459",
       "discoveryMagFilter": "163",
       "lastModified": "2026-11-19 15:13:11",
-      "reportingGroup": "Lasair"
-    },
-    {
-      "name": "AT 2026akgi",
-      "url": "https://www.wis-tns.org/object/2026akgi",
-      "objectId": "226353",
-      "received": "2026-11-19 15:12:47",
-      "receivedTimestamp": "2026-11-19T15:12:47+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-11-14 06:33:19.296",
-      "discoveryMag": "21.8494",
-      "discoveryMagFilter": "164",
-      "lastModified": "2026-11-19 15:12:49",
-      "reportingGroup": "Lasair"
-    },
-    {
-      "name": "AT 2026akgh",
-      "url": "https://www.wis-tns.org/object/2026akgh",
-      "objectId": "226352",
-      "received": "2026-11-19 15:08:59",
-      "receivedTimestamp": "2026-11-19T15:08:59+00:00",
-      "objectType": "AT",
-      "classification": "",
-      "discoveryDate": "2026-11-13 00:38:14.784",
-      "discoveryMag": "22.4349",
-      "discoveryMagFilter": "163",
-      "lastModified": "2026-11-19 15:09:02",
       "reportingGroup": "Lasair"
     }
   ]
