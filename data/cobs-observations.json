@@ -2,10 +2,26 @@
   "source": "COBS — Comet OBServation database",
   "sourceUrl": "https://cobs.si/recent/",
   "apiUrl": "https://cobs.si/api/obs_list.api",
-  "generated": "2026-11-18T17:58:16.198237+00:00",
+  "generated": "2026-11-19T00:16:05.756527+00:00",
   "apiVersion": "1.5",
   "observationCount": 10,
   "observations": [
+    {
+      "comet": "C/2024 T5 (ATLAS)",
+      "mpcName": "K24T050",
+      "icqName": "2024T5",
+      "observationDate": "2026-11-18 19:22:06",
+      "observer": "Teerasak Thaluang",
+      "observerCode": "THA",
+      "association": "",
+      "country": "Thailand",
+      "location": "SSTAC, Pak Chong (MPC O58)",
+      "method": "Unfiltered total CCD/CMOS magnitude",
+      "methodCode": "C",
+      "magnitude": "13.2",
+      "conditions": null,
+      "cobsUrl": "https://cobs.si/comet/2579/"
+    },
     {
       "comet": "10P/Tempel",
       "mpcName": "10P",
@@ -149,22 +165,6 @@
       "magnitude": "12.4",
       "conditions": null,
       "cobsUrl": "https://cobs.si/comet/2723/"
-    },
-    {
-      "comet": "346P/Catalina",
-      "mpcName": "346P",
-      "icqName": "0346",
-      "observationDate": "2026-11-16 02:59:35",
-      "observer": "Kevin Hills",
-      "observerCode": "HIL04",
-      "association": "British Astronomical Association",
-      "country": "United Kingdom",
-      "location": "Tacande Observatory, La Palma (MPC J22)",
-      "method": "Unfiltered total CCD/CMOS magnitude",
-      "methodCode": "C",
-      "magnitude": "18.4",
-      "conditions": null,
-      "cobsUrl": "https://cobs.si/comet/1636/"
     }
   ]
 }
